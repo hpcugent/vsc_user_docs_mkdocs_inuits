@@ -1,0 +1,8 @@
+__init__.py
+custom_plugin.py
+setup.py
+ugent_plugin.egg-info/PKG-INFO
+ugent_plugin.egg-info/SOURCES.txt
+ugent_plugin.egg-info/dependency_links.txt
+ugent_plugin.egg-info/entry_points.txt
+ugent_plugin.egg-info/top_level.txt
