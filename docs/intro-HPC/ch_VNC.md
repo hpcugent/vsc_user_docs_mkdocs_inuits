@@ -1,4 +1,4 @@
-# Graphical applications with VNC {#ch:vnc}
+# Graphical applications with VNC { #ch:vnc}
 
 . Please see for more information.
 
@@ -6,7 +6,7 @@ Virtual Network Computing is a graphical desktop sharing system that
 enables you to interact with graphical software running on the HPC
 infrastructure from your own computer.
 
-## Starting a VNC server {#sec:start-vnc}
+## Starting a VNC server { #sec:start-vnc}
 
 First login on the login node (see ), then start `vncserver` with:
 
@@ -31,7 +31,7 @@ logout and go home without a problem (like the terminal equivalent
 `screen` or `tmux`). This also means you don't have to start `vncserver`
 each time you want to connect.
 
-## List running VNC servers {#sec:list-vnc}
+## List running VNC servers { #sec:list-vnc}
 
 You can get a list of running VNC servers on a node with
 
@@ -70,7 +70,7 @@ The *host* is `localhost`, which means "your own computer": we set up an
 SSH tunnel that connects the VNC port on the login node to the same port
 on your local computer.
 
-### Determining the source/destination port {#sec:source-port-vnc}
+### Determining the source/destination port { #sec:source-port-vnc}
 
 The *destination port* is the port on which the VNC server is running
 (on the login node), which is we noted down earlier (`6`); in the
@@ -83,7 +83,7 @@ this, we strongly recommend to use the .
 So, in our running example, both the source and destination ports are
 `5906`.
 
-### Picking an intermediate port to connect to the right login node {#sec:intermediate-port-vnc}
+### Picking an intermediate port to connect to the right login node { #sec:intermediate-port-vnc}
 
 In general, you have no control over which login node you will be on
 when setting up the SSH tunnel from your workstation to `` (see ).
@@ -115,7 +115,7 @@ some inspiration, run the following command on a Linux server (for
 example on a login node): `echo $RANDOM` (but do not use a value lower
 than $1025$).
 
-### Setting up the SSH tunnel(s) {#sec:ssh-tunnel-vnc}
+### Setting up the SSH tunnel(s) { #sec:ssh-tunnel-vnc}
 
 #### Setting up the first SSH tunnel from your workstation to 
 
@@ -183,7 +183,7 @@ As shown above, you can check again using the `hostname` command whether
 you are indeed connected to the right login node. If so, you can go
 ahead and connect to your VNC server (see ).
 
-### Connecting using a VNC client {#sec:vnc-client}
+### Connecting using a VNC client { #sec:vnc-client}
 
 You can download a free VNC client from
 <https://sourceforge.net/projects/turbovnc/files/>. You can download the
@@ -212,7 +212,7 @@ following commands:
 ::: prompt
 :::
 
-## Stopping the VNC server {#sec:stop-vnc}
+## Stopping the VNC server { #sec:stop-vnc}
 
 The VNC server can be killed by running
 

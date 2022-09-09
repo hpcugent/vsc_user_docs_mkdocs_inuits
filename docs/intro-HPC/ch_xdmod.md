@@ -1,4 +1,4 @@
-# XDMoD portal {#ch:xdmod}
+# XDMoD portal { #ch:xdmod}
 
 The XDMoD web portal provides information about completed jobs, storage
 usage and the HPC UGent cloud infrastructure usage.

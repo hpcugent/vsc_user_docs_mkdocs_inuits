@@ -1,4 +1,4 @@
-# Mympirun {#ch:mympirun}
+# Mympirun { #ch:mympirun}
 
 `mympirun` is a tool to make it easier for users of HPC clusters to run
 MPI programs with good performance. We strongly recommend to use
@@ -8,7 +8,7 @@ In this chapter, we give a high-level overview. For a more detailed
 description of all options, see the [vsc-mympirun
 README](https://github.com/hpcugent/vsc-mympirun/blob/master/README.md).
 
-## Basic usage {#sec:myrun-basic-usage}
+## Basic usage { #sec:myrun-basic-usage}
 
 Before using `mympirun`, we first need to load its module:
 
@@ -25,7 +25,7 @@ The most basic form of using `mympirun` is
 For example, to run a program named `example` and give it a single
 argument (`5`), we can run it with `mympirun example 5`.
 
-## Controlling number of processes {#sec:mympirun-controlling-number-of-processes}
+## Controlling number of processes { #sec:mympirun-controlling-number-of-processes}
 
 There are four options you can choose from to control the number of
 processes `mympirun` will start. In the following example, the program

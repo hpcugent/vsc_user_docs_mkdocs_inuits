@@ -1,4 +1,4 @@
-# Easybuild {#ch:easybuild}
+# Easybuild { #ch:easybuild}
 
 ## What is Easybuild?
 

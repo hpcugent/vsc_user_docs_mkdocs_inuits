@@ -1,4 +1,4 @@
-# Running jobs with input/output data {#ch:running-jobs-with-input-output-data}
+# Running jobs with input/output data { #ch:running-jobs-with-input-output-data}
 
 You have now learned how to start a batch job and how to start an
 interactive session. The next question is how to deal with input and
@@ -103,14 +103,14 @@ by adding two lines in the job script, as in our third example:
 
 ## Where to store your data on the 
 
-::: {#where-to-store-data}
+::: { #where-to-store-data}
 :::
 
 The cluster offers their users several locations to store their data.
 Most of the data will reside on the shared storage system, but all
 compute nodes also have their own (small) local disk.
 
-### Pre-defined user directories {#subsec:predefined-user-directories}
+### Pre-defined user directories { #subsec:predefined-user-directories}
 
 Three different pre-defined user directories are available, where each
 directory has been created for different purposes. The best place to
@@ -146,7 +146,7 @@ scratch filesystem is hosted).
 
 For documentation about VO directories, see .
 
-### Your home directory (\$VSC_HOME)[\[subsec:home-directory\]]{#subsec:home-directory label="subsec:home-directory"}
+### Your home directory (\$VSC_HOME)[\[subsec:home-directory\]]{ #subsec:home-directory label="subsec:home-directory"}
 
 Your home directory is where you arrive by default when you login to the
 cluster. Your shell refers to it as "" (tilde), and its absolute path is
@@ -172,7 +172,7 @@ Furthermore, we have initially created some files/directories there
 (tutorial, docs, examples, examples.pbs) that accompany this manual and
 allow you to easily execute the provided examples.
 
-### Your data directory (\$VSC_DATA)[\[subsec:data-directory\]]{#subsec:data-directory label="subsec:data-directory"}
+### Your data directory (\$VSC_DATA)[\[subsec:data-directory\]]{ #subsec:data-directory label="subsec:data-directory"}
 
 In this directory you can store all other data that you need for longer
 terms (such as the results of previous jobs, ...). It is a good place
@@ -185,7 +185,7 @@ guaranteed fast performance and very heavy I/O, you should use the
 scratch space instead. If you are running out of quota on your
 \$VSC_DATA filesystem you can request a VO. See on how to do this.
 
-### Your scratch space (\$VSC_SCRATCH)[\[subsec:scratch-directory\]]{#subsec:scratch-directory label="subsec:scratch-directory"}
+### Your scratch space (\$VSC_SCRATCH)[\[subsec:scratch-directory\]]{ #subsec:scratch-directory label="subsec:scratch-directory"}
 
 To enable quick writing from your job, a few extra file systems are
 available on the compute nodes. These extra file systems are called
@@ -255,7 +255,7 @@ Global scratch (\$VSC_SCRATCH_GLOBAL).
     across all clusters of the VSC, but at the moment of writing there
     are no plans to provide this.
 
-### Your UGent home drive and shares [\[subsec:ugent-shares\]]{#subsec:ugent-shares label="subsec:ugent-shares"}
+### Your UGent home drive and shares [\[subsec:ugent-shares\]]{ #subsec:ugent-shares label="subsec:ugent-shares"}
 
 In order to access data on your UGent share(s), you need to stage-in the
 data and stage-out afterwards. On the login nodes, it is possible to
@@ -320,7 +320,7 @@ before you use the commands in this chapter.
 ::: prompt
 :::
 
-### UGent shares with globus [\[subsec:globus-ugent-shares\]]{#subsec:globus-ugent-shares label="subsec:globus-ugent-shares"}
+### UGent shares with globus [\[subsec:globus-ugent-shares\]]{ #subsec:globus-ugent-shares label="subsec:globus-ugent-shares"}
 
 In order to access your UGent home and shares inside the globus
 endpoint, you first have to generate authentication credentials on the
@@ -349,9 +349,9 @@ access to your shares within globus once access is no longer needed:
 Succesfully destroyed session
 :::
 
-### Pre-defined quotas {#subsec:predfined-quotas}
+### Pre-defined quotas { #subsec:predfined-quotas}
 
-::: {#predefined-quotas}
+::: { #predefined-quotas}
 :::
 
 is enabled on these directories, which means that the amount of data you
@@ -474,7 +474,7 @@ Check the Python and the PBS file, and submit the job:
 ::: prompt
 :::
 
-## How much disk space do I get? {#sect:how-much-disk-space-do-i-get}
+## How much disk space do I get? { #sect:how-much-disk-space-do-i-get}
 
 ### Quota
 
@@ -615,7 +615,7 @@ However, we urge you to only use the `du` and `tree` commands when you
 really need them as they can put a heavy strain on the file system and
 thus slow down file operations on the cluster for all other users.
 
-## Groups {#sec:vcs-groups}
+## Groups { #sec:vcs-groups}
 
 Groups are a way to manage who can access what data. A user can belong
 to multiple groups at a time. .
@@ -630,7 +630,7 @@ files, you can use:
 ::: prompt
 :::
 
-### Joining an existing group {#subsec:joining-existing-group}
+### Joining an existing group { #subsec:joining-existing-group}
 
 1.  Get the group name you want to belong to.
 
@@ -646,7 +646,7 @@ files, you can use:
 
 ![Joining a group.](ch6-group-join){width="\\textwidth"}
 
-[\[fig:group-join\]]{#fig:group-join label="fig:group-join"}
+[\[fig:group-join\]]{ #fig:group-join label="fig:group-join"}
 
 ### Creating a new group
 
@@ -662,7 +662,7 @@ files, you can use:
 
 ![Creating a new group.](ch6-group-new){width="\\textwidth"}
 
-[\[fig:group-new\]]{#fig:group-new label="fig:group-new"}
+[\[fig:group-new\]]{ #fig:group-new label="fig:group-new"}
 
 ### Managing a group
 
@@ -673,7 +673,7 @@ other members to moderator and remove other moderators.
 
 ![Creating a new group.](ch6-group-edit){width="\\textwidth"}
 
-[\[fig:group-edit\]]{#fig:group-edit label="fig:group-edit"}
+[\[fig:group-edit\]]{ #fig:group-edit label="fig:group-edit"}
 
 ### Inspecting groups
 
@@ -688,9 +688,9 @@ example:\*:1234567:vsc40001,vsc40002,vsc40003
 We can see that the VSC id number is 1234567 and that there are three
 members in the group: `vsc40001`, `vsc40002` and `vsc40003`.
 
-## Virtual Organisations {#sec:virtual-organisations}
+## Virtual Organisations { #sec:virtual-organisations}
 
-::: {#sec:virtual-organisation}
+::: { #sec:virtual-organisation}
 :::
 
 A Virtual Organisation (VO) is a special type of group. You can only be
@@ -714,7 +714,7 @@ should be well-motivated).
 
 ![Joining a VO.](ch6-VO-join){width="\\textwidth"}
 
-[\[fig:VO-join\]]{#fig:VO-join label="fig:VO-join"}
+[\[fig:VO-join\]]{ #fig:VO-join label="fig:VO-join"}
 
 ### Creating a new VO
 
@@ -736,9 +736,9 @@ should be well-motivated).
 
 ![Creating a new VO.](ch6-VO-new){width="\\textwidth"}
 
-[\[fig:VO-new\]]{#fig:VO-new label="fig:VO-new"}
+[\[fig:VO-new\]]{ #fig:VO-new label="fig:VO-new"}
 
-### Requesting more storage space {#subsec:requesting-more-storage-space}
+### Requesting more storage space { #subsec:requesting-more-storage-space}
 
 If you're a moderator of a VO, you can request additional quota for the
 VO and its members.
@@ -758,7 +758,7 @@ VO and its members.
 ![Requesting additional quota for the VO and its
 members.](ch6-VO-request-additional-quota){width="\\textwidth"}
 
-[\[fig:VO-request-additional-quota\]]{#fig:VO-request-additional-quota
+[\[fig:VO-request-additional-quota\]]{ #fig:VO-request-additional-quota
 label="fig:VO-request-additional-quota"}
 
 ### Setting per-member VO quota
@@ -785,10 +785,10 @@ users can use.
 ![Setting per-member
 quota.](ch6-VO-per-member-storage){width="\\textwidth"}
 
-[\[fig:VO-per-member-storage\]]{#fig:VO-per-member-storage
+[\[fig:VO-per-member-storage\]]{ #fig:VO-per-member-storage
 label="fig:VO-per-member-storage"}
 
-### VO directories {#subsec:vo-directories}
+### VO directories { #subsec:vo-directories}
 
 When you're a member of a VO, there will be some additional directories
 on each of the shared filesystems available:

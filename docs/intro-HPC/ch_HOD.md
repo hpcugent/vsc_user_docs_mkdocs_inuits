@@ -1,4 +1,4 @@
-# Hanythingondemand (HOD) {#ch:hod}
+# Hanythingondemand (HOD) { #ch:hod}
 
 Hanythingondemand (or HOD for short) is a tool to run a Hadoop (Yarn)
 cluster on a traditional HPC system.

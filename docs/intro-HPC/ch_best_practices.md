@@ -1,6 +1,6 @@
-# Best Practices {#ch:best-practices}
+# Best Practices { #ch:best-practices}
 
-## General Best Practices {#sec:general-best-practices}
+## General Best Practices { #sec:general-best-practices}
 
 1.  Before starting you should always check:
 

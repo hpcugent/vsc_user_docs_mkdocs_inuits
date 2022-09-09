@@ -1,4 +1,4 @@
-# Checkpointing {#ch:checkpointing}
+# Checkpointing { #ch:checkpointing}
 
 ## Why checkpointing?
 

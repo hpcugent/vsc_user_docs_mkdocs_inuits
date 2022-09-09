@@ -1,4 +1,4 @@
-# Fine-tuning Job Specifications {#ch:fine-tuning-job-specifications}
+# Fine-tuning Job Specifications { #ch:fine-tuning-job-specifications}
 
 As system administrators, we often observe that the resources are not
 optimally (or wisely) used. For example, we regularly notice that
@@ -56,7 +56,7 @@ First, we allocate a compute node and move to our relevant directory:
 ::: prompt
 :::
 
-## Specifying Walltime {#sec:specifying-walltime-requirements}
+## Specifying Walltime { #sec:specifying-walltime-requirements}
 
 One of the most important and also easiest parameters to measure is the
 duration of your program. This information is needed to specify the
@@ -97,7 +97,7 @@ or on the command line
 
 It is recommended to always specify the walltime for a job.
 
-## Specifying memory requirements {#sec:specifying-memory-requirements}
+## Specifying memory requirements { #sec:specifying-memory-requirements}
 
 In many situations, it is useful to monitor the amount of memory an
 application is using. You need this information to determine the

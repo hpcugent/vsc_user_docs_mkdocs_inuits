@@ -1,4 +1,4 @@
-# HPC Quick Reference Guide {#ch:quick-reference-guide}
+# HPC Quick Reference Guide { #ch:quick-reference-guide}
 
 Remember to substitute the usernames, login nodes, file names, ...for
 your own.

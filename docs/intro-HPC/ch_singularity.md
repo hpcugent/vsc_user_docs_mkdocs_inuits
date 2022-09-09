@@ -1,4 +1,4 @@
-# Singularity {#ch:singularity}
+# Singularity { #ch:singularity}
 
 ## What is Singularity?
 

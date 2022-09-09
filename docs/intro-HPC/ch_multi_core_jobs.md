@@ -1,4 +1,4 @@
-# Multi core jobs/Parallel Computing {#ch:multi-core-jobs-parallel-computing}
+# Multi core jobs/Parallel Computing { #ch:multi-core-jobs-parallel-computing}
 
 ## Why Parallel Programming?
 

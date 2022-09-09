@@ -1,4 +1,4 @@
-# Multi-job submission {#ch:multi-job-submission}
+# Multi-job submission { #ch:multi-job-submission}
 
 A frequent occurring characteristic of scientific computation is their
 focus on data intensive processing. A typical example is the iterative
@@ -124,7 +124,7 @@ program will now be run for all 100 parameter instances -- 8
 concurrently -- until all computations are done. A computation for such
 a parameter instance is called a work item in Worker parlance.
 
-## The Worker framework: Job arrays {#sec:worker-framework-job-arrays}
+## The Worker framework: Job arrays { #sec:worker-framework-job-arrays}
 
 First go to the right directory:
 

@@ -1,4 +1,4 @@
-# TORQUE options {#ch:torque-options}
+# TORQUE options { #ch:torque-options}
 
 ## TORQUE Submission Flags: common and useful directives
 

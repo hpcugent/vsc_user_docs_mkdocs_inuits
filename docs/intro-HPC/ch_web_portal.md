@@ -1,4 +1,4 @@
-# Using the HPC-UGent web portal {#ch:web_portal}
+# Using the HPC-UGent web portal { #ch:web_portal}
 
 The HPC-UGent web portal provides "one stop shop" for the HPC-UGent
 infrastructure. It is based on [](https://openondemand.org/) (or `OoD`
@@ -44,7 +44,7 @@ documentation](https://osc.github.io/ood-documentation/master/). A
 walkthrough video is available on YouTube
 [here](https://www.youtube.com/watch?v=4-w-4wjlnPk).
 
-## Pilot access {#pilot-access .unnumbered}
+## Pilot access { #pilot-access .unnumbered}
 
 ### Known issues & limitations
 

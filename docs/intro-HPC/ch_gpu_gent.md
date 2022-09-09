@@ -1,6 +1,6 @@
-# HPC-UGent GPU clusters {#ch:gpu_ugent}
+# HPC-UGent GPU clusters { #ch:gpu_ugent}
 
-## Submitting jobs {#sec:gpu_ugent_jobs}
+## Submitting jobs { #sec:gpu_ugent_jobs}
 
 To submit jobs to the `joltik` GPU cluster, where each node provides 4
 NVIDIA V100 GPUs (each with 32GB of GPU memory), use:
@@ -19,7 +19,7 @@ account the guidelines outlined in
 section [1.3](#sec:gpu_ugent_resources){reference-type="ref"
 reference="sec:gpu_ugent_resources"}.
 
-### Interactive jobs {#sec:gpu_ugent_interactive_jobs}
+### Interactive jobs { #sec:gpu_ugent_interactive_jobs}
 
 To interactively experiment with GPUs, you can submit an interactive job
 using `qsub -I` (and request one or more GPUs, see
@@ -34,7 +34,7 @@ If you need this, please contact use via .
 
 See <https://www.ugent.be/hpc/en/infrastructure>.
 
-## Requesting (GPU) resources {#sec:gpu_ugent_resources}
+## Requesting (GPU) resources { #sec:gpu_ugent_resources}
 
 There are 2 main ways to ask for GPUs as part of a job:
 
@@ -61,7 +61,7 @@ Some background:
 -   The GPUs run with the so-called "persistence daemon", so the GPUs is
     not re-initialised between jobs.
 
-## Attention points {#sec:gpu_ugent_attention_points}
+## Attention points { #sec:gpu_ugent_attention_points}
 
 Some important attention points:
 
@@ -91,18 +91,18 @@ Some important attention points:
     but we are working on this. We advise against trying to fix this
     yourself.*
 
-## Software with GPU support {#sec:gpu_ugent_software}
+## Software with GPU support { #sec:gpu_ugent_software}
 
 Use `module avail` to check for centrally installed software.
 
 The subsections below only cover a couple of installed software
 packages, more are available.
 
-### GROMACS {#sec:gpu_ugent_software_gromacs}
+### GROMACS { #sec:gpu_ugent_software_gromacs}
 
 Please consult `module avail GROMACS` for a list of installed versions.
 
-### Horovod {#sec:gpu_ugent_software_horovod}
+### Horovod { #sec:gpu_ugent_software_horovod}
 
 Horovod can be used for (multi-node) multi-GPU TensorFlow/PyTorch
 calculations.
@@ -118,18 +118,18 @@ At least for simple TensorFlow benchmarks, it looks like Horovod is a
 bit faster than usual autodetect multi-GPU TensorFlow without horovod,
 but it comes at the cost of the code modifications to use horovod.
 
-### PyTorch {#sec:gpu_ugent_software_pytorch}
+### PyTorch { #sec:gpu_ugent_software_pytorch}
 
 Please consult `module avail PyTorch` for a list of installed versions.
 
-### TensorFlow {#sec:gpu_ugent_software_tensorflow}
+### TensorFlow { #sec:gpu_ugent_software_tensorflow}
 
 Please consult `module avail TensorFlow` for a list of installed
 versions.
 
-#### Example TensorFlow job script {#sec:gpu_ugent_software_tensorflow_example_job_script}
+#### Example TensorFlow job script { #sec:gpu_ugent_software_tensorflow_example_job_script}
 
-### AlphaFold {#sec:gpu_ugent_software_alphafold}
+### AlphaFold { #sec:gpu_ugent_software_alphafold}
 
 Please consult `module avail AlphaFold` for a list of installed
 versions.
@@ -138,7 +138,7 @@ For more information on using AlphaFold, we strongly recommend the
 VIB-UGent course available at
 <https://elearning.bits.vib.be/courses/alphafold>.
 
-## Getting help {#sec:gpu_ugent_help}
+## Getting help { #sec:gpu_ugent_help}
 
 In case of questions or problems, please contact the via , and clearly
 indicate that your question relates to the `joltik` cluster by adding

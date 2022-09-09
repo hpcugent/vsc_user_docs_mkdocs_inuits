@@ -1,4 +1,4 @@
-# Troubleshooting {#ch:troubleshooting}
+# Troubleshooting { #ch:troubleshooting}
 
 ## Walltime issues
 
@@ -29,7 +29,7 @@ section [\[subsec:predfined-quotas\]](#subsec:predfined-quotas){reference-type=
 reference="subsec:predfined-quotas"} for more information about quotas
 and how to use the storage endpoints in an efficient way.
 
-## Issues connecting to login node {#sec:connecting-issues}
+## Issues connecting to login node { #sec:connecting-issues}
 
 If you are confused about the SSH public/private key pair concept, maybe
 the key/lock analogy in can help.
@@ -103,7 +103,7 @@ Please create a log file of your SSH session by following the steps in
 [this article](https://my.kualo.com/knowledgebase/?kbcat=0&article=888)
 and include it in the email.
 
-### Change PuTTY private key for a saved configuration {#subsec:putty-change-key}
+### Change PuTTY private key for a saved configuration { #subsec:putty-change-key}
 
 1.  Open PuTTY
 
@@ -126,7 +126,7 @@ and include it in the email.
     ![image](831change03){width="2.49in"}
     :::
 
-5.  [\[item:putty-auth-ssh\]]{#item:putty-auth-ssh
+5.  [\[item:putty-auth-ssh\]]{ #item:putty-auth-ssh
     label="item:putty-auth-ssh"} Click on Auth under the SSH category
 
     ::: center
@@ -203,7 +203,7 @@ Please add `-vvv` as a flag to `ssh` like:
 
 and include the output of that command in the message.
 
-## Security warning about invalid host key {#sec:security-warning-invald-host-key}
+## Security warning about invalid host key { #sec:security-warning-invald-host-key}
 
 If you get a warning that looks like the one below, it is possible that
 someone is trying to intercept the connection between you and the system
@@ -256,7 +256,7 @@ It's probably because you transferred the files from a Windows computer.
 Please go to the section about `dos2unix` in [chapter 5 of the intro to
 Linux](\LinuxManualURL#sec:dos2unix) to fix this error.
 
-## Warning message when first connecting to new host {#sec:warning-message-new-host}
+## Warning message when first connecting to new host { #sec:warning-message-new-host}
 
 ::: prompt
 The authenticity of host Are you sure you want to continue connecting
@@ -298,7 +298,7 @@ you via the `ulimit -v` command *in your job script*.
 See to set memory and other requirements, see to finetune the amount of
 memory you request.
 
-## Module conflicts {#sec:module-conflicts}
+## Module conflicts { #sec:module-conflicts}
 
 Modules that are loaded together must use the same toolchain version: it
 is impossible to load two versions of the same module. In the following
@@ -341,7 +341,7 @@ hpc\@ugent.be
 This is because there can only be one `cluster` module active at a time.
 The correct command is `module swap cluster/`. See also .
 
-## Running software that is incompatible with host {#sec:running-software-incompatible-with-host}
+## Running software that is incompatible with host { #sec:running-software-incompatible-with-host}
 
 When running software provided through modules (see ), you may run into
 errors like:

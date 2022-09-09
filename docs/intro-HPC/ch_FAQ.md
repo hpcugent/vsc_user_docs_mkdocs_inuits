@@ -1,4 +1,4 @@
-# Frequently Asked Questions {#ch:faq}
+# Frequently Asked Questions { #ch:faq}
 
 ## When will my job start?
 
@@ -41,7 +41,7 @@ manual](\LinuxManualURL#sec:chmod).
 Yes, and this is recommended when working from different computers.
 Please see on how to do this.
 
-## I want to use software that is not available on the clusters yet {#sec:software-installation}
+## I want to use software that is not available on the clusters yet { #sec:software-installation}
 
 Please fill out the details about the software and why you need it in
 this form:

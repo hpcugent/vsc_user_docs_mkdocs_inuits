@@ -1,4 +1,4 @@
-# Running interactive jobs {#ch:running-interactive-jobs}
+# Running interactive jobs { #ch:running-interactive-jobs}
 
 ## Introduction
 
@@ -222,7 +222,7 @@ qsub: waiting for job qsub: job
 
 and you should see your clock again.
 
-##### SSH Tunnel {#par:ssh-tunnel-windows}
+##### SSH Tunnel { #par:ssh-tunnel-windows}
 
 In order to work in client/server mode, it is often required to
 establish an SSH tunnel between your Windows desktop machine and the

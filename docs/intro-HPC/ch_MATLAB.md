@@ -1,4 +1,4 @@
-# MATLAB {#ch:matlab}
+# MATLAB { #ch:matlab}
 
 ## Why is the MATLAB compiler required?
 

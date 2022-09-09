@@ -1,4 +1,4 @@
-# Program examples {#ch:program-examples}
+# Program examples { #ch:program-examples}
 
 Go to our examples:
 

@@ -1,6 +1,6 @@
-# HPC-UGent interactive and debug cluster {#ch:interactive_ugent}
+# HPC-UGent interactive and debug cluster { #ch:interactive_ugent}
 
-## Purpose {#sec:interactive_ugent_pupose}
+## Purpose { #sec:interactive_ugent_pupose}
 
 The purpose of this cluster is to give the user an environment where
 there should be no waiting in the queue to get access to a limited
@@ -36,7 +36,7 @@ typical workloads for this cluster should be limited to:
 
 -   Testing and debugging job scripts
 
-## Submitting jobs {#sec:interactive_ugent_jobs}
+## Submitting jobs { #sec:interactive_ugent_jobs}
 
 To submit jobs to the HPC-UGent interactive and debug cluster nicknamed
 `slaking`, first use:
@@ -48,7 +48,7 @@ Then use the familiar `qsub`, `qstat`, etc. commands (see
 chapter [\[ch:running-batch-jobs\]](#ch:running-batch-jobs){reference-type="ref"
 reference="ch:running-batch-jobs"}).
 
-### Restrictions and overcommit factor {#subsec:interactive_ugent_restrictions}
+### Restrictions and overcommit factor { #subsec:interactive_ugent_restrictions}
 
 Some limits are in place for this cluster:
 

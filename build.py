@@ -18,7 +18,10 @@ if __name__ == "__main__":
     landing_page_yml = 'mkdocs_landing_page.yml'
     landing_page_dir = 'HPC'
 
-    build_dir = 'build'
+    with open(landing_page_yml, 'r') as file:
+        extra = safe_load(file).get('extra')
+
+    build_dir = extra.get('build_dir')
 
     os.makedirs(build_dir, exist_ok=True)
 

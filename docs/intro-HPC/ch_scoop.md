@@ -1,4 +1,4 @@
-# SCOOP {#ch:scoop}
+# SCOOP { #ch:scoop}
 
 SCOOP (Scalable COncurrent Operations in Python) is a distributed task
 module allowing concurrent parallel programming on various environments,

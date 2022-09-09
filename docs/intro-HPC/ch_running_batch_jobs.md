@@ -1,4 +1,4 @@
-# Running batch jobs {#ch:running-batch-jobs}
+# Running batch jobs { #ch:running-batch-jobs}
 
 In order to have access to the compute nodes of a cluster, you have to
 use the job system. The system software that handles your batch jobs
@@ -31,7 +31,7 @@ The documentation in this "Running batch jobs" section includes a
 description of the general features of job scripts, how to submit them
 for execution and how to monitor their progress.
 
-## Modules {#sec:modules}
+## Modules { #sec:modules}
 
 Software installation and maintenance on a cluster such as the VSC
 clusters poses a number of challenges not encountered on a workstation
@@ -126,7 +126,7 @@ contain the name of the toolchain after the version number in their name
 (e.g., `Python/2.7.12-intel-2016b`). Only packages compiled with the
 same toolchain name and version can work together without conflicts.
 
-### Loading and unloading modules {#subsec:activating-and-deactivating-modules}
+### Loading and unloading modules { #subsec:activating-and-deactivating-modules}
 
 #### module load
 
@@ -211,7 +211,7 @@ ambiguous. However, checking the list of currently loaded modules is
 always a good idea, since unloading a module that is currently not
 loaded will *not* result in an error.
 
-### Purging all modules {#subsec:purging-modules}
+### Purging all modules { #subsec:purging-modules}
 
 In order to unload all modules at once, and hence be sure to start in a
 clean state, you can use:
@@ -228,7 +228,7 @@ modules containing the name of a cluster or a particular feature of a
 section of the cluster, and loading the appropriate module will restore
 the module list applicable to that particular system.
 
-### Using explicit version numbers {#subsec:explicit-version-numbers}
+### Using explicit version numbers { #subsec:explicit-version-numbers}
 
 Once a module has been installed on the cluster, the executables or
 libraries it comprises are never modified. This policy ensures that the
@@ -330,7 +330,7 @@ Or to get more information about one specific module package:
 https://example.com/
 :::
 
-### Save and load collections of modules {#sec:lmod-module-collection}
+### Save and load collections of modules { #sec:lmod-module-collection}
 
 If you have a set of modules that you need to load often, you can save
 these in a *collection*. This will enable you to load all the modules
@@ -489,7 +489,7 @@ nodes have 36 cores and 751 GB of memory.
 
 ## Defining and submitting your job
 
-::: {#sec:defining-and-submitting-job}
+::: { #sec:defining-and-submitting-job}
 :::
 
 Usually, you will want to have your program running in batch mode, as
@@ -645,7 +645,7 @@ to determine and remedy the problem that prevented a successful run. The
 standard output file will contain the results of your calculation (here,
 the output of the Perl script)
 
-### When will my job start? {#subsec:priority}
+### When will my job start? { #subsec:priority}
 
 In practice it's impossible to predict when your job(s) will start,
 since most currently running jobs will finish before their requested
@@ -686,7 +686,7 @@ nodes are empty, you can see them as being empty. The moment the *N*th
 node becomes empty the waiting *N*-node-job will consume these *N* free
 nodes.
 
-### Specifying the cluster on which to run {#subsec:specifying-the-cluster-on-which-to-run}
+### Specifying the cluster on which to run { #subsec:specifying-the-cluster-on-which-to-run}
 
 To use other clusters, you can swap the `cluster` module. This is a
 special module that change what modules are available for you, and what
@@ -730,7 +730,7 @@ is used.
 The output of the various commands interacting with jobs (`qsub`,
 `stat`, ...) all depend on which `cluster` module is loaded.
 
-## Monitoring and managing your job(s) {#sec:monitoring-and-managing-your-jobs}
+## Monitoring and managing your job(s) { #sec:monitoring-and-managing-your-jobs}
 
 Using the job ID that `qsub` returned, there are various ways to monitor
 the status of your job. In the following commands, replace `12345` with
@@ -959,7 +959,7 @@ amount of memory it needs, the number of CPUs it will run on, etc. This
 may take some work, but it is necessary to ensure your jobs will run
 properly.
 
-### Generic resource requirements {#subsec:generic-resource-requirements}
+### Generic resource requirements { #subsec:generic-resource-requirements}
 
 The command takes several options to specify the requirements, of which
 we list the most commonly used ones below.\

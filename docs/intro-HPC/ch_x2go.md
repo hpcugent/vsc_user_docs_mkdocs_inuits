@@ -1,4 +1,4 @@
-# Graphical applications with X2Go {#ch:x2go}
+# Graphical applications with X2Go { #ch:x2go }
 
 X2Go is a graphical desktop software for Linux similar to VNC but with
 extra advantages. It does not require to execute a server in the login
@@ -20,7 +20,7 @@ desktops. X2Go provides several advantages such:
 6.  The ability to access single applications by specifying the name of
     the desired executable like a terminal or an internet browser.
 
-## Install X2Go client {#sec:x2go-client}
+## Install X2Go client { #sec:x2go-client }
 
 X2Go is available for several operating systems. You can download the
 latest client from
@@ -33,7 +33,7 @@ way to connect to the login nodes using several SSH keys and
 applications. Please see if you want to know how to setup an SSH agent
 in your system.
 
-## Create a new X2Go session {#sec:sessions-x2go}
+## Create a new X2Go session { #sec:sessions-x2go }
 
 After the X2Go client installation just start the client. When you
 launch the client for the first time, it will start the new session
@@ -49,7 +49,7 @@ There are two ways to connect to the login node:
     specific login node. Use this option if you want to resume an old
     X2Go session.
 
-### Option A: direct connection {#subsec:sessions-x2go-optiona}
+### Option A: direct connection { #subsec:sessions-x2go-optiona}
 
 This is the easier way to setup X2Go, a direct connection to the login
 node.
@@ -109,7 +109,7 @@ node.
 
 9.  Click the button after these changes.
 
-### Option B: use the login node as SSH proxy {#subsec:sessions-x2go-optionb}
+### Option B: use the login node as SSH proxy { #subsec:sessions-x2go-optionb}
 
 This option is useful if you want to resume a previous session or if you
 want to set explicitly the login node to use. In this case you should
@@ -145,7 +145,7 @@ height="3.17in"}
 
     4.  Click the button after these changes.
 
-## Connect to your X2Go session {#sec:connect-x2go}
+## Connect to your X2Go session { #sec:connect-x2go}
 
 Just click on any session that you already have to start/resume any
 session. It will take a few seconds to open the session the first time.
@@ -161,7 +161,7 @@ click on the "pause" icon.
 X2Go will keep the session open for you (but only if the login node is
 not rebooted).
 
-## Resume a previous session {#sec:re-connect-x2go}
+## Resume a previous session { #sec:re-connect-x2go}
 
 If you want to re-connect to the same login node, or resume a previous
 session, you should know which login node were used at first place. You
@@ -178,7 +178,7 @@ situation may be slightly different). You should set the same name to
 resume the session the next time. Just add this full hostname into
 "login hostname" section in your X2Go session (see ).
 
-## Connection failed with X2Go {#sec:conn-fail-x2go}
+## Connection failed with X2Go { #sec:conn-fail-x2go}
 
 If you get the error " session vscXXYYY-123-4567890123_xyzXFCE_dp32
 terminated" (or similar), It is possible that an old X2Go session

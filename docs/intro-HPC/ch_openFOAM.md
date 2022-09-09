@@ -1,9 +1,9 @@
-# OpenFOAM {#ch:openfoam}
+# OpenFOAM { #ch:openfoam}
 
 In this chapter, we outline best practices for using the centrally
 provided OpenFOAM installations on the VSC infrastructure.
 
-## Different OpenFOAM releases {#sec:best-practices-openfoam-releases}
+## Different OpenFOAM releases { #sec:best-practices-openfoam-releases}
 
 There are currently three different sets of versions of OpenFOAM
 available, each with its own versioning scheme:
@@ -25,7 +25,7 @@ Make sure you know which flavor of OpenFOAM you want to use, since there
 are important differences between the different versions w.r.t.
 features. If the OpenFOAM version you need is not available yet, see .
 
-## Documentation & training material {#sec:best-practices-openfoam-documentation}
+## Documentation & training material { #sec:best-practices-openfoam-documentation}
 
 The best practices outlined here focus specifically on the use of
 OpenFOAM on the VSC infrastructure. As such, they are intended to
@@ -60,7 +60,7 @@ Other useful OpenFOAM documentation:
 
 -   <http://www.dicat.unige.it/guerrero/openfoam.html>
 
-## Preparing the environment {#sec:best-practices-openfoam-environment}
+## Preparing the environment { #sec:best-practices-openfoam-environment}
 
 To prepare the environment of your shell session or job for using
 OpenFOAM, there are a couple of things to take into account.
@@ -225,7 +225,7 @@ Whenever you are instructed to use a command like `mpirun -np <N> ...`,
 use `mympirun ...` instead; `mympirun` will automatically detect the
 number of processor cores that are available (see also ).
 
-### Domain decomposition and number of processor cores {#sec:best-practices-openfoam-domain-decomposition-processor-cores}
+### Domain decomposition and number of processor cores { #sec:best-practices-openfoam-domain-decomposition-processor-cores}
 
 To run OpenFOAM in parallel, you must decompose the domain into multiple
 subdomains. Each subdomain will be processed by OpenFOAM on one
@@ -271,7 +271,7 @@ To visualise the processor domains, use the following command:
 
 and then load the VTK files generated in the `VTK` folder into ParaView.
 
-## Running OpenFOAM on a shared filesystem {#sec:best-practices-openfoam-shared-filesystems}
+## Running OpenFOAM on a shared filesystem { #sec:best-practices-openfoam-shared-filesystems}
 
 OpenFOAM is known to significantly stress shared filesystems, since a
 lot of (small) files are generated during an OpenFOAM simulation. Shared
@@ -315,11 +315,11 @@ using the alternative shared scratch filesystem `$VSC_SCRATCH_ARCANINE`
 These guidelines are especially important for large-scale OpenFOAM
 simulations that involve more than a couple of dozen of processor cores.
 
-## Using own solvers with OpenFOAM {#sec:best-practices-openfoam-own-solvers-libraries}
+## Using own solvers with OpenFOAM { #sec:best-practices-openfoam-own-solvers-libraries}
 
 See <https://cfd.direct/openfoam/user-guide/compiling-applications/>.
 
-## Example OpenFOAM job script {#sec:best-practices-openfoam-example-script}
+## Example OpenFOAM job script { #sec:best-practices-openfoam-example-script}
 
 Example job script for `damBreak` OpenFOAM tutorial (see also
 <https://cfd.direct/openfoam/user-guide/dambreak>):

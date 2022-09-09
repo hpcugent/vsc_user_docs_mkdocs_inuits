@@ -1,4 +1,4 @@
-# Job script examples {#ch:jobscript-examples}
+# Job script examples { #ch:jobscript-examples}
 
 ## Single-core job
 
@@ -26,7 +26,7 @@ Here's an example of a multi-core job script that uses `mympirun`:
 An example MPI hello world program can be downloaded from
 <https://github.com/hpcugent/vsc-mympirun/blob/master/testscripts/mpi_helloworld.c>.
 
-## Running a command with a maximum time limit {#sec:maximum-timelimit-timeout-jobscript}
+## Running a command with a maximum time limit { #sec:maximum-timelimit-timeout-jobscript}
 
 If you want to run a job, but you are not sure it will finish before the
 job runs out of walltime and you want to copy data back before, you have
