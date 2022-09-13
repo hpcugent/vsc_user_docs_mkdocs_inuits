@@ -62,7 +62,7 @@ class UgentPlugin(BasePlugin):
             if type(value) is list:
                 docs = self.to_flat(docs, opsys, (parkey + (key,)), value)
             else:
-                docs[parkey + (key,)] = docs.get((parkey + (key,)), dict({})) | {opsys: value}
+                docs[parkey + (key,)] = {**docs.get((parkey + (key,)), dict({})), **{opsys: value}}
         elif type(parvalues) is list:
             for parvalue in parvalues:
                 docs = self.to_flat(docs, opsys, parkey, parvalue)
@@ -82,7 +82,7 @@ class UgentPlugin(BasePlugin):
                         for val in value:
                             flatten_docs = self.to_flat(flatten_docs, opsys, (key,), val)
                     else:
-                        flatten_docs[(key,)] = flatten_docs.get((key,), dict({})) | {opsys: value}
+                        flatten_docs[(key,)] = {**flatten_docs.get((key,), dict({})), **{opsys: value}}
 
             for name_chain, links_with_os in list(flatten_docs.items()):
                 for opsys, link in list(links_with_os.items()):
