@@ -3,7 +3,6 @@ docs_dir: landing_page
 
 
 plugins:
-  - search
   - ugent
   - macros:
       include_yaml:
@@ -17,7 +16,6 @@ plugins:
         include_dir:
           - ./macros/
           - ./macros/Antwerpen/Linux/
-          - ../os_pick
       exclude:
         - content/intro-HPC/*
 
@@ -47,4 +45,4 @@ theme:
 
 
 extra:
-  build_dir: build  # use relative path to projects root
+  build_dir: build/HPC  # use relative path to projects root

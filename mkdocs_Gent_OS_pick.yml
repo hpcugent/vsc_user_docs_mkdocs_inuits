@@ -2,7 +2,6 @@ site_name: VSC User Documentation - Gent
 docs_dir: os_pick
 
 plugins:
-  - search
   - ugent:
       os_pick: True
       yamls:

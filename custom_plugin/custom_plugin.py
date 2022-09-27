@@ -121,9 +121,8 @@ class UgentPlugin(BasePlugin):
                     with open(os_pick_file_path, 'w') as file:
                         file.write(os_pick_with_urls)
 
-                    new_file = File(file_name, path.abspath(os_pick_dir_path),
-                                    path.join(path.abspath(extras.get('build_dir')), file_src_dir),
-                                    use_directory_urls=True)
+                    dest_dir = path.join(path.abspath(extras.get('build_dir')), file_src_dir)
+                    new_file = File(file_name, path.abspath(os_pick_dir_path), dest_dir, use_directory_urls=True)
                     files.append(new_file)
         return files
 
