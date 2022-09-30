@@ -1,5 +1,5 @@
+from os import makedirs, path
 import shutil
-from os import path, makedirs
 
 from mkdocs.config.config_options import Type
 from mkdocs.plugins import BasePlugin, Config
@@ -24,14 +24,28 @@ hide:
 {{%- endif %}}
 """
 
+js = """
+<script>
+  var buttons = Array.from(document.getElementsByClassName("md-button"))
+  buttons.forEach(
+          function (btn) {
+            btn.addEventListener("click", function () {
+                var hash = window.location.hash.substring(1);
+                this.href = this.href + "#" + hash
+            })
+          }
+  )
+</script>
+"""
+
 tmp_dir = path.join("tmp_dir")
 
 
 class UgentPlugin(BasePlugin):
     config_scheme = (
-        ('os_pick', Type(bool, default=False)),
-        ('yamls', Type(list, default=[]))
-    )
+            ('os_pick', Type(bool, default=False)),
+            ('yamls', Type(list, default=[]))
+            )
 
     def __init__(self, *args, **kwargs):
         super(UgentPlugin, self).__init__(*args, **kwargs)
@@ -82,7 +96,8 @@ class UgentPlugin(BasePlugin):
                         for val in value:
                             flatten_docs = self.to_flat(flatten_docs, opsys, (key,), val)
                     else:
-                        flatten_docs[(key,)] = {**flatten_docs.get((key,), dict({})), **{opsys: value}}
+                        flatten_docs[(key,)] = {**flatten_docs.get((key,), dict({})),
+                                                **{opsys: value}}
 
             for name_chain, links_with_os in list(flatten_docs.items()):
                 for opsys, link in list(links_with_os.items()):
@@ -91,20 +106,26 @@ class UgentPlugin(BasePlugin):
                     if 'index.md' in file_name:
                         base = (len(path.splitext(link)[0].split("/")) - 1) * "../"
 
-                    lin_link = base + "Linux/" + path.splitext(links_with_os["Linux"])[0] if links_with_os.get(
-                        "Linux") else None
-                    mac_link = base + "MacOS/" + path.splitext(links_with_os["MacOS"])[0] if links_with_os.get(
-                        "MacOS") else None
-                    win_link = base + "Windows/" + path.splitext(links_with_os["Windows"])[0] if links_with_os.get(
-                        "Windows") else None
+                    lin_link = base + "Linux/" + path.splitext(links_with_os["Linux"])[
+                        0] if links_with_os.get(
+                            "Linux") else None
+                    mac_link = base + "MacOS/" + path.splitext(links_with_os["MacOS"])[
+                        0] if links_with_os.get(
+                            "MacOS") else None
+                    win_link = base + "Windows/" + path.splitext(links_with_os["Windows"])[
+                        0] if links_with_os.get(
+                            "Windows") else None
 
                     if 'index.md' in file_name:
-                        lin_link = base + "Linux/" + path.dirname(links_with_os["Linux"]) if links_with_os.get(
-                            "Linux") else None
-                        mac_link = base + "MacOS/" + path.dirname(links_with_os["MacOS"]) if links_with_os.get(
-                            "MacOS") else None
-                        win_link = base + "Windows/" + path.dirname(links_with_os["Windows"]) if links_with_os.get(
-                            "Windows") else None
+                        lin_link = base + "Linux/" + path.dirname(
+                                links_with_os["Linux"]) if links_with_os.get(
+                                "Linux") else None
+                        mac_link = base + "MacOS/" + path.dirname(
+                                links_with_os["MacOS"]) if links_with_os.get(
+                                "MacOS") else None
+                        win_link = base + "Windows/" + path.dirname(
+                                links_with_os["Windows"]) if links_with_os.get(
+                                "Windows") else None
 
                     os_pick_with_urls = os_pick_str.format(linux_valid=(lin_link is not None),
                                                            macos_valid=(mac_link is not None),
@@ -122,9 +143,15 @@ class UgentPlugin(BasePlugin):
                         file.write(os_pick_with_urls)
 
                     dest_dir = path.join(path.abspath(extras.get('build_dir')), file_src_dir)
-                    new_file = File(file_name, path.abspath(os_pick_dir_path), dest_dir, use_directory_urls=True)
+                    new_file = File(file_name, path.abspath(os_pick_dir_path), dest_dir,
+                                    use_directory_urls=True)
                     files.append(new_file)
         return files
+
+    def on_post_page(self, output, page, config):
+        if self.os_pick:
+            output += js
+        return output
 
     def on_post_build(self, config: Config):
         shutil.rmtree(tmp_dir, ignore_errors=True)
