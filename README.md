@@ -85,4 +85,24 @@ python -m http.server --cgi 8000
 
 Visit `localhost:8000` and start looking around your documentation.
 
-    
+## Macros
+### Markdown macros
+You can create macros in markdown as mkdocs documentation specifies.
+On top of that there is a support for Python macros described in following section.
+
+### Python macros
+You can write Python script and use the output as content in the markdown.
+This feature is implemented as variable injection. That brings some specific steps to follow.
+The restrictions or rules are valid for current version and can vary in the future.
+1. All scripts are placed in module `computational_macros` in package `scripts`.
+2. Each script should contain exactly one method with the same name as the file. (Of course 
+   without the `.py` file extension.)
+3. The method should return string object with desired output. This will be stored in the variable 
+   with again the same name. **You have to consider markdown and HTML formatting!**
+4. Each script is automatically loaded, so you may want to add some prefix to prevent 
+   existing variables conflicts, respectively overriding.
+
+#### Example
+See example scripts in folder `ugent-hpc-mkdocs/computational_macros/scripts`.
+See usage in file `ugent-hpc-mkdocs/docs/intro-HPC/Antwerpen/Linux/intro-HPC/ch_account.md`. 
+
