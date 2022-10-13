@@ -17,11 +17,17 @@ Install requirements by running:
 python -m pip install -r requirements.txt
 ```
 
-Install custom plugin present in this repository (at least for now):
+Install custom plugin, which is present in this repository (at least for now):
 
 ```shell
 python -m pip install -e custom_plugin
 ```
+
+Install computational macros - Pyton macros:
+```shell
+python -m pip install -e computational_macros
+```
+
 
 ## Configuration
 
@@ -101,6 +107,10 @@ The restrictions or rules are valid for current version and can vary in the futu
    with again the same name. **You have to consider markdown and HTML formatting!**
 4. Each script is automatically loaded, so you may want to add some prefix to prevent 
    existing variables conflicts, respectively overriding.
+
+You can return anything from Python macro, but it should make sense in context of mkdocs usage.
+For example you can generate some JavaScript code which will provide some interactive stuff in 
+target document page.
 
 #### Example
 See example scripts in folder `ugent-hpc-mkdocs/computational_macros/scripts`.
