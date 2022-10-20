@@ -15,7 +15,7 @@ If it does, press ***Yes***, if it doesn't, please contact {{ hpcinfo }}.
 {{ sshedfingerprintnote.sshedfingerprintnote() }}
 
 
-![image](/img/ch2-putty-verify-authenticity.png){ style="display: block; margin: 0 auto" }
+![image](../img/ch2-putty-verify-authenticity.png){ style="display: block; margin: 0 auto" }
 
 
 {% endmacro %}

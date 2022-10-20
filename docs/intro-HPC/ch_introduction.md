@@ -51,7 +51,7 @@ teraflops.
 ![](../img/ch1-cables2.png){ width=245px }
 ![](../img/ch1-cables3.png){ width=245px }
 
-The {{ hpcinfra }} relies on parallel-processing technology to offer {{ university }}researchers an
+The {{ hpcinfra }} relies on parallel-processing technology to offer {{ university }} researchers an
 extremely fast solution for all their data processing needs.
 
 
@@ -306,7 +306,7 @@ obstacles to getting good parallel program performance.
 #### Sequential programs
 
 Sequential software does not do calculations in parallel, i.e., it only
-uses *one single core of a single workernode*. **It does not become faster by just throwing in more cores at it**: it can only use one
+uses *one single core of a single workernode*. **It does not become faster by just throwing more cores at it**: it can only use one
 core.
 
 It is perfectly possible to also run purely **sequential programs** on the {{ hpc }}.

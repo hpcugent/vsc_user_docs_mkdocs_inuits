@@ -316,7 +316,7 @@ include the private key(s) generated in the previous section [Generate key pair]
 
 Now you can connect to the login nodes as usual. The SSH agent will know
 which SSH key should be used and you do not have to type the SSH
-passwords each time, this task is done by agent automatically.
+passwords each time, this task is done by **Pageant** agent automatically.
 
 It is also possible to use **WinSCP** with **Pageant**, see
 <https://winscp.net/eng/docs/ui_pageant> for more details.
@@ -324,7 +324,7 @@ It is also possible to use **WinSCP** with **Pageant**, see
 
 {%- if OS != windows %}
 Most recent Unix derivatives include by default an SSH agent 
-{%- if OS == linux %} (``gnome-keyring-daemon'' in most cases) {% endif %} 
+{%- if OS == linux %} ("gnome-keyring-daemon" in most cases) {% endif %} 
 to keep and manage the user SSH keys. If you use one of these derivatives you **must** include the new keys into
 the SSH manager keyring to be able to connect to the HPC cluster. If
 not, SSH client will display an error message (see [Connecting]()) similar to this:
@@ -404,7 +404,7 @@ above. Please attach your public key (i.e., the file named
 within your HOME Directory. (i.e., `/Users/<username>/.ssh/id_rsa.pub`).
 {%- endif %}
 
-{%- if site == gent %}
+{% if site == gent %}
 You will now have to log in with CAS using your UGent account.
 
 You either have a login name of maximum 8 characters, or a (non-UGent)
@@ -437,7 +437,7 @@ upload the file that contains your public key, i.e., the file
 public key is actually accepted for upload, beacuse if it is in a wrong
 format, wrong type or too short, then it will be refused.
 
-{% if OS == windows %}"
+{% if OS == windows %}
 This file should have been stored in the directory
 "C:\\Users\\%USERNAME%\\AppData\\Local\\PuTTY\\.ssh"
 

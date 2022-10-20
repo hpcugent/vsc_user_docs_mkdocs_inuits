@@ -133,7 +133,7 @@ to the {{ hpc }} cluster via the login node "***{{ loginnode }}***".
 
     ![image](../img/ch2-putty-x-forwarding.png){ style="display: block; margin: 0 auto" }
 
-6.  Now go back to \<Session>, and fill in "**{{ hpcname }}**" in the ++"Saved Sessions"++ field and press ++"Save"++ to
+6.  Now go back to <Session\>, and fill in "**{{ hpcname }}**" in the ++"Saved Sessions"++ field and press ++"Save"++ to
     store the session information.
 
     {%- if site != leuven %}
@@ -194,7 +194,7 @@ node "{{ loginnode }}", so replace {{ userid }} with your own VSC id in the abov
 
 The first time you make a connection to the login node, you will be
 asked to verify the authenticity of the login node. Please check
-section [Warning message when first connecting to new host](../ch_troubleshooting/#warning-message-when)-first-connecting-to-new-host) on how to do this.
+[Warning message when first connecting to new host](../ch_troubleshooting/#warning-message-when)-first-connecting-to-new-host) on how to do this.
 
 A possible error message you can get if you previously saved your
 private key somewhere else than the default location
@@ -285,7 +285,7 @@ you can start using the examples. The "-r" option of the copy command
 will also copy the contents of the sub-directories "*recursively*".
 
 ```
-$ cp --r {{ examplesdir }} ~/
+$ cp -r {{ examplesdir }} ~/
 ```
 
 {%- if site == gent %}
@@ -476,7 +476,7 @@ export LANG="en_US.UTF-8"
 
 !!! tip "tip: vi"
     To start entering text in vi: move to the place you want to start
-    entering text with the arrow keys and type "i" to switch to insert mode. You can easily exit vi by entering: "++"ESC"++:wq" 
+    entering text with the arrow keys and type "i" to switch to insert mode. You can easily exit vi by entering: "++"ESC"++ :wq" 
     To exit vi without saving your changes, enter "++"ESC"++:q!"
 
 
@@ -755,7 +755,7 @@ Enter: *sftp://{{ userid }}@{{ loginnode}}/* and press enter.
 You should now be able to browse files on the {{ hpc }} in your file browser.
 {% endif %}
 
-{%- if OS == linux %}
+{%- if OS == macos %}
 ### Using a GUI (Cyberduck)
 
 Cyberduck is a graphical alternative to the `scp` command. It can be

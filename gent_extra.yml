@@ -1,33 +1,32 @@
 site: Gent
-university: University of Gent
-wayf: Universiteit Gent
-association: Gent University Association (GUHA)
+university: UGent
+wayf: UGent
+association: AUGent
 hpc: UGent-HPC
 hpcinfra: UGent-HPC
-hpcteam: UGent-HPC
-hpcname: Leibniz
+hpcteam: UGent HPC team
+hpcname: hpcugent
 loginnode: login.hpc.ugent.be
-loginhost: ln2.leibniz.ugent.vsc
-altloginhost: ln1.leibniz.ugent.vsc
-operatingsystem: CentOS Linux release 7.8.2003 (Core)
-operatingsystembase: RedHat Enterprise Linux
+loginhost: gligar04.gastly.os
+altloginhost: gligar05.gastly.os
+operatingsystem: CentOS 7.9 (skitty, swalot, victini) or RHEL 8.4 (kirlia, doduo, accelgor, slaking, joltik)
+operatingsystembase: Red Hat Enterprise Linux
 tutorialdir: /apps/gent/tutorials
 examplesdir: /apps/gent/tutorials/Intro-HPC/examples
-userid: vsc20167
-homedir: /user/gent/201/vsc20167
-datadir: /data/gent/201/vsc20167
-scratchdir: /scratch/gent/201/vsc20167
-jobid: 433253.leibniz
-computenode: r1c02cn3.leibniz.gent.vsc
-computenodeshort: r1c02cn3
+userid: vsc40000
+homedir: /user/home/gent/vsc400/vsc40000
+datadir: /user/data/gent/vsc400/vsc40000
+scratchdir: /user/scratch/gent/vsc400/vsc40000
+jobid: 123456
+computenode: node3200.victini.gent.vsc
+computenodeshort: node3200
 hpcinfo: hpc@ugent.be
-hpcannounceml: calcua-announce@supersympa.ua.ac.be
-mpirun: mpirun
+hpcannounceml: hpc-announce@lists.ugent.be
+mpirun: vsc-mympirun
 puttyFirstConnect: |
-  - ssh-rsa 2048 5a:40:9d:2a:f4:b7:6c:87:0d:87:30:07:9d:ea:80:11
-  - sha-rsa 2048 SHA256:W8HRHTZpPd2GIhoNU2xj2oUKhcFr2bjIzZsKzY+1PCA
-  - ssh-ecdsa 256 f9:4f:19:9b:fb:40:c5:6c:6f:b9:64:2e:33:0a:8d:26
-  - ssh-ecdsa 256 SHA256:DlsP+jFrTqSdr9VquUpDj17Uy99zFdFN/LxVhaQQzbo
-  - ssh-ed25519 255 df:0c:61:b9:26:51:0f:b4:ca:43:ac:f6:ee:d2:a1:29
-  - ssh-ed25519 255 SHA256:+vlrkJui34B4iumxGVHd447K3W8wzgE1n1h2/Ic0WlE
-test: test
+  - ssh-rsa 2048 2f:0c:f7:76:87:57:f7:5d:2d:7b:d1:a1:e1:86:19:f3
+  - ssh-rsa 2048 SHA256:k+eqH4D4mTpJTeeskpACyouIWf+60sv1JByxODjvEKE
+  - ssh-ed25519 255 fa:23:ab:1f:f0:65:f3:0d:d3:33:ce:7a:f8:f4:fc:2a
+  - ssh-ed25519 256 SHA256:5hnjlJLolblqkKCmRduiWA21DsxJcSlpVoww0GLlagc
+  - ssh-ecdsa 256 13:f0:11:d1:94:cb:ca:e5:ca:82:21:62:ab:9f:3f:c2
+  - ssh-ecdsa 256 SHA256:1MNKFTfl1T9sm6tTWAo4sn7zyEfiWFLKbk/mlT+7S5s
