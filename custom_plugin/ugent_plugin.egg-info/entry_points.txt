@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+ugent = custom_plugin:UgentPlugin
+
