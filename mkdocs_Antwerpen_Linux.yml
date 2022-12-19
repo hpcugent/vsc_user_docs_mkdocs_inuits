@@ -5,10 +5,11 @@ nav:
   - Home: index.md
   - HPC Tutorial:
       - Introduction: intro-HPC/ch_introduction.md
-      - Getting an HPC Account: intro-HPC/Antwerpen/Linux/intro-HPC/ch_account.md
+      - Getting an HPC Account: intro-HPC/ch_account.md
       - Connecting to the HPC infrastructure: intro-HPC/ch_connecting.md
 
 plugins:
+  - include-markdown
   - search
   - ugent
   - macros:

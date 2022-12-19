@@ -6,10 +6,21 @@ nav:
       - Introduction: intro-HPC/ch_introduction.md
       - Getting an HPC Account: intro-HPC/ch_account.md
       - Connecting to the HPC infrastructure: intro-HPC/ch_connecting.md
-
+      - Running batch jobs: intro-HPC/ch_running_batch_jobs.md
+      - HPC Policies: intro-HPC/sites/ch_hpc_policies.md
+  - Linux:
+      - Title: intro-Linux/title.md
+      - Getting Started: intro-Linux/ch_getting_started.md
+      - Navigating: intro-Linux/ch_navigating.md
+      - Manipulating files and directories: intro-Linux/ch_manipulating_files_and_directories.md
+      - Uploading/downloading/editing files: intro-Linux/ch_uploading_files.md
+      - Beyond the basics: intro-Linux/ch_beyond_the_basics.md
+      - Common fitfalls: intro-Linux/ch_common_pitfalls.md
+      - More on the HPC infrastructure: intro-Linux/ch_hpc_infrastructure.md
 
 plugins:
   - search
+  - include-markdown
   - ugent
   - macros:
       include_yaml:

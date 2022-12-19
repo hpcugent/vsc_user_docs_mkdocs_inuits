@@ -6,10 +6,13 @@ nav:
       - Introduction: intro-HPC/ch_introduction.md
       - Getting an HPC Account: intro-HPC/ch_account.md
       - Connecting to the HPC infrastructure: intro-HPC/ch_connecting.md
+      - Running batch jobs: intro-HPC/ch_running_batch_jobs.md
+      - HPC Policies: intro-HPC/sites/ch_hpc_policies.md
 
 
 plugins:
   - search
+  - include-markdown
   - ugent
   - macros:
       include_yaml:
