@@ -1,4 +1,4 @@
-# Easybuild { #ch:easybuild}
+# Easybuild
 
 ## What is Easybuild?
 
@@ -14,7 +14,7 @@ systems in an efficient way.
 
 ## When should I use Easybuild?
 
-For general software installation requests, please see . However, there
+For general software installation requests, please see [I want to use software that is not available on the clusters yet](../ch_FAQ/#i-want-to-use-software-that-is-not-available-on-the-clusters-yet). However, there
 might be reasons to install the software yourself:
 
 -   applying custom patches to the software that only you or your group
@@ -34,8 +34,8 @@ Before you use EasyBuild, you need to configure it:
 
 This is where EasyBuild can find software sources:
 
-::: prompt
-:::
+<pre><code>$ <b>EASYBUILD_SOURCEPATH=$VSC_DATA/easybuild/sources:/apps/gent/source </b>
+</code></pre>
 
 -   the first directory `$VSC_DATA/easybuild/sources` is where EasyBuild
     will (try to) automatically download sources if they're not
@@ -50,8 +50,8 @@ This is where EasyBuild can find software sources:
 This directory is where EasyBuild will build software in. To have good
 performance, this needs to be on a fast filesystem.
 
-::: prompt
-:::
+<pre><code>$ <b>export EASYBUILD_BUILDPATH=${TMPDIR:-/tmp/$USER}</b>
+</code></pre>
 
 On cluster nodes, you can use the fast, in-memory `/dev/shm/$USER`
 location as a build directory.
@@ -63,16 +63,16 @@ modules) to.
 
 For example, to let it use `$VSC_DATA/easybuild`, use:
 
-::: prompt
-:::
+<pre><code>$ <b>export EASYBUILD_INSTALLPATH=$VSC_DATA/easybuild/$VSC_OS_LOCAL/$VSC_ARCH_LOCAL$VSC_ARCH_SUFFIX</b>
+</code></pre>
 
 Using the `$VSC_OS_LOCAL`, `$VSC_ARCH` and `$VSC_ARCH_SUFFIX`
 environment variables ensures that your install software to a location
 that is specific to the cluster you are building for.
 
-Make sure you , since the loaded `cluster` module determines the
+Make sure you **do not build software on the login nodes**, since the loaded `cluster` module determines the
 location of the installed software. Software built on the login nodes
-may not work on the cluster you want to use the software on (see also ).
+may not work on the cluster you want to use the software on (see also [Running software that is incompatible with host](../ch_troubleshooting/#running-software-that-is-incompatible-with-host)).
 
 To share custom software installations with members of your VO, replace
 `$VSC_DATA` with `$VSC_DATA_VO` in the example above.
@@ -81,12 +81,11 @@ To share custom software installations with members of your VO, replace
 
 Before using EasyBuild, you first need to load the `EasyBuild` module.
 We don't specify a version here (this is an exception, for most other
-modules you should, see ) because newer versions might include important
+modules you should, see [Using explicit version numbers](../ch_running_batch_jobs/#using-explicit-version-numbers)) because newer versions might include important
 bug fixes.
 
-::: prompt
-module load EasyBuild
-:::
+<pre><code>module load EasyBuild
+</code></pre>
 
 ### Installing supported software
 
@@ -94,14 +93,20 @@ EasyBuild provides a large collection of readily available software
 versions, combined with a particular toolchain version. Use the
 `--search` (or `-S`) functionality to see which different 'easyconfigs'
 (build recipes, see
-<http://easybuild.readthedocs.org/en/latest/Concepts_and_Terminology.html#easyconfig-files>)
-are available:
+<http://easybuild.readthedocs.org/en/latest/Concepts_and_Terminology.html#easyconfig-files>) are available:
+
+<pre><code>$ <b>eb -S example-1.2</b>
+CFGS1=/apps/gent/CO7/sandybridge/software/EasyBuild/3.6.2/lib/python2.7/site-packages/easybuild_easyconfigs-3.6.2-py2.7.egg/easybuild/easyconfigs
+ * $CFGS1/e/example/example-1.2.1-foss-{{ current_year}}a.eb
+ * $CFGS1/e/example/example-1.2.3-foss-{{ current_year}}b.eb
+ * $CFGS1/e/example/example-1.2.5-intel-{{ current_year}}a.eb
+</code></pre>
 
 For readily available easyconfigs, just specify the name of the
 easyconfig file to build and install the corresponding software package:
 
-::: prompt
-:::
+<pre><code>$ <b>eb example-1.2.1-foss-{{ current_year}}a.eb --robot</b>
+</code></pre>
 
 ### Installing variants on supported software
 
@@ -112,13 +117,13 @@ corresponding `--try-X` options:
 To try to install `example v1.2.6`, based on the easyconfig file for
 `example v1.2.5`:
 
-::: prompt
-:::
+<pre><code>$ <b>eb example-1.2.5-intel-{{ current_year}}a.eb --try-software-version=1.2.6</b>
+</code></pre>
 
 To try to install example v1.2.5 with a different compiler toolchain:
 
-::: prompt
-:::
+<pre><code>$ <b>eb example-1.2.5-intel-{{ current_year}}a.eb --robot --try-toolchain=intel,{{ current_year}}b</b>
+</code></pre>
 
 ### Install other software
 
@@ -132,12 +137,12 @@ for more information.
 To use the modules you installed with EasyBuild, extend `$MODULEPATH` to
 make them accessible for loading:
 
-::: prompt
-:::
+<pre><code>$ <b>module use $EASYBUILD_INSTALLPATH/modules/all</b>
+</code></pre>
 
 It makes sense to put this `module use` command and all `export`
 commands in your `.bashrc` login script. That way you don't have to type
 these commands every time you want to use EasyBuild or you want to load
 modules generated with EasyBuild. See also [the section on `.bashrc` in
 the "Beyond the basics" chapter of the intro to
-Linux](\LinuxManualURL#sec:bashrc-login-script).
+Linux](../../intro-Linux/ch_beyond_the_basics/#bashrc-login-script).

@@ -1,7 +1,7 @@
-# Using the HPC-UGent web portal { #ch:web_portal}
+# Using the HPC-UGent web portal
 
 The HPC-UGent web portal provides "one stop shop" for the HPC-UGent
-infrastructure. It is based on [](https://openondemand.org/) (or `OoD`
+infrastructure. It is based on [Open OnDemand](https://openondemand.org/) (or `OoD`
 for short).
 
 Via this web portal you can upload and download files, create, edit,
@@ -10,17 +10,15 @@ via a standard web browser like Firefox, Chrome or Safari. You do not
 need to install or configure any client software, and no SSH key is
 required to connect to your VSC account via this web portal.\
 Please note that we do recommend to use our interactive and debug
-cluster (see chapter
- [\[ch:interactive_ugent\]](#ch:interactive_ugent){reference-type="ref"
-reference="ch:interactive_ugent"}) with `OoD`.
+cluster (see chapter [HPC-UGent interactive and debug cluster](./ch_interactive_gent.md)) with `OoD`.
 
 To connect to the HPC-UGent infrastructure via the web portal, visit:
 
-::: center
+<center>
 <https://login.hpc.ugent.be>
-:::
+</center>
 
-Note that you may only see a "*Submitting\...*" message appear for a
+Note that you may only see a "*Submitting...*" message appear for a
 couple of seconds, which is perfectly normal.
 
 Through this web portal, you can:
@@ -44,7 +42,7 @@ documentation](https://osc.github.io/ood-documentation/master/). A
 walkthrough video is available on YouTube
 [here](https://www.youtube.com/watch?v=4-w-4wjlnPk).
 
-## Pilot access { #pilot-access .unnumbered}
+## Pilot access
 
 ### Known issues & limitations
 
@@ -58,9 +56,8 @@ the pilot phase to evaluate whether more resources are required.
 ## Login
 
 When visiting the HPC-UGent web portal you will be automatically logged
-in via the VSC accountpage (see also
-Section [\[sec:applying-for-the-account\]](#sec:applying-for-the-account){reference-type="ref"
-reference="sec:applying-for-the-account"}).
+in via the VSC accountpage (see also 
+Section [Applying for the account](../ch_account/#applying-for-the-account)).
 
 ### First login
 
@@ -69,9 +66,11 @@ requested to let the web portal access some of your personal information
 (VSC login ID, account status, login shell and institute name), as shown
 in this screenshot below:
 
-::: center
-![image](ood_permission)
-:::
+<center>
+![image](../img/ood_permission.png)
+</center>
+
+**Please click "Authorize" here.**
 
 This request will only be made once, you should not see this again
 afterwards.
@@ -80,9 +79,9 @@ afterwards.
 
 Once logged in, you should see this start page:
 
-::: center
-![image](ood_start)
-:::
+<center>
+![image](../img/ood_start.png)
+</center>
 
 This page includes a menu bar at the top, with buttons on the left
 providing access to the different features supported by the web portal,
@@ -93,9 +92,9 @@ high-level overview of the HPC-UGent Tier-2 clusters.
 If your browser window is too narrow, the menu is available at the top
 right through the "hamburger" icon:
 
-::: center
-![image](ood_hamburger)
-:::
+<center>
+![image](../img/ood_hamburger.png)
+</center>
 
 ## Features
 
@@ -113,9 +112,9 @@ The drop-down menu provides short-cuts to the different `$VSC_*`
 directories and filesystems you have access to. Selecting one of the
 directories will open a new browser tab with the *File Explorer*:
 
-::: center
-![image](ood_file_explorer)
-:::
+<center>
+![image](../img/ood_file_explorer.png)
+</center>
 
 Here you can:
 
@@ -124,7 +123,7 @@ Here you can:
 -   Use the buttons on the top to:
 
     -   go to a specific subdirectory by typing in the path (via *Go
-        To\...*);
+        To...*);
 
     -   open the current directory in a terminal (shell) session (via
         *Open in Terminal*);
@@ -167,7 +166,7 @@ Here you can:
     -   use the *(Un)Select All* button to select (or unselect) all
         files and directories in the current directory;
 
-    -   use the *Delete* button to () remove the selected files and
+    -   use the *Delete* button to (**permanently!**) remove the selected files and
         directories;
 
 For more information, see aslo
@@ -189,9 +188,9 @@ Jobs* menu item under *Jobs*.
 A new browser tab will be opened that shows all your current queued
 and/or running jobs:
 
-::: center
-![image](ood_active_jobs)
-:::
+<center>
+![image](../img/ood_active_jobs.png)
+</center>
 
 You can control which jobs are shown using the *Filter* input area, or
 select a particular cluster from the drop-down menu *All Clusters*, both
@@ -214,9 +213,9 @@ To submit new jobs, you can use the *Job Composer* menu item under
 *Jobs*. This will open a new browser tab providing an interface to
 create new jobs:
 
-::: center
-![image](ood_job_composer)
-:::
+<center>
+![image](../img/ood_job_composer.png)
+</center>
 
 This extensive interface allows you to create jobs from one of the
 available templates, or by copying an existing job.
@@ -233,9 +232,9 @@ Don't forget to actually submit your job to the system via the green
 In addition, you can inspect provided job templates, copy them or even
 create your own templates via the *Templates* button on the top:
 
-::: center
-![image](ood_job_templates)
-:::
+<center>
+![image](../img/ood_job_templates.png)
+</center>
 
 ### Shell access
 
@@ -243,14 +242,13 @@ Through the *Shell Access* button that is available under the *Clusters*
 menu item, you can easily open a terminal (shell) session into your VSC
 account, straight from your browser!
 
-::: center
-![image](ood_shell)
-:::
+<center>
+![image](../img/ood_shell.png)
+</center>
 
 Using this interface requires being familiar with a Linux shell
 environment (see
-Appendix [\[ch:useful-linux-commands\]](#ch:useful-linux-commands){reference-type="ref"
-reference="ch:useful-linux-commands"}).
+Appendix [Useful Linux Commands](../ch_useful_linux_commands)).
 
 To exit the shell session, type `exit` followed by *Enter* and then
 close the browser tab.
@@ -263,12 +261,11 @@ terminal multiplexer tool like `screen` or `tmux`).
 
 #### Graphical desktop environment
 
-To create a graphical desktop environment, use on of the *desktop on
-\... node* buttons under *Interactive Apps* menu item. For example:
+To create a graphical desktop environment, use on of the *desktop on... node* buttons under *Interactive Apps* menu item. For example:
 
-::: center
-![image](ood_launch_desktop)
-:::
+<center>
+![image](../img/ood_launch_desktop.png)
+</center>
 
 You can either start a desktop environment on a login node for some
 lightweight tasks, or on a workernode of one of the HPC-UGent Tier-2
@@ -276,13 +273,15 @@ clusters if more resources are required. Keep in mind that for desktop
 sessions on a workernode the regular queueing times are applicable
 dependent on requested resources.
 
+**Do keep in mind that desktop environments on a cluster workernode are limited to a maximum of 72 hours, just like regular jobs are.**
+
 To access the desktop environment, click the *My Interactive Sessions*
 menu item at the top, and then use the *Launch desktop on \... node*
 button if the desktop session is *Running*:
 
-::: center
-![image](ood_desktop_running)
-:::
+<center>
+![image](../img/ood_desktop_running.png)
+</center>
 
 #### Jupyter notebook
 
@@ -290,48 +289,48 @@ Through the web portal you can easily start a [Jupyter
 notebook](https://jupyter.org/) on a workernode, via the *Jupyter
 Notebook* button under the *Interactive Apps* menu item.
 
-::: center
-![image](ood_start_jupyter)
-:::
+<center>
+![image](../img/ood_start_jupyter.png)
+</center>
 
 After starting the Jupyter notebook using the *Launch* button, you will
 see it being added in state *Queued* in the overview of interactive
 sessions (see *My Interactive Sessions* menu item):
 
-::: center
-![image](ood_jupyter_queued)
-:::
+<center>
+![image](../img/ood_jupyter_queued.png)
+</center>
 
 When your job hosting the Jupyter notebook starts running, the status
 will first change the *Starting*:
 
-::: center
-![image](ood_jupyter_starting)
-:::
+<center>
+![image](../img/ood_jupyter_starting.png)
+</center>
 
 and eventually the status will change to *Running*, and you will be able
 to connect to the Jupyter environment using the blue *Connect to
 Jupyter* button:
 
-::: center
-![image](ood_jupyter_running)
-:::
+<center>
+![image](../img/ood_jupyter_running.png)
+</center>
 
 This will launch the Jupyter environment in a new browser tab, where you
 can open an existing notebook by navigating to the directory where it
 located and clicking it, or using the *New* menu on the top right:
 
-::: center
-![image](ood_jupyter_new_notebook)
-:::
+<center>
+![image](../img/ood_jupyter_new_notebook.png)
+</center>
 
 Here's an example of a Jupyter notebook in action. Note that several
 non-standard Python packages (like *numpy*, *scipy*, *pandas*,
 *matplotlib*) are readily available:
 
-::: center
-![image](ood_jupyter_notebook_example)
-:::
+<center>
+![image](../img/ood_jupyter_notebook_example.png)
+</center>
 
 ## Restarting your web server in case of problems
 
@@ -341,9 +340,9 @@ web server running in your VSC account.
 You can do this via the *Restart Web Server* button under the *Help*
 menu item:
 
-::: center
-![image](ood_help_restart_web_server)
-:::
+<center>
+![image](../img/ood_help_restart_web_server.png)
+</center>
 
 Of course, this only affects your own web portal session (not those of
 others).

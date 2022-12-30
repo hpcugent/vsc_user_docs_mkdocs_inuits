@@ -22,7 +22,7 @@ an
 {%- endif %}
 account on the {{ hpc }}, which is part of the Flemish Supercomputing Centre (VSC).
 
-See [HPC policies]() for more information on who is entitled to an account.
+See [HPC policies](../sites/ch_hpc_policies) for more information on who is entitled to an account.
 
 The VSC, abbreviation of Flemish Supercomputer Centre, is a virtual
 supercomputer centre. It is a partnership between the five Flemish
@@ -85,10 +85,10 @@ section.
 The PuTTY package consists of several components, but we'll only use
 two:
 
-1. **PuTTY**: *the Telnet and SSH client itself* (to login, see [Windows open a terminal]())
+1. **PuTTY**: *the Telnet and SSH client itself* (to login, see [Open a terminal](../ch_connecting/#open-a-terminal))
 
 2.  **PuTTYgen**: *an RSA and DSA key generation utility* (to generate a key pair,
-    see [Generate key pair]())
+    see [Generate a public/private key pair](../ch_account/#generating-a-publicprivate-key-pair))
 
 ### Generating a public/private key pair
 
@@ -190,10 +190,9 @@ On all popular Linux distributions, the OpenSSH software is readily
 available, and most often installed by default. You can check whether
 the OpenSSH software is installed by opening a terminal and typing:
 
-```
-$ ssh -V
+<pre><code><b>$ ssh -V</b>
 OpenSSH_7.4p1, OpenSSL 1.0.2k-fips 26 Jan 2017
-```
+</code></pre>
 
 To access the clusters and transfer your files, you will use the
 following commands:
@@ -212,20 +211,17 @@ A key pair might already be present in the default location inside your
 home directory. Therefore, we first check if a key is available with the
 "list short" ("ls") command:
 
-```
-$ ls ~/.ssh
-```
+<pre><code><b>$ ls ~/.ssh</b>
+</code></pre>
 
 If a key-pair is already available, you would normally get:
-```
-authorized_keys     id_rsa      id_rsa.pub      known_hosts
-```
+<pre><code>authorized_keys     id_rsa      id_rsa.pub      known_hosts
+</code></pre>
 
 Otherwise, the command will show:
 
-```
-ls: .ssh: No such file or directory
-```
+<pre><code>ls: .ssh: No such file or directory
+</code></pre>
 
 You can recognise a public/private key pair when a pair of files has the
 same name except for the extension ".pub" added to one of them. In this
@@ -253,14 +249,13 @@ private and should stay private. You should not even copy it to one of
 your other machines, instead, you should create a new public/private key
 pair for each machine.
 
-```
-$ ssh-keygen -t rsa -b 4096
+<pre><code><b>$ ssh-keygen -t rsa -b 4096</b>
 Generating public/private rsa key pair. Enter file in which to save the
 key (/home/user/.ssh/id_rsa): Enter passphrase (empty for no
 passphrase): Enter same passphrase again: Your identification has been
 saved in /home/user/.ssh/id_rsa. Your public key has been saved in
 /home/user/.ssh/id_rsa.pub.
-```
+</code></pre>
 
 This will ask you for a file name to store the private and public key,
 and a passphrase to protect your private key. It needs to be emphasised
@@ -292,13 +287,13 @@ from the Windows panel.
 ![image](../img/ch2-pageant-icon.png){ style="display: block; margin: 0 auto" }
 
 At this point the agent does not contain any private key. You should
-include the private key(s) generated in the previous section [Generate key pair]().
+include the private key(s) generated in the previous section [Generating a public/private key pair](../ch_account/#generating-a-publicprivate-key-pair).
 
 1.  Click on ++"Add key"++
 
     ![image](../img/ch2-pageant-add-key.png){ style="display: block; margin: 0 auto" }
 
-2.  Select the private key file generated in [Generate key pair]() (**"id_rsa.ppk"** by default).
+2.  Select the private key file generated in [Generating a public/private key pair](../ch_account/#generating-a-publicprivate-key-pair) (**"id_rsa.ppk"** by default).
 
 3.  Enter the same SSH key password used to generate the key. After this
     step the new key will be included in Pageant to manage the SSH
@@ -327,19 +322,17 @@ Most recent Unix derivatives include by default an SSH agent
 {%- if OS == linux %} ("gnome-keyring-daemon" in most cases) {% endif %} 
 to keep and manage the user SSH keys. If you use one of these derivatives you **must** include the new keys into
 the SSH manager keyring to be able to connect to the HPC cluster. If
-not, SSH client will display an error message (see [Connecting]()) similar to this:
+not, SSH client will display an error message (see [Connecting](../ch_connecting)) similar to this:
 
-```
-Agent admitted failure to sign using the key. 
+<pre><code>Agent admitted failure to sign using the key. 
 Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
-```
+</code></pre>
 
 This could be fixed using the `ssh-add` command. You can include the new
 private keys' identities in your keyring with:
 
-```
-$ ssh-add
-```
+<pre><code><b>$ ssh-add</b>
+</code></pre>
 
 !!! tip
     Without extra options `ssh-add` adds any key located at `$HOME/.ssh`
@@ -349,9 +342,8 @@ $ ssh-add
 
 Check that your key is available from the keyring with:
 
-```
-$ ssh-add -l
-```
+<pre><code><b>$ ssh-add -l</b>
+</code></pre>
 
 After these changes the key agent will keep your SSH key to connect to
 the clusters as usual.
@@ -463,8 +455,7 @@ account.
 Within one day, you should receive a Welcome e-mail with your VSC
 account details.
 
-```
-Dear (Username), 
+<pre><code>Dear (Username), 
 Your VSC-account has been approved by an administrator.
 Your vsc-username is {{ userid }}
 
@@ -477,7 +468,7 @@ For further info please visit https://www.vscentrum.be/user-portal
 
 Kind regards,
 -- The VSC administrators
-```
+</code></pre>
 
 Now, you can start using the {{ hpc }}. You can always look up your VSC id later
 by visiting <https://account.vscentrum.be>.

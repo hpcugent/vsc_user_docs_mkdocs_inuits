@@ -1,4 +1,3 @@
-{% import 'macros/firsttimeconnection.md' as firsttimeconnection %}
 {% import 'macros/LinuxManualURL.md' as LinuxManualURL %}
 
 # Connecting to the HPC infrastructure
@@ -44,7 +43,7 @@ options to get access to VSC login nodes:
 
 -   Register your IP address by accessing
     <https://firewall.hpc.kuleuven.be> (same URL regardless of the
-    university your affiliated with) and log in with your {{ university }} account.
+    university you're affiliated with) and log in with your {{ university }} account.
 
     -   While this web connection is active new SSH sessions can be
         started.
@@ -59,9 +58,8 @@ Trying to establish an SSH connection from an IP address that does not
 adhere to these restrictions will result in an immediate failure to
 connect, with an error message like:
 
-```
-ssh_exchange_identification: read: Connection reset by peer
-```
+<pre><code>ssh_exchange_identification: read: Connection reset by peer
+</code></pre>
 
 ## First Time connection to the HPC infrastructure
 
@@ -165,12 +163,11 @@ to the {{ hpc }} cluster via the login node "***{{ loginnode }}***".
 10. To check you can now "Print the Working Directory" (pwd) and check
     the name of the computer, where you have logged in (hostname):
 
-    ```
-    $ pwd
+    <pre><code>    <b>$ pwd</b>
     {{ homedir }}
-    $ hostname -f
+    <b>$ hostname -f</b>
     {{ loginhost }}
-    ```
+    </code></pre>
 
 11. For future PuTTY sessions, just select your saved session (i.e. "**{{ hpcname }}**")
     from the list, ++"Load"++ it and press ++"Open"++.
@@ -185,9 +182,8 @@ Open up a terminal and enter the following command to connect to the {{ hpc }}.
 You can open a terminal by navigation to Applications and then Utilities in the finder and open Terminal.app, or enter Terminal in Spotlight Search.
 {% endif %}
 
-```
-$ ssh {{ userid }}@{{ loginnode }}
-```
+<pre><code><b>$ ssh {{ userid }}@{{ loginnode }}</b>
+</code></pre>
 
 Here, user {{ userid }} wants to make a connection to the "{{ hpcname }}" cluster at {{ university }} via the login
 node "{{ loginnode }}", so replace {{ userid }} with your own VSC id in the above command.
@@ -200,36 +196,32 @@ A possible error message you can get if you previously saved your
 private key somewhere else than the default location
 (`$HOME/.ssh/id_rsa`):
 
-```
-Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
-```
+<pre><code>Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+</code></pre>
 
 In this case, use the `-i` option for the `ssh` command to specify the
 location of your private key. For example:
 
-```
-$ ssh -i /home/example/my_keys
-```
+<pre><code><b>$ ssh -i /home/example/my_keys</b>
+</code></pre>
 
 {% endif %}
 
 **Congratulations, you're on the {{ hpc }} infrastructure now!**
 To find out where you have landed you can print the current working directory:
 
-```
-$ pwd
+<pre><code><b>$ pwd</b>
 {{ homedir }}
-```
+</code></pre>
 
 Your new private home directory is "{{ homedir }}". Here you can create your own
 subdirectory structure, copy and prepare your applications, compile and
 test them and submit your jobs on the {{ hpc }}.
 
-```
-$ cd {{ tutorialdir }}
-$ ls
+<pre><code><b>$ cd {{ tutorialdir }}</b>
+<b>$ ls</b>
 Intro-HPC/
-```
+</code></pre>
 
 This directory currently contains all training material for the ***Introduction to the {{ hpc }}***. More
 relevant training material to work with the {{ hpc }} can always be added later in
@@ -240,9 +232,8 @@ You can now explore the content of this directory with the "ls --l" (**l**ist**s
 As we are interested in the use of the ***HPC***, move further to ***Intro-HPC*** and explore the
 contents up to 2 levels deep:
 
-```
-$ cd Intro-HPC
-$ tree -L 2
+<pre><code><b>$ cd Intro-HPC</b>
+<b>$ tree -L 2</b>
 .
 '-- examples 
     |-- Compiling-and-testing-your-software-on-the-HPC 
@@ -256,7 +247,7 @@ $ tree -L 2
     |-- example.pbs 
     '-- example.sh 
 9 directories, 5 files
-```
+</code></pre>
 
 This directory contains:
 
@@ -265,9 +256,8 @@ This directory contains:
 2.  An ***examples*** subdirectory, containing all the examples that you need in this
     Tutorial, as well as examples that might be useful for your specific applications.
 
-```
-$ cd examples
-```
+<pre><code><b>$ cd examples</b>
+</code></pre>
 
 !!! tip
     Typing `cd ex` followed by ++tab++ (the Tab-key) will generate the `cd examples`
@@ -284,23 +274,20 @@ your home directory, so that you have your own personal copy and that
 you can start using the examples. The "-r" option of the copy command
 will also copy the contents of the sub-directories "*recursively*".
 
-```
-$ cp -r {{ examplesdir }} ~/
-```
+<pre><code><b>$ cp -r {{ examplesdir }} ~/</b>
+</code></pre>
 
 {%- if site == gent %}
 
 Go to your home directory, check your own private examples directory, ... and start working.
 
-```
-$ cd
-$ ls -l
-```
+<pre><code><b>$ cd</b>
+<b>$ ls -l</b>
+</code></pre>
 
 Upon connecting you will see a login message containing your last login time stamp and a basic overview of the current cluster utilisation.
 
-```
-Last login: Thu Mar 18 13:15:09 2021 from gligarha02.gastly.os
+<pre><code>Last login: Thu Mar 18 13:15:09 2021 from gligarha02.gastly.os
 
 STEVIN HPC-UGent infrastructure status on Thu, 18 Mar 2021 13:30:01
 
@@ -317,15 +304,14 @@ STEVIN HPC-UGent infrastructure status on Thu, 18 Mar 2021 13:30:01
 For a full view of the current loads and queues see:
 https://hpc.ugent.be/clusterstate/ 
 Updates on current system status and planned maintenance can be found on https://www.ugent.be/hpc/en/infrastructure/status
-```
+</code></pre>
 {% endif %}
 
 {%- if site == brussel %}
 Upon connecting you will see a login message containing your last login time stamp, some useful environment variable definitions and the message
 of the day (MOTD).
 
-```
-Last login: Thu Nov  6 16:05:21 2014 from example.vub.ac.be
+<pre><code>Last login: Thu Nov  6 16:05:21 2014 from example.vub.ac.be
 
 Initialising your working environment...
 System variables to use in your scripts/programs:
@@ -346,15 +332,14 @@ Message of the day:
         \  (oo)____
            (__)    )\
               ||--||
-```
+</code></pre>
 {% endif %}
 
 
 {%- if site == leuven %}
 Upon connecting you will see a login message containing your last login time stamp and some useful links.
 
-```
-Last login: Mon Jan 12 18:52:20 2015 from example.kuleuven.be
+<pre><code>Last login: Mon Jan 12 18:52:20 2015 from example.kuleuven.be
 **********************************************
 *                                            *
 * Please check the following site for        *
@@ -369,14 +354,13 @@ Last login: Mon Jan 12 18:52:20 2015 from example.kuleuven.be
 *                                            *
 *                                            *
 **********************************************
-```
+</code></pre>
 {% endif %}
 
 {%- if site == antwerpen %}
 Upon connection, you will get a welcome message containing your last login timestamp and some pointers to information about the system. On Leibniz, the system will also show your disk quota.
 
-```
-Last login: Mon Feb  2 17:58:13 2015 from mylaptop.uantwerpen.be
+<pre><code>Last login: Mon Feb  2 17:58:13 2015 from mylaptop.uantwerpen.be
 
 ---------------------------------------------------------------
 
@@ -411,16 +395,15 @@ Your quota is:
    small            1389     100000     110000     none
 
 ---------------------------------------------------------------
-```
+</code></pre>
 {% endif %}
 
 You can exit the connection at anytime by entering:
 
-```
-$ exit
+<pre><code>$ exit
 logout
 Connection to {{ loginnode }} closed.
-```
+</code></pre>
 
 !!! tip "tip: Setting your Language right"
     You may encounter a warning message similar to the following one during connecting:
@@ -464,15 +447,14 @@ depending on whether your originally (non-supported) locale was `UTF-8` or not.
 Open the `.bashrc` on your local machine with your favourite editor and
 add the following lines:
     
-```
-$ nano ~/.bashrc
+<pre><code><b>$ nano ~/.bashrc</b>
 ...
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 ...
-```
+</code></pre>
 
 !!! tip "tip: vi"
     To start entering text in vi: move to the place you want to start
@@ -483,18 +465,17 @@ export LANG="en_US.UTF-8"
 or alternatively (if you are not comfortable with the Linux editors),
 again on your local machine:
 
-```
-$ echo "export LANGUAGE=\"en_US.UTF-8\"" >> ∼/.profile
-$ echo "export LC_ALL=\"en_US.UTF-8\"" >> ∼/.profile
-$ echo "export LC_CTYPE=\"en_US.UTF-8\"" >> ∼/.profile
-$ echo "export LANG=\"en_US.UTF-8\"" >> ∼/.profile
-```
+<pre><code><b>$ echo "export LANGUAGE=\"en_US.UTF-8\"" >> ∼/.profile</b>
+<b>$ echo "export LC_ALL=\"en_US.UTF-8\"" >> ∼/.profile</b>
+<b>$ echo "export LC_CTYPE=\"en_US.UTF-8\"" >> ∼/.profile</b>
+<b>$ echo "export LANG=\"en_US.UTF-8\"" >> ∼/.profile</b>
+</code></pre>
 
 You can now log out, open a new terminal/shell on your local machine and
 reconnect to the , and you should not get these warnings anymore.
 {% endif %}
 
-## Transfer Files to/from the {{ hpc }}
+## Transfer Files to/from the HPC
 
 Before you can do some work, you'll have to **transfer the files** you need from your desktop or department to the cluster. At the end of a job, you might want to transfer some files back.
 
@@ -569,7 +550,7 @@ To transfer your files using WinSCP,
     {% endif %}
 
 
-{{ firsttimeconnection.firsttimeconnection(puttyFirstConnect, hpcinfo) }}
+{% include "../macros/firsttimeconnection.md" %}
 
 
 {%- if site == antwerpen %}
@@ -604,10 +585,9 @@ you have symlinks to them in your home directory. See{{ LinuxManualURL.LinuxManu
 Open an additional terminal window and check that you're working on your
 local machine.
 
-```
-$ hostname
+<pre><code><b>$ hostname</b>
 <local-machine-name>
-```
+</code></pre>
 
 If you're still using the terminal that is connected to the {{ hpc }}, close the
 connection by typing "exit" in the terminal window.
@@ -620,31 +600,29 @@ end: if you forget it, it will just create a file named {{ userid }}@{{ loginnod
 local filesystem. You can even specify where to save the file on the
 remote filesystem by putting a path after the colon.
 
-```
-$ echo "Hello" > localfile.txt
-$ ls -l 
+<pre><code><b>$ echo "Hello" > localfile.txt</b>
+<b>$ ls -l </b>
 ...
 -rw-r--r-- 1 user  staff   6 Sep 18 09:37 localfile.txt
 $ scp localfile.txt {{ userid }}@{{ loginnode }}
 localfile.txt     100%   6     0.0KB/s     00:00
-```
+</code></pre>
 
 Connect to the {{ hpc }} via another terminal, print the working directory (to
 make sure you're in the home directory) and check whether the file has
 arrived:
 
-```
-$ pwd
+<pre><code><b>$ pwd</b>
 {{ homedir }}
-$ ls -l 
+<b>$ ls -l </b>
 total 1536 
 drwxrwxr-x 2 
 drwxrwxr-x 2 
 drwxrwxr-x 10 
 -rw-r--r-- 1 
-$ cat localfile.txt
+<b>$ cat localfile.txt</b>
 Hello
-```
+</cod></pre>
 
 The **scp** command can also be used to copy files from the cluster to your
 local machine. Let us copy the remote file "intro-HPC-{{ OS }}-{{ site }}.pdf" from your "docs" 
@@ -653,24 +631,22 @@ subdirectory on the cluster to your local computer.
 First, we will confirm that the file is indeed in the "docs"
 subdirectory. On the terminal on the , enter:
 
-```
-$ cd ~/docs
-$ ls -l
+<pre><code><b>$ cd ~/docs</b>
+<b>$ ls -l</b>
 total 1536 
 -rw-r--r-- 1 {{ userid }} Sep 11 09:53 intro-HPC-{{ OS }}-{{ site }}.pdf
-```
+</code></pre>
 
 Now we will copy the file to the local machine. On the terminal on your
 own local computer, enter:
 
-```
-$ scp {{ userid }}@{{ loginnode }}:./docs/intro-HPC-{{ OS }}-{{ site }}.pdf .
+<pre><code><b>$ scp {{ userid }}@{{ loginnode }}:./docs/intro-HPC-{{ OS }}-{{ site }}.pdf .</b>
 intro-HPC-{{ OS }}-{{ site }}.pdf 100% 725KB 724.6KB/s 00:01
-$ ls -l
+<b>$ ls -l</b>
 total 899 
 -rw-r--r-- 1 user staff 741995 Sep 18 09:53 
 -rw-r--r-- 1 user staff      6 Sep 18 09:37 localfile.txt
-```
+</code></pre>
 
 The file has been copied from the HPC to your local computer.
 
@@ -679,17 +655,15 @@ the `-r` flag. For example, if we want to copy the local directory
 `dataset` to `$VSC_SCRATCH`, we can use the following command (assuming
 you've created the `scratch` symlink):
 
-```
-$ scp -r dataset {{ userid }}@{{ loginnode }}:scratch
-```
+<pre><code><b>$ scp -r dataset {{ userid }}@{{ loginnode }}:scratch</b>
+</code></pre>
 
 If you don't use the `-r` option to copy a directory, you will run into
 the following error:
 
-```
-$ scp -r dataset {{ userid }}@{{ loginnode }}:scratch
+<pre><code><b>$ scp -r dataset {{ userid }}@{{ loginnode }}:scratch</b>
 dataset: not a regular file
-```
+</code></pre>
 
 ### Using sftp
 
@@ -706,9 +680,8 @@ it uses the secure ssh protocol to connect to the clusters.
 
 One easy way of starting a sftp session is
 
-```
-$ sftp {{ userid }}@{{ loginnode }}
-```
+<pre><code><b>$ sftp {{ userid }}@{{ loginnode }}</b>
+</code></pre>
 
 Typical and popular commands inside an sftp session are:
 
@@ -767,18 +740,18 @@ This is the one-time setup you will need to do before connecting:
     new bookmark, click on the "+" sign on the bottom left of the
     window. A new window will open.
 
-2.  In the "Server" field, type in `{{ loginnode }}`. In the "Username" field, type in
+2.  In the drop-down menu on top, select "SFTP (SSH File Transfer Protocol)".
+
+3.  In the "Server" field, type in `{{ loginnode }}`. In the "Username" field, type in
     your VSC account id (this looks like `{{ userid }}`).
 
-3.  Click on "ore Options", select "Use Public Key Authentication" and
-    point it to your private key (the filename will be shown
-    underneath).
+4.  Select the location of your SSH *private* key in the "SSH Private Key" field.
 
-4.  Finally, type in a name for the bookmark in the "Nickname" field and
+5.  Finally, type in a name for the bookmark in the "Nickname" field and
     close the window by pressing on the red circle in the top left
     corner of the window.
 
-To open the scp connection, click on the "Bookmarks" icon (which
+To open the connection, click on the "Bookmarks" icon (which
 resembles an open book) and double-click on the bookmark you just
 created.
 {% endif %}

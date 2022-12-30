@@ -1,4 +1,6 @@
-# Running interactive jobs { #ch:running-interactive-jobs}
+{% set exampledir = 'examples/Running_interactive_jobs' %}
+
+# Running interactive jobs
 
 ## Introduction
 
@@ -8,38 +10,39 @@ means that the job control system guarantees the resources that you have
 asked for.
 
 Interactive PBS jobs are similar to non-interactive PBS jobs in that
-they are submitted to PBS via the command . Where an interactive job
+they are submitted to PBS via the command **qsub**. Where an interactive job
 differs is that it does not require a job script, the required PBS
 directives can be specified on the command line.
 
 Interactive jobs can be useful to debug certain job scripts or programs,
-but should not be the main use of the . Waiting for user input takes a
+but should not be the main use of the {{ hpcinfra }}. Waiting for user input takes a
 very long time in the life of a CPU and does not make efficient usage of
 the computing resources.
 
 The syntax for *qsub* for submitting an interactive PBS job is:
 
-::: prompt
-:::
+<pre><code><b>$ qsub -I <... pbs directives ...></b>
+</code></pre>
 
 ## Interactive jobs, without X support
 
-::: tip
-Find the code in "/"
-:::
+!!! tip
+    Find the code in "~/{{ exampledir }}"
 
 First of all, in order to know on which computer you're working, enter:
 
-::: prompt
-:::
+<pre><code><b>$ hostname -f</b>
+{{ loginhost }}
+</code></pre>
 
-This means that you're now working on the login node `` of the cluster.
+This means that you're now working on the login node ` {{ loginhost }} ` of the cluster.
 
 The most basic way to start an interactive job is the following:
 
-::: prompt
-qsub: waiting for job qsub: job
-:::
+<pre><code><b>$ qsub -I</b>
+qsub: waiting for job {{ jobid }} to start
+qsub: job {{ jobid }} ready
+</code></pre>
 
 There are two things of note here.
 
@@ -54,18 +57,20 @@ There are two things of note here.
 
 In order to know on which compute-node you're working, enter again:
 
-::: prompt
-:::
+<pre><code><b>$ hostname -f</b>
+{{ computenode }}
+</code></pre>
 
-Note that we are now working on the compute-node called "". This is the
+Note that we are now working on the compute-node called "*{{ computenode }}*". This is the
 compute node, which was assigned to us by the scheduler after issuing
 the "*qsub -I*" command.
 
+{% if site == antwerpen %}
 This computer name looks strange, but bears some logic in it. It
 provides the system administrators with information where to find the
 computer in the computer room.
 
-The computer "" stands for:
+The computer "*{{ computenodeshort }}*" stands for:
 
 1.  "r5" is rack #5.
 
@@ -76,15 +81,41 @@ The computer "" stands for:
 With this naming convention, the system administrator can easily find
 the physical computers when they need to execute some maintenance
 activities.
+{% endif %}
 
 Now, go to the directory of our second interactive example and run the
 program "primes.py". This program will ask you for an upper limit
 ($> 1$) and will print all the primes between 1 and your upper limit:
 
+<pre><code><b>$ cd ~/{{ exampledir }}</b>
+<b>$ ./primes.py</b>
+This program calculates all primes between 1 and your upper limit.
+Enter your upper limit (>1): <b>50</b>
+Start Time:  2013-09-11 15:49:06
+[Prime#1] = 1
+[Prime#2] = 2
+[Prime#3] = 3
+[Prime#4] = 5
+[Prime#5] = 7
+[Prime#6] = 11
+[Prime#7] = 13
+[Prime#8] = 17
+[Prime#9] = 19
+[Prime#10] = 23
+[Prime#11] = 29
+[Prime#12] = 31
+[Prime#13] = 37
+[Prime#14] = 41
+[Prime#15] = 43
+[Prime#16] = 47
+End Time:  2013-09-11 15:49:06
+Duration:  0 seconds.
+</code></pre>
+
 You can exit the interactive session with:
 
-::: prompt
-:::
+<pre><code><b>$ exit</b>
+</code></pre>
 
 Note that you can now use this allocated node for 1 hour. After this
 hour you will be automatically disconnected. You can change this "usage
@@ -94,8 +125,8 @@ watching the clock on the wall.)
 
 You can work for 3 hours by:
 
-::: prompt
-:::
+<pre><code><b>$ qsub -I -l walltime=03:00:00</b>
+</code></pre>
 
 If the walltime of the job is exceeded, the (interactive) job will be
 killed and your connection to the compute node will be closed. So do
@@ -109,12 +140,14 @@ walltime, you get a default walltime of 1 hour.
 
 To display graphical applications from a Linux computer (such as the VSC
 clusters) on your machine, you need to install an X Window server on
-your local computer. An X Window server is packaged by default on most
+your local computer.
+{% if OS == linux %}
+An X Window server is packaged by default on most
 Linux distributions. If you have a graphical user interface this
 generally means that you are using an X Window server.
-
-The X Window system (commonly known as , based on its current major
-version being 11, or shortened to simply ) is the system-level software
+{% endif %}
+The X Window system (commonly known as **X11**, based on its current major
+version being 11, or shortened to simply **X**) is the system-level software
 infrastructure for the windowing GUI on Linux, BSD and other UNIX-like
 operating systems. It was designed to handle both local displays, as
 well as displays sent across a network. More formally, it is a computer
@@ -122,32 +155,34 @@ software system and network protocol that provides a basis for graphical
 user interfaces (GUIs) and rich input device capability for networked
 computers.
 
+{% if OS == macos %}
 Download the latest version of the XQuartz package on:
 <http://xquartz.macosforge.org/landing/> and install the XQuartz.pkg
 package.
 
-::: center
-![image](../img/img0512.png){width="5.79in" height="4.12in"}
-:::
+<center>
+![image](../img/img0512.png)
+</center>
 
 The installer will take you through the installation procedure, just
-continue clicking on the various screens that will pop-up until your
+continue clicking ++"Continue"++ on the various screens that will pop-up until your
 installation was successful.
 
 A reboot is required before XQuartz will correctly open graphical
 applications.
 
-::: center
-![image](../img/img0513.png){width="5.81in" height="4.31in"}
-:::
-
+<center>
+![image](../img/img0513.png)
+</center>
+{% endif %}
+{% if OS == windows %}
 ##### Install Xming
 
 The first task is to install the Xming software.
 
 1.  Download the Xming installer from the following address:
     <http://www.straightrunning.com/XmingNotes/>. Either download Xming
-    from the (free) or from the (after a donation) on the website.
+    from the **Public Domain Releases** (free) or from the **Website Releases** (after a donation) on the website.
 
 2.  Run the Xming setup program on your Windows desktop.
 
@@ -156,45 +191,45 @@ The first task is to install the Xming software.
 4.  When selecting the components that need to be installed, make sure
     to select "*XLaunch wizard*" and "*Normal PuTTY Link SSH client*".
 
-    ::: center
-    ![image](../img/img0500.png){width="4.27in" height="3.32in"}
-    :::
+    <center>
+    ![image](../img/img0500.png)
+    <center>
 
 5.  We suggest to create a Desktop icon for Xming and XLaunch.
 
-6.  And .
+6.  And ++"Install"++.
 
 And now we can run Xming:
 
 1.  Select XLaunch from the Start Menu or by double-clicking the Desktop
     icon.
 
-2.  Select . This will open each application in a separate window.
+2.  Select ++"Multiple Windows"++. This will open each application in a separate window.
 
-    ::: center
-    ![image](../img/img0501.png){width="3.11in" height="3.11in"}
-    :::
+    <center>
+    ![image](../img/img0501.png)
+    </center>
 
-3.  Select to make XLaunch wait for other programs (such as PuTTY).
+3.  Select ++"Start no client"++ to make XLaunch wait for other programs (such as PuTTY).
 
-    ::: center
-    ![image](../img/img0502.png){width="4.60in" height="3.57in"}
-    :::
+    <center>
+    ![image](../img/img0502.png)
+    </center>
 
-4.  Select to share the clipboard.
+4.  Select ++"Clipboard"++ to share the clipboard.
 
-    ::: center
-    ![image](../img/img0503.png){width="4.01in" height="3.11in"}
-    :::
+    <center>
+    ![image](../img/img0503.png)
+    </center>
 
-5.  Finally into a file. You can keep the default filename and save it
+5.  Finally ++"Save configuration"++ into a file. You can keep the default filename and save it
     in your Xming installation directory.
 
-    ::: center
-    ![image](../img/img0504.png){width="3.90in" height="3.03in"}
-    :::
+    <center>
+    ![image](../img/img0504.png)
+    </center>
 
-6.  Now Xming is running in the background ...\
+6.  Now Xming is running in the background ...
     and you can launch a graphical application in your PuTTY terminal.
 
 7.  Open a PuTTY terminal and connect to the HPC.
@@ -202,27 +237,31 @@ And now we can run Xming:
 8.  In order to test the X-server, run "*xclock*". "*xclock*" is the
     standard GUI clock for the X Window System.
 
-::: prompt
-:::
+<pre><code><b>$ xclock</b>
+</code></pre>
 
 You should see the XWindow clock application appearing on your Windows
-machine. The "*xclock*" application runs on the login-node of the , but
+machine. The "*xclock*" application runs on the login-node of the {{ hpc }}, but
 is displayed on your Windows machine.
 
-::: center
-![image](../img/img0505.png){width="1.44in" height="1.62in"}
-:::
+<center>
+![image](../img/img0505.png)
+</center>
 
 You can close your clock and connect further to a compute node with
 again your X-forwarding enabled:
 
-::: prompt
-qsub: waiting for job qsub: job
-:::
+<pre><code><b>$ qsub -I -X</b>
+qsub: waiting for job {{ jobid }} to start
+qsub: job {{ jobid }} ready
+<b>$ hostname -f</b>
+{{ computenode }}
+<b>$ xclock</b>
+</code></pre>
 
 and you should see your clock again.
 
-##### SSH Tunnel { #par:ssh-tunnel-windows}
+##### SSH Tunnel
 
 In order to work in client/server mode, it is often required to
 establish an SSH tunnel between your Windows desktop machine and the
@@ -261,69 +300,78 @@ the cluster
 1.  Log in on the login node via PuTTY.
 
 2.  Start the server job, note the compute node's name the job is
-    running on (e.g., ), as well as the port the server is listening on
+    running on (e.g., {{ computenode }}), as well as the port the server is listening on
     (e.g., "54321").
 
 3.  Set up the tunnel:
 
     1.  Close your current PuTTY session.
 
-    2.  In the "*Category*" pane, expand , and select as show below:
+    2.  In the "*Category*" pane, expand ++"Connection>SSh"++, and select as show below:
 
-        ::: center
-        ![image](../img/img0506.png){width="4.85in" height="4.67in"}
-        :::
+        <center>
+        ![image](../img/img0506.png)
+        </center>
 
-    3.  In the field, enter the local port to use (e.g., *5555*).
+    3.  In the ++"Source port"++ field, enter the local port to use (e.g., *5555*).
 
-    4.  In the field, enter *\<hostname>:\<server-port>* (e.g., :54321
+    4.  In the ++"Destination"++ field, enter *<hostname>:<server-port>* (e.g., {{ computenode }}:54321
         as in the example above, these are the details you noted in the
         second step).
 
-    5.  Click the button.
+    5.  Click the ++"Add"++ button.
 
-    6.  Click the button
+    6.  Click the ++"Open"++ button
 
 The tunnel is now ready to use.
+{% endif %}
 
+{% if OS == (linux or macos) %}
 ### Connect with X-forwarding
 
 In order to get the graphical output of your application (which is
-running on a compute node on the ) transferred to your personal screen,
-you will need to reconnect to the with X-forwarding enabled, which is
+running on a compute node on the {{ hpc }}) transferred to your personal screen,
+you will need to reconnect to the {{ hpc }} with X-forwarding enabled, which is
 done with the "-X" option.
 
-::: center
-![image](../img/ch5-interactive-mode.png){width="5.78in" height="1.78in"}
-:::
+<center>
+![image](../img/ch5-interactive-mode.png)
+</center>
 
-First exit and reconnect to the with X-forwarding enabled:
+First exit and reconnect to the {{ hpc }} with X-forwarding enabled:
 
-::: prompt
-:::
+<pre><code><b>$ exit</b>
+<b>$ ssh --X {{ userid }}@{{ loginnode }}</b>
+<b>$ hostname -f</b>
+{{ loginhost }}
+</code></pre>
 
 We first check whether our GUIs on the login node are decently forwarded
 to your screen on your local machine. An easy way to test it is by
 running a small X-application on the login node. Type:
 
-::: prompt
-:::
+<pre><code><b>$ xclock</b>
+</code></pre>
 
 And you should see a clock appearing on your screen.
 
-::: center
-![image](../img/img0507.png){width="2.47in" height="2.78in"}
-:::
+<center>
+![image](../img/img0507.png)
+</center>
 
 You can close your clock and connect further to a compute node with
 again your X-forwarding enabled:
 
-::: prompt
-qsub: waiting for job qsub: job
-:::
+<pre><code><b>$ qsub -I -X</b>
+qsub: waiting for job {{ jobid }} to start
+qsub: job {{ jobid }} ready
+<b>$ hostname -f</b>
+{{ computenode }}
+<b>$ xclock</b>
+</code></pre>
 
 and you should see your clock again.
-
+{% endif %}
 ### Run simple example
 
 We have developed a little interactive program that shows the
@@ -332,23 +380,33 @@ screen, but also asks you to click a button.
 
 Now run the message program:
 
-::: prompt
-:::
+<pre><code><b>$ cd ~/{{ exampledir }}</b>
+<b>./message.py</b>
+</code></pre>
 
 You should see the following message appearing.
 
-::: center
-![image](../img/img0508.png){width="3.51in" height="1.47in"}
-:::
+<center>
+![image](../img/img0508.png)
+</center>
 
 Click any button and see what happens.
 
-::: prompt
------------------------ \< Enjoy the day! Mooh \>
------------------------ \^\_\_\^ (oo)\_\_\_\_\_\_\_ (\_\_) ) \|\|----w
-\| \|\| \|\|
-:::
+```
+-----------------------
+< Enjoy the day! Mooh >
+-----------------------
+     ^__^
+     (oo)\_______
+     (__)\       )\/\
+         ||----w |
+         ||     ||
 
+```
+{% if site == gent %}
+<!-- MATLAB is not available on the hpc in gent, we do not have enought licenses to start MATLAB on 1000 nodes -->
+{% endif %}
+{% if site != gent %}
 ### Run your interactive application
 
 In this last example, we will show you that you can just work on this
@@ -392,3 +450,4 @@ by entering "" in the command window again.
 ::: prompt
 fx \>\>
 :::
+{% endif %}

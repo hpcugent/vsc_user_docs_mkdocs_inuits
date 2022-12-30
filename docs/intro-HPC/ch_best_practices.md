@@ -2,7 +2,7 @@
 
 ## General Best Practices { #sec:general-best-practices}
 
-1.  Before starting you should always check:
+1.  Before starting, you should always check:
 
     -   Are there any errors in the script?
 
@@ -37,14 +37,17 @@
     You will have your default environment, so don't forget to load the
     software with `module load`.
 
+[//]: # (Do not worry, it will render with correct numbering in all cases.)
+{% if site != gent and site != brussel %}
 7.  In case your job not running, use "checkjob". It will show why your
     job is not yet running. Sometimes commands might timeout with an
     overloaded scheduler.
+{% endif %}
 
 8.  Submit your job and wait (be patient) ...
 
-9.  Submit small jobs by grouping them together. See for how this is
-    done.
+9.  Submit small jobs by grouping them together. See chapter [Multi-job submission](ch_multi_job_submission.md) for 
+    how this is done.
 
 10. The runtime is limited by the maximum walltime of the queues. For
     longer walltimes, use checkpointing.
@@ -55,5 +58,5 @@
 12. For all multi-node jobs, please use a cluster that has an
     "InfiniBand" interconnect network.
 
-13. And above all, do not hesitate to contact the staff at . We're here
+13. And above all, do not hesitate to contact the {{hpc}} staff at {{hpcinfo}}. We're here
     to help you.

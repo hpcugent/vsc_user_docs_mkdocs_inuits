@@ -1,4 +1,6 @@
-# Multi core jobs/Parallel Computing { #ch:multi-core-jobs-parallel-computing}
+{% set exampledir = 'examples/Multi_core_jobs_Parallel_Computing' %}
+
+# Multi core jobs/Parallel Computing 
 
 ## Why Parallel Programming?
 
@@ -26,16 +28,90 @@ approaches to parallel programming. In addition there are many problem
 specific libraries that incorporate parallel capabilities. The next
 three sections explore some common approaches: (raw) threads, OpenMP and
 MPI.
-
-  ------------------------------------------------------------------------ ------------------------------------------------------------------------ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                                                    
-  Raw threadspthreads, boost::threading, ...                               Threading libraries are available for all common programming languages   Threads are limited to shared memory systems. They are more often used on single node systems rather than for . Thread management is hard.
-  OpenMP                                                                   Fortran/C/C++                                                            Limited to shared memory systems, but large shared memory systems for HPC are not uncommon (e.g., SGI UV). Loops and task can be parallelised by simple insertion of compiler directives. Under the hood threads are used. Hybrid approaches exist which use OpenMP to parallelise the work load on each node and MPI (see below) for communication between nodes.
-  Lightweight threads with clever scheduling, Intel TBB, Intel Cilk Plus   C/C++                                                                    Limited to shared memory systems, but may be combined with MPI. Thread management is taken care of by a very clever scheduler enabling the programmer to focus on parallelisation itself. Hybrid approaches exist which use TBB and/or Cilk Plus to parallelise the work load on each node and MPI (see below) for communication between nodes.
-  MPI                                                                      Fortran/C/C++, Python                                                    Applies to both distributed and shared memory systems. Cooperation between different nodes or cores is managed by explicit calls to library routines handling communication routines.
-  Global Arrays library                                                    C/C++, Python                                                            Mimics a global address space on distributed memory systems, by distributing arrays over many nodes and one sided communication. This library is used a lot for chemical structure calculation codes and was used in one of the first applications that broke the PetaFlop barrier.
-  Scoop                                                                    Python                                                                   Applies to both shared and distributed memory system. Not extremely advanced, but may present a quick road to parallelisation of Python code.
-  ------------------------------------------------------------------------ ------------------------------------------------------------------------ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<table>
+    <tr>
+        <td colspan="3">
+            <center><b>Parallel programming approaches</b></center>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            <b>Tool</b>
+        </td>
+        <td colspan="1">
+            <b>Available languages binding</b>
+        </td>
+        <td colspan="1">
+            <b>Limitations</b>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            Raw threads pthreads, boost:: threading, ...
+        </td>
+        <td colspan="1">
+            Threading libraries are available for all common programming languages
+        </td>
+        <td colspan="1">
+            Threading libraries are available for all common programming languages & Threads are limited to shared memory systems. They are more often used on single node systems rather than for {{ hpc }}. Thread management is hard.
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            OpenMP
+        </td>
+        <td colspan="1">
+            Fortran/C/C++
+        </td>
+        <td colspan="1">
+            Limited to shared memory systems, but large shared memory systems for HPC are not uncommon (e.g., SGI UV). Loops and task can be parallelised by simple insertion of compiler directives. Under the hood threads are used. Hybrid approaches exist which use OpenMP to parallelise the work load on each node and MPI (see below) for communication between nodes.
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            Lightweight threads with clever scheduling, Intel TBB, Intel Cilk Plus
+        </td>
+        <td colspan="1">
+            C/C++
+        </td>
+        <td colspan="1">
+            Limited to shared memory systems, but may be combined with MPI. Thread management is taken care of by a very clever scheduler enabling the programmer to focus on parallelisation itself. Hybrid approaches exist which use TBB and/or Cilk Plus to parallelise the work load on each node and MPI (see below) for communication between nodes.
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            MPI
+        </td>
+        <td colspan="1">
+            Fortran/C/C++, Python
+        </td>
+        <td colspan="1">
+            Applies to both distributed and shared memory systems. Cooperation between different nodes or cores is managed by explicit calls to library routines handling communication routines.
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            Global Arrays library 
+        </td>
+        <td colspan="1">
+            C/C++, Python
+        </td>
+        <td colspan="1">
+            Mimics a global address space on distributed memory systems, by distributing arrays over many nodes and one sided communication. This library is used a lot for chemical structure calculation codes and was used in one of the first applications that broke the PetaFlop barrier.
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1">
+            scoop
+        </td>
+        <td colspan="1">
+            Python
+        </td>
+        <td colspan="1">
+            Applies to both shared and distributed memory system. Not extremely advanced, but may present a quick road to parallelisation of Python code.
+        </td>
+    </tr>
+</table>
 
 ## Parallel Computing with threads
 
@@ -47,9 +123,7 @@ useful abstraction of concurrent execution. Multi-threading can also be
 applied to a single process to enable parallel execution on a
 multiprocessing system.
 
-::: center
-![image](img0700){width="5.75in" height="2.39in"}
-:::
+![Image](../img/img0700.png)
 
 This advantage of a multithreaded program allows it to operate faster on
 computer systems that have multiple CPUs or across a cluster of machines
@@ -76,38 +150,59 @@ runs a simple function that only prints "Hello from thread".
 
 Go to the example directory:
 
-::: prompt
-:::
+<pre><code><b>$ cd ~/{{ exampledir }}</b>
+</code></pre>
 
 Study the example first:
+
+<div style="text-align: center;">-- T_hello.c --</div>
+
+```C
+{% include "./examples/Multi_core_jobs_Parallel_Computing/T_hello.c" %}
+```
 
 And compile it (whilst including the thread library) and run and test it
 on the login-node:
 
-::: prompt
-spawning thread 0 spawning thread 1 spawning thread 2 Hello from thread
-0! Hello from thread 1! Hello from thread 2! spawning thread 3 spawning
-thread 4 Hello from thread 3! Hello from thread 4!
-:::
+<pre><code><b>$ module load GCC</b>
+<b>$ gcc -o T_hello T_hello.c -lpthread</b>
+<b>$ ./T_hello</b>
+spawning thread 0
+spawning thread 1
+spawning thread 2
+Hello from thread 0!
+Hello from thread 1!
+Hello from thread 2!
+spawning thread 3
+spawning thread 4
+Hello from thread 3!
+Hello from thread 4!
+</code></pre>
 
 Now, run it on the cluster and check the output:
 
-::: prompt
-spawning thread 0 spawning thread 1 spawning thread 2 Hello from thread
-0! Hello from thread 1! Hello from thread 2! spawning thread 3 spawning
-thread 4 Hello from thread 3! Hello from thread 4!
-:::
+<pre><code><b>$ qsub T_hello.pbs</b>
+{{ jobid }}
+<b>$ more T_hello.pbs.o{{ jobid }}</b>
+spawning thread 0
+spawning thread 1
+spawning thread 2
+Hello from thread 0!
+Hello from thread 1!
+Hello from thread 2!
+spawning thread 3
+spawning thread 4
+Hello from thread 3!
+Hello from thread 4!
+</code></pre>
 
-::: tip
-If you plan engaging in parallel programming using threads, this book
-may prove useful: *Professional Multicore Programming: Design and
-Implementation for C++ Developers. Cameron Hughes and Tracey Hughes.
-Wrox 2008.*
-:::
+!!! tip
+    If you plan engaging in parallel programming using threads, this book
+    may prove useful: *Professional Multicore Programming: Design and Implementation for C++ Developers. Cameron Hughes and Tracey Hughes. Wrox 2008.*
 
 ## Parallel Computing with OpenMP
 
-is an API that implements a multi-threaded, shared memory form of
+***OpenMP*** is an API that implements a multi-threaded, shared memory form of
 parallelism. It uses a set of compiler directives (statements that you
 add to your code and that are recognised by your Fortran/C/C++ compiler
 if OpenMP is enabled or otherwise ignored) that are incorporated at
@@ -124,23 +219,28 @@ changes (in the form of compiler directives) are necessary to turn a
 working serial code into a working parallel code.
 
 Here is the general code structure of an OpenMP program:
+```C
+#include <omp.h>
+main ()  {
+int var1, var2, var3;
+// Serial code
+// Beginning of parallel section. Fork a team of threads.
+// Specify variable scoping
 
-::: code
-C #include \<omp.h> main ()
-
-int var1, var2, var3; // Serial code // Beginning of parallel section.
-Fork a team of threads. // Specify variable scoping
-
-#pragma omp parallel private(var1, var2) shared(var3) // Parallel
-section executed by all threads // All threads join master thread and
-disband // Resume serial code
-:::
+#pragma omp parallel private(var1, var2) shared(var3)
+  {
+  // Parallel section executed by all threads
+  // All threads join master thread and disband
+  }
+// Resume serial code
+}
+```
 
 ### Private versus Shared variables
 
 By using the private() and shared() clauses, you can specify variables
-within the parallel region as being , i.e., visible and accessible by
-all threads simultaneously, or , i.e., private to each thread, meaning
+within the parallel region as being **shared**, i.e., visible and accessible by
+all threads simultaneously, or **private**, i.e., private to each thread, meaning
 each thread will have its own local copy. In the code example below for
 parallelising a for loop, you can see that we specify the thread_id and
 nloops variables as private.
@@ -151,68 +251,88 @@ Parallelising for loops is really simple (see code below). By default,
 loop iteration counters in OpenMP loop constructs (in this case the i
 variable) in the for loop are set to private variables.
 
+<center>-- omp1.c --</center>
+
+```C
+{% include "./examples/Multi_core_jobs_Parallel_Computing/omp1.c" %}
+```
+
 And compile it (whilst including the "*openmp*" library) and run and
 test it on the login-node:
 
-::: prompt
-Thread 6 performed 125 iterations of the loop. Thread 7 performed 125
-iterations of the loop. Thread 5 performed 125 iterations of the loop.
-Thread 4 performed 125 iterations of the loop. Thread 0 performed 125
-iterations of the loop. Thread 2 performed 125 iterations of the loop.
-Thread 3 performed 125 iterations of the loop. Thread 1 performed 125
-iterations of the loop.
-:::
+<pre><code><b>$ module load GCC</b>
+<b>$ gcc -fopenmp -o omp1 omp1.c</b>
+<b>$ ./omp1</b>
+Thread 6 performed 125 iterations of the loop.
+Thread 7 performed 125 iterations of the loop.
+Thread 5 performed 125 iterations of the loop.
+Thread 4 performed 125 iterations of the loop.
+Thread 0 performed 125 iterations of the loop.
+Thread 2 performed 125 iterations of the loop.
+Thread 3 performed 125 iterations of the loop.
+Thread 1 performed 125 iterations of the loop.
+</code></pre>
 
 Now run it in the cluster and check the result again.
 
-::: prompt
-Thread 1 performed 125 iterations of the loop. Thread 4 performed 125
-iterations of the loop. Thread 3 performed 125 iterations of the loop.
-Thread 0 performed 125 iterations of the loop. Thread 5 performed 125
-iterations of the loop. Thread 7 performed 125 iterations of the loop.
-Thread 2 performed 125 iterations of the loop. Thread 6 performed 125
-iterations of the loop.
-:::
+<pre><code><b>$ qsub omp1.pbs</b>
+<b>$ cat omp1.pbs.o*</b>
+Thread 1 performed 125 iterations of the loop.
+Thread 4 performed 125 iterations of the loop.
+Thread 3 performed 125 iterations of the loop.
+Thread 0 performed 125 iterations of the loop.
+Thread 5 performed 125 iterations of the loop.
+Thread 7 performed 125 iterations of the loop.
+Thread 2 performed 125 iterations of the loop.
+Thread 6 performed 125 iterations of the loop.
+</code></pre>
 
 ### Critical Code
 
 Using OpenMP you can specify something called a "critical" section of
 code. This is code that is performed by all threads, but is only
-performed (i.e., in serial). This provides a convenient way of letting
+performed **one thread at a time** (i.e., in serial). This provides a convenient way of letting
 you do things like updating a global variable with local results from
 each thread, and you don't have to worry about things like other threads
 writing to that global variable at the same time (a collision).
 
+<center>-- omp2.c --</center>
+
+```C
+{% include "./examples/Multi_core_jobs_Parallel_Computing/omp2.c" %}
+```
+
 And compile it (whilst including the "*openmp*" library) and run and
 test it on the login-node:
 
-::: prompt
-Thread 3 is adding its iterations (12500) to sum (0), total is now
-12500. Thread 7 is adding its iterations (12500) to sum (12500), total
-is now 25000. Thread 5 is adding its iterations (12500) to sum (25000),
-total is now 37500. Thread 6 is adding its iterations (12500) to sum
-(37500), total is now 50000. Thread 2 is adding its iterations (12500)
-to sum (50000), total is now 62500. Thread 4 is adding its iterations
-(12500) to sum (62500), total is now 75000. Thread 1 is adding its
-iterations (12500) to sum (75000), total is now 87500. Thread 0 is
-adding its iterations (12500) to sum (87500), total is now 100000. Total
-\# loop iterations is 100000
-:::
+<pre><code><b>$ module load GCC</b>
+<b>$ gcc -fopenmp -o omp2 omp2.c</b>
+<b>$ ./omp2</b>
+Thread 3 is adding its iterations (12500) to sum (0), total is now 12500.
+Thread 7 is adding its iterations (12500) to sum (12500), total is now 25000.
+Thread 5 is adding its iterations (12500) to sum (25000), total is now 37500.
+Thread 6 is adding its iterations (12500) to sum (37500), total is now 50000.
+Thread 2 is adding its iterations (12500) to sum (50000), total is now 62500.
+Thread 4 is adding its iterations (12500) to sum (62500), total is now 75000.
+Thread 1 is adding its iterations (12500) to sum (75000), total is now 87500.
+Thread 0 is adding its iterations (12500) to sum (87500), total is now 100000.
+Total # loop iterations is 100000
+</code></pre>
 
 Now run it in the cluster and check the result again.
 
-::: prompt
-Thread 2 is adding its iterations (12500) to sum (0), total is now
-12500. Thread 0 is adding its iterations (12500) to sum (12500), total
-is now 25000. Thread 1 is adding its iterations (12500) to sum (25000),
-total is now 37500. Thread 4 is adding its iterations (12500) to sum
-(37500), total is now 50000. Thread 7 is adding its iterations (12500)
-to sum (50000), total is now 62500. Thread 3 is adding its iterations
-(12500) to sum (62500), total is now 75000. Thread 5 is adding its
-iterations (12500) to sum (75000), total is now 87500. Thread 6 is
-adding its iterations (12500) to sum (87500), total is now 100000. Total
-\# loop iterations is 100000
-:::
+<pre><code><b>$ qsub omp2.pbs</b>
+<b>$ cat omp2.pbs.o*</b>
+Thread 2 is adding its iterations (12500) to sum (0), total is now 12500.
+Thread 0 is adding its iterations (12500) to sum (12500), total is now 25000.
+Thread 1 is adding its iterations (12500) to sum (25000), total is now 37500.
+Thread 4 is adding its iterations (12500) to sum (37500), total is now 50000.
+Thread 7 is adding its iterations (12500) to sum (50000), total is now 62500.
+Thread 3 is adding its iterations (12500) to sum (62500), total is now 75000.
+Thread 5 is adding its iterations (12500) to sum (75000), total is now 87500.
+Thread 6 is adding its iterations (12500) to sum (87500), total is now 100000.
+Total # loop iterations is 100000
+</code></pre>
 
 ### Reduction
 
@@ -224,18 +344,27 @@ example above, where we used the "critical code" directive to accomplish
 this. The map-reduce paradigm is so common that OpenMP has a specific
 directive that allows you to more easily implement this.
 
+<div style="text-align: center;">-- omp3.c --</div>
+
+```C
+{% include "./examples/Multi_core_jobs_Parallel_Computing/omp3.c" %}
+```
+
 And compile it (whilst including the "*openmp*" library) and run and
 test it on the login-node:
 
-::: prompt
-Total \# loop iterations is 100000
-:::
+<pre><code><b>$ module load GCC</b>
+<b>$ gcc -fopenmp -o omp3 omp3.c</b>
+<b>$ ./omp3</b>
+Total # loop iterations is 100000
+</code></pre>
 
 Now run it in the cluster and check the result again.
 
-::: prompt
-Total \# loop iterations is 100000
-:::
+<pre><code><b>$ qsub omp3.pbs</b>
+<b>$ cat omp3.pbs.o*</b>
+Total # loop iterations is 100000
+</code></pre>
 
 ### Other OpenMP directives
 
@@ -256,12 +385,11 @@ Some other clauses of interest are:
 
 5.  ... and a host of others
 
-::: tip
-If you plan engaging in parallel programming using OpenMP, this book may
-prove useful: *Using OpenMP - Portable Shared Memory Parallel
-Programming*. By Barbara Chapman Gabriele Jost and Ruud van der Pas
-Scientific and Engineering Computation. 2005.
-:::
+!!! tip
+    If you plan engaging in parallel programming using OpenMP, this book may
+    prove useful: *Using OpenMP - Portable Shared Memory Parallel
+    Programming*. By Barbara Chapman Gabriele Jost and Ruud van der Pas
+    Scientific and Engineering Computation. 2005.
 
 ## Parallel Computing with MPI
 
@@ -279,9 +407,8 @@ a single executable running concurrently on multiple processors, with
 communication between the processes. This is shown in the following
 diagram:
 
-::: center
-![image](img0701){width="1.50in" height="1.59in"}
-:::
+
+![Image](../img/img0701.png){ style="display: block; margin: 0 auto" }
 
 The process numbers 0, 1 and 2 represent the process rank and have
 greater or less significance depending on the processing paradigm. At
@@ -307,29 +434,55 @@ return the results to the main process, and print the messages.
 
 Study the MPI-programme and the PBS-file:
 
+<div style="text-align: center;">-- mpi_hello.c --</div>
+
+```C
+{% include "./examples/Multi_core_jobs_Parallel_Computing/mpi_hello.c" %}
+```
+
+<div style="text-align: center;">-- mpi_hello.pbs --</div>
+
+```bash
+{% include "./examples/Multi_core_jobs_Parallel_Computing/mpi_hello.pbs" %}
+```
+
 and compile it:
 
-::: prompt
-:::
+<pre><code><b>$ module load intel</b>
+<b>$ mpiicc -o mpi_hello mpi_hello.c</b>
+</code></pre>
 
 mpiicc is a wrapper of the Intel C++ compiler icc to compile MPI
 programs (see the chapter on compilation for details).
 
 Run the parallel program:
 
-::: prompt
-total 1024 -rwxrwxr-x 1 -rw-r--r-- 1 -rw------- 1 -rw------- 1
--rw-r--r-- 1 0: We have 16 processors 0: Hello 1! Processor 1 reporting
-for duty 0: Hello 2! Processor 2 reporting for duty 0: Hello 3!
-Processor 3 reporting for duty 0: Hello 4! Processor 4 reporting for
-duty 0: Hello 5! Processor 5 reporting for duty 0: Hello 6! Processor 6
-reporting for duty 0: Hello 7! Processor 7 reporting for duty 0: Hello
-8! Processor 8 reporting for duty 0: Hello 9! Processor 9 reporting for
-duty 0: Hello 10! Processor 10 reporting for duty 0: Hello 11! Processor
-11 reporting for duty 0: Hello 12! Processor 12 reporting for duty 0:
-Hello 13! Processor 13 reporting for duty 0: Hello 14! Processor 14
-reporting for duty 0: Hello 15! Processor 15 reporting for duty
-:::
+<pre><code><b>$ qsub mpi_hello.pbs</b>
+<b>$ ls -l</b>
+total 1024
+-rwxrwxr-x 1 {{ userid }} 8746 Sep 16 14:19 mpi_hello*
+-rw-r--r-- 1 {{ userid }} 1626 Sep 16 14:18 mpi_hello.c
+-rw------- 1 {{ userid }}    0 Sep 16 14:22 mpi_hello.o{{ jobid }}
+-rw------- 1 {{ userid }}  697 Sep 16 14:22 mpi_hello.o{{ jobid }}
+-rw-r--r-- 1 {{ userid }}  304 Sep 16 14:22 mpi_hello.pbs
+<b>$ cat mpi_hello.o{{ jobid }}</b>
+0: We have 16 processors
+0: Hello 1! Processor 1 reporting for duty
+0: Hello 2! Processor 2 reporting for duty
+0: Hello 3! Processor 3 reporting for duty
+0: Hello 4! Processor 4 reporting for duty
+0: Hello 5! Processor 5 reporting for duty
+0: Hello 6! Processor 6 reporting for duty
+0: Hello 7! Processor 7 reporting for duty
+0: Hello 8! Processor 8 reporting for duty
+0: Hello 9! Processor 9 reporting for duty
+0: Hello 10! Processor 10 reporting for duty
+0: Hello 11! Processor 11 reporting for duty
+0: Hello 12! Processor 12 reporting for duty
+0: Hello 13! Processor 13 reporting for duty
+0: Hello 14! Processor 14 reporting for duty
+0: Hello 15! Processor 15 reporting for duty
+</code></pre>
 
 The runtime environment for the MPI implementation used (often called
 mpirun or mpiexec) spawns multiple copies of the program, with the total
@@ -358,19 +511,18 @@ scale to the runtime configuration without compilation for each size
 variation, although runtime decisions might vary depending on that
 absolute amount of concurrency available.
 
-::: tip
-mpirun does not always do the optimal core pinning and requires a few
-extra arguments to be the most efficient possible on a given system. At
-Ghent we have a wrapper around `mpirun` called `mympirun`. See for more
-information.
+{% if site == gent %}
+!!! tip
+    mpirun does not always do the optimal core pinning and requires a few
+    extra arguments to be the most efficient possible on a given system. At
+    Ghent we have a wrapper around `mpirun` called `mympirun`. See for more
+    information.
 
-You will generally just start an MPI program on the by using `mympirun`
-instead of
-`mpirun -n <nr of cores> <--other settings> <--other optimisations>`
-:::
+    You will generally just start an MPI program on the by using `mympirun`
+    instead of
+    `mpirun -n <nr of cores> <--other settings> <--other optimisations>`
 
-::: tip
-If you plan engaging in parallel programming using MPI, this book may
-prove useful: *Parallel Programming with MPI. Peter Pacheo. Morgan
-Kaufmann. 1996.*
-:::
+{% endif %}
+
+!!! tip
+If you plan engaging in parallel programming using MPI, this book may prove useful: *Parallel Programming with MPI. Peter Pacheo. Morgan Kaufmann. 1996.*
