@@ -1,0 +1,33 @@
+---
+# documentation: https://help.github.com/en/articles/workflow-syntax-for-github-actions
+name: deploy docs (only on push to main branch)
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches: main
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: install required Python packages
+        run: |
+            pip install -r requirements.txt
+            mkdocs --version
+
+      - name: build and deploy docs
+        # run: mkdocs build --strict && mkdocs gh-deploy --force
+        run: |
+          cd custom_plugin && pip install . && cd -
+          cd computational_macros && pip install . && cd -
+          python3 -m pip list
+          python3 build.py
+          mkdocs gh-deploy --force
