@@ -23,12 +23,26 @@ jobs:
             pip install -r requirements.txt
             mkdocs --version
 
-      - name: build and deploy docs
-        # run: mkdocs build --strict && mkdocs gh-deploy --force
+      # equivalent of 'mkdocs build', but need to build all flavors of the docs (different site/OS)
+      - name: build docs
         run: |
           cd custom_plugin && pip install . && cd -
           cd computational_macros && pip install . && cd -
           python3 -m pip list
-          pwd
           python3 build.py
-          mkdocs gh-deploy --force
+
+      # equivalent with 'mkdocs gh-deploy'
+      - name: deploy docs
+        run: |
+          git remote -v
+          git branch -a
+          git config user.email "${{github.event.pusher.email}}"
+          git config user.name "${{github.event.pusher.name}}"
+          pwd
+          ls
+          git checkout gh-pages
+          ls build
+          mv build/HPC .
+          git add HPC
+          git commit -m "deployed rendered docs (${GITHUB_SHA})"
+          git push origin gh-pages
