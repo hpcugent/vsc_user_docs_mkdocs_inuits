@@ -33,12 +33,9 @@ def load_config(landing_page_yml):
 
 def run_build(args, subsite):
     for subsite_dir, subsite_yml in subsite.items():
-        process = subprocess.run(
-            f"mkdocs build -f {subsite_yml} -d "
-            f"{os.path.join(build_dir, subsite_dir)}",
-            shell=True,
-            capture_output=True,
-        )
+        cmd = f"mkdocs build -f {subsite_yml} -d {os.path.join(build_dir, subsite_dir)}"
+        print(f">> {cmd}")
+        process = subprocess.run(cmd, shell=True, capture_output=True)
         if not args.ignore_errors and process.returncode != 0:
             raise BuildException(process.stderr.decode("utf8"))
         if args.verbose and process.stdout:
@@ -83,11 +80,9 @@ if __name__ == "__main__":
     try:
         # Build landing page.
         if not args.skip_landing_page:
-            subp = subprocess.run(
-                f"mkdocs build -f {landing_page_yml} -d" f"{os.path.join(build_dir)}",
-                shell=True,
-                capture_output=True,
-            )
+            cmd = f"mkdocs build -f {landing_page_yml} -d" f"{os.path.join(build_dir)}"
+            print(f">> {cmd}")
+            subp = subprocess.run(cmd, shell=True, capture_output=True)
             if not args.ignore_errors and subp.returncode != 0:
                 raise BuildException(subp.stderr.decode("utf8"))
             if args.verbose and subp.stdout:
