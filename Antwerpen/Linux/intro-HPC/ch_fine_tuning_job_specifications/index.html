@@ -1,0 +1,955 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Fine-tuning Job Specifications { #ch:fine-tuning-job-specifications} - VSC User Documentation - Antwerpen</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ch:fine-tuning-job-specifications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VSC User Documentation - Antwerpen" class="md-header__button md-logo" aria-label="VSC User Documentation - Antwerpen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VSC User Documentation - Antwerpen
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fine-tuning Job Specifications { #ch:fine-tuning-job-specifications}
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ch_introduction/" class="md-tabs__link">
+        HPC Tutorial
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VSC User Documentation - Antwerpen" class="md-nav__button md-logo" aria-label="VSC User Documentation - Antwerpen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    VSC User Documentation - Antwerpen
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          HPC Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          HPC Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch_introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Antwerpen/Linux/intro-HPC/ch_account/" class="md-nav__link">
+        Getting an HPC Account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch_connecting/" class="md-nav__link">
+        Connecting to the HPC infrastructure
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sec:specifying-walltime-requirements" class="md-nav__link">
+    Specifying Walltime
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="ch:fine-tuning-job-specifications">Fine-tuning Job Specifications<a class="headerlink" href="#ch:fine-tuning-job-specifications" title="Permanent link">#</a></h1>
+<p>As system administrators, we often observe that the resources are not
+optimally (or wisely) used. For example, we regularly notice that
+several cores on a computing node are not utilised, due to the fact that
+one sequential program uses only one <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> on the node. Or users run I/O
+intensive applications on nodes with "slow" network connections.</p>
+<p>Users often tend to run their jobs without specifying specific PBS Job
+parameters. As such, their job will automatically use the default
+parameters, which are not necessarily (or rarely) the optimal ones. This
+can slow down the run time of your application, but also block resources
+for other users.</p>
+<p>Specifying the "optimal" Job Parameters requires some knowledge of your
+application (e.g., how many parallel threads does my application uses,
+is there a lot of inter-process communication, how much memory does my
+application need) and also some knowledge about the infrastructure
+(e.g., what kind of multi-<abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> processors are available, which nodes
+have InfiniBand).</p>
+<p>There are plenty of monitoring tools on Linux available to the user,
+which are useful to analyse your individual application. The environment
+as a whole often requires different techniques, metrics and time goals,
+which are not discussed here. We will focus on tools that can help to
+optimise your Job Specifications.</p>
+<p>Determining the optimal computer resource specifications can be broken
+down into different parts. The first is actually determining which
+metrics are needed and then collecting that data from the hosts. Some of
+the most commonly tracked metrics are CPU usage, memory consumption,
+network bandwidth, and disk I/O stats. These provide different
+indications of how well a system is performing, and may indicate where
+there are potential problems or performance bottlenecks. Once the data
+have actually been acquired, the second task is analysing the data and
+adapting your PBS Job Specifications.</p>
+<p>Another different task is to monitor the behaviour of an application at
+run time and detect anomalies or unexpected behaviour. Linux provides a
+large number of utilities to monitor the performance of its components.</p>
+<p>This chapter shows you how to measure:</p>
+<ol>
+<li>
+<p>Walltime</p>
+</li>
+<li>
+<p>Memory usage</p>
+</li>
+<li>
+<p>CPU usage</p>
+</li>
+<li>
+<p>Disk (storage) needs</p>
+</li>
+<li>
+<p>Network bottlenecks</p>
+</li>
+</ol>
+<p>First, we allocate a compute node and move to our relevant directory:</p>
+<p>::: prompt
+:::</p>
+<h2 id="sec:specifying-walltime-requirements">Specifying Walltime<a class="headerlink" href="#sec:specifying-walltime-requirements" title="Permanent link">#</a></h2>
+<p>One of the most important and also easiest parameters to measure is the
+duration of your program. This information is needed to specify the
+<em>walltime</em>.</p>
+<p>The <em>time</em> utility and your application. You can just add the time
+command in front of your normal command line, including your command
+line options. After your executable has finished, writes the total time
+elapsed, the time consumed by system overhead, and the time used to
+execute your executable to the standard error stream. The calculated
+times are reported in seconds.</p>
+<p>Test the time command:</p>
+<p>::: prompt
+real 1m15.005s user 0m0.001s sys 0m0.002s
+:::</p>
+<p>It is a good practice to correctly estimate and specify the run time
+(duration) of an application. Of course, a margin of 10% to 20% can be
+taken to be on the safe side.</p>
+<p>It is also wise to check the walltime on different compute nodes or to
+select the "slowest" compute node for your walltime tests. Your estimate
+should appropriate in case your application will run on the "slowest"
+(oldest) compute nodes.</p>
+<p>The walltime can be specified in a job scripts as:</p>
+<p>::: prompt</p>
+<h1 id="pbs-l-walltime3000000">PBS -l walltime=3:00:00:00<a class="headerlink" href="#pbs-l-walltime3000000" title="Permanent link">#</a></h1>
+<p>:::</p>
+<p>or on the command line</p>
+<p>::: prompt
+:::</p>
+<p>It is recommended to always specify the walltime for a job.</p>
+<h2 id="sec:specifying-memory-requirements">Specifying memory requirements<a class="headerlink" href="#sec:specifying-memory-requirements" title="Permanent link">#</a></h2>
+<p>In many situations, it is useful to monitor the amount of memory an
+application is using. You need this information to determine the
+characteristics of the required compute node, where that application
+should run on. Estimating the amount of memory an application will use
+during execution is often non-trivial, especially when one uses
+third-party software.</p>
+<p>The "eat_mem" application in the <abbr title="High Performance Computing, high performance computing and multiple-task computing on a supercomputer.">HPC</abbr> examples directory just consumes
+and then releases memory, for the purpose of this test. It has one
+parameter, the amount of gigabytes of memory which needs to be
+allocated.</p>
+<p>First compile the program on your machine and then test it for 1 GB:</p>
+<p>::: prompt
+Consuming 1 gigabyte of memory.
+:::</p>
+<h3 id="available-memory-on-the-machine">Available Memory on the machine<a class="headerlink" href="#available-memory-on-the-machine" title="Permanent link">#</a></h3>
+<p>The first point is to be aware of the available free memory in your
+computer. The "<em>free</em>" command displays the total amount of free and
+used physical and swap memory in the system, as well as the buffers used
+by the kernel. We also use the options "-m" to see the results expressed
+in Mega-Bytes and the "-t" option to get totals.</p>
+<p>::: prompt
+total used free shared buffers cached Mem: 16049 4772 11277 0 107 161
+-/+ buffers/cache: 4503 11546 Swap: 16002 4185 11816 Total: 32052 8957
+23094
+:::</p>
+<p>Important is to note the total amount of memory available in the machine
+(i.e., 16 GB in this example) and the amount of used and free memory
+(i.e., 4.7 GB is used and another 11.2 GB is free here).</p>
+<p>It is not a good practice to use swap-space for your computational
+applications. A lot of "swapping" can increase the execution time of
+your application tremendously.</p>
+<p>On the UGent clusters, there is no swap space available for jobs, you
+can only use physical memory, even though "<em>free</em>" will show swap.</p>
+<h3 id="checking-the-memory-consumption">Checking the memory consumption<a class="headerlink" href="#checking-the-memory-consumption" title="Permanent link">#</a></h3>
+<p>The "Monitor" tool monitors applications in terms of memory and CPU
+usage, as well as the size of temporary files. Note that currently only
+single node jobs are supported, MPI support may be added in a future
+release.</p>
+<p>To start using monitor, first load the appropriate module. Then we study
+the "eat_mem.c" program and compile it:</p>
+<p>::: prompt
+:::</p>
+<p>Starting a program to monitor is very straightforward; you just add the
+"monitor" command before the regular command line.</p>
+<p>::: prompt
+time (s) size (kb) Consuming 3 gigabyte of memory. 5 252900 1.4 0.6 10
+498592 2.9 0.3 15 743256 4.4 0.3 20 988948 5.9 0.3 25 1233612 7.4 0.3 30
+1479304 8.9 0.2 35 1723968 10.4 0.2 40 1969660 11.9 0.2 45 2214324 13.4
+0.2 50 2460016 14.9 0.2 55 2704680 16.4 0.2 60 2950372 17.9 0.2 65
+3167280 19.2 0.2 70 3167280 19.2 0.2 75 9264 0 0.5 80 9264 0 0.4
+:::</p>
+<p>Whereby:</p>
+<ol>
+<li>
+<p>The first column shows you the elapsed time in seconds. By default,
+    all values will be displayed every 5 seconds.</p>
+</li>
+<li>
+<p>The second column shows you the used memory in kb. We note that the
+    memory slowly increases up to just over 3 GB (3GB is 3,145,728 KB),
+    and is released again.</p>
+</li>
+<li>
+<p>The third column shows the memory utilisation, expressed in
+    percentages of the full available memory. At full memory
+    consumption, 19.2% of the memory was being used by our application.
+    With the <em>"free"</em> command, we have previously seen that we had a
+    node of 16 GB in this example. 3 GB is indeed more or less 19.2% of
+    the full available memory.</p>
+</li>
+<li>
+<p>The fourth column shows you the CPU utilisation, expressed in
+    percentages of a full CPU load. As there are no computations done in
+    our exercise, the value remains very low (i.e., 0.2%).</p>
+</li>
+</ol>
+<p>Monitor will write the CPU usage and memory consumption of simulation to
+standard error.</p>
+<p>This is the rate at which monitor samples the program's metrics. Since
+monitor's output may interfere with that of the program to monitor, it
+is often convenient to use a log file. The latter can be specified as
+follows:</p>
+<p>::: prompt
+Consuming 2 gigabyte of memory.
+:::</p>
+<p>For long running programs, it may be convenient to limit the output to,
+e.g., the last minute of the programs execution. Since monitor provides
+metrics every 5 seconds, this implies we want to limit the output to the
+last 12 values to cover a minute:</p>
+<p>::: prompt
+Consuming 4 gigabyte of memory.
+:::</p>
+<p>Note that this option is only available when monitor writes its metrics
+to a log file, not when standard error is used.</p>
+<p>The interval at which monitor will show the metrics can be modified by
+specifying delta, the sample rate:</p>
+<p>::: prompt
+Consuming 3 gigabyte of memory.
+:::</p>
+<p>Monitor will now print the program's metrics every second. Note that the
+minimum delta value is 1 second.</p>
+<p>To monitor the memory consumption of a running application, you can use
+the "<em>top</em>" or the "<em>htop</em>" command. Alternative options to monitor the
+memory consumption are the "<em>top</em>" or the "<em>htop</em>" command.</p>
+<p>top</p>
+<p>:   provides an ongoing look at processor activity in real time. It
+    displays a listing of the most CPU-intensive tasks on the system,
+    and can provide an interactive interface for manipulating processes.
+    It can sort the tasks by memory usage, CPU usage and run time.</p>
+<p>htop</p>
+<p>:   is similar to top, but shows the CPU-utilisation for all the CPUs in
+    the machine and allows to scroll the list vertically and
+    horizontally to see all processes and their full command lines.</p>
+<p>::: prompt
+:::</p>
+<h3 id="setting-the-memory-parameter">Setting the memory parameter<a class="headerlink" href="#setting-the-memory-parameter" title="Permanent link">#</a></h3>
+<p>Once you gathered a good idea of the overall memory consumption of your
+application, you can define it in your job script. It is wise to foresee
+a margin of about 10%.</p>
+<p>The maximum amount of physical memory used by the job can be specified
+in a job script as:</p>
+<p>::: prompt</p>
+<h1 id="pbs-l-mem4gb">PBS -l mem=4gb<a class="headerlink" href="#pbs-l-mem4gb" title="Permanent link">#</a></h1>
+<p>:::</p>
+<p>or on the command line</p>
+<p>::: prompt
+:::</p>
+<p>This setting is ignored if the number of nodes is not 1.</p>
+<p>When you are running a parallel application over multiple cores, you can
+also specify the memory requirements per processor (pmem). This
+directive specifies the maximum amount of physical memory used by any
+process in the job.</p>
+<p>For example, if the job would run four processes and each would use up
+to 2 GB (gigabytes) of memory, then the memory directive would read:</p>
+<p>::: prompt</p>
+<h1 id="pbs-l-pmem2gb">PBS -l pmem=2gb<a class="headerlink" href="#pbs-l-pmem2gb" title="Permanent link">#</a></h1>
+<p>:::</p>
+<p>or on the command line</p>
+<p>::: prompt
+:::</p>
+<p>(and of course this would need to be combined with a CPU cores directive
+such as nodes=1:ppn=4). In this example, you request 8 GB of memory in
+total on the node.</p>
+<h2 id="specifying-processors-requirements">Specifying processors requirements<a class="headerlink" href="#specifying-processors-requirements" title="Permanent link">#</a></h2>
+<p>Users are encouraged to fully utilise all the available cores on a
+certain compute node. Once the required numbers of cores and nodes are
+decently specified, it is also good practice to monitor the CPU
+utilisation on these cores and to make sure that all the assigned nodes
+are working at full load.</p>
+<h3 id="number-of-processors">Number of processors<a class="headerlink" href="#number-of-processors" title="Permanent link">#</a></h3>
+<p>The number of <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> and nodes that a user shall request fully depends on
+the architecture of the application. Developers design their
+applications with a strategy for parallelisation in mind. The
+application can be designed for a certain fixed number or for a
+configurable number of nodes and cores. It is wise to target a specific
+set of compute nodes (e.g., Westmere, Harpertown) for your computing
+work and then to configure your software to nicely fill up all
+processors on these compute nodes.</p>
+<p>The <em>/proc/cpuinfo</em> stores info about your CPU architecture like number
+of CPUs, threads, cores, information about CPU caches, CPU family, model
+and much more. So, if you want to detect how many cores are available on
+a specific machine:</p>
+<p>::: prompt
+processor : 0 vendor_id : GenuineIntel cpu family : 6 model : 23 model
+name : Intel(R) Xeon(R) CPU E5420 @ 2.50GHz stepping : 10 cpu MHz :
+2500.088 cache size : 6144 KB
+:::</p>
+<p>Or if you want to see it in a more readable format, execute:</p>
+<p>::: prompt
+processor : 0 processor : 1 processor : 2 processor : 3 processor : 4
+processor : 5 processor : 6 processor : 7
+:::</p>
+<p>: Unless you want information of the login nodes, you'll have to issue
+these commands on one of the workernodes. This is most easily achieved
+in an interactive job, see the chapter on Running interactive jobs.</p>
+<p>In order to specify the number of nodes and the number of processors per
+node in your job script, use:</p>
+<p>::: prompt</p>
+<h1 id="pbs-l-nodesnppnm">PBS -l nodes=N:ppn=M<a class="headerlink" href="#pbs-l-nodesnppnm" title="Permanent link">#</a></h1>
+<p>:::</p>
+<p>or with equivalent parameters on the command line</p>
+<p>::: prompt
+:::</p>
+<p>This specifies the number of nodes (nodes=N) and the number of
+processors per node (ppn=M) that the job should use. PBS treats a
+processor <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> as a processor, so a system with eight cores per compute
+node can have ppn=8 as its maximum ppn request. You can also use this
+statement in your job script:</p>
+<p>::: prompt</p>
+<h1 id="pbs-l-nodesnppnall">PBS -l nodes=N:ppn=all<a class="headerlink" href="#pbs-l-nodesnppnall" title="Permanent link">#</a></h1>
+<p>:::</p>
+<p>to request all cores of a node, or</p>
+<p>::: prompt</p>
+<h1 id="pbs-l-nodesnppnhalf">PBS -l nodes=N:ppn=half<a class="headerlink" href="#pbs-l-nodesnppnhalf" title="Permanent link">#</a></h1>
+<p>:::</p>
+<p>to request half of them.</p>
+<p>Note that unless a job has some inherent parallelism of its own through
+something like MPI or OpenMP, requesting more than a single processor on
+a single node is usually wasteful and can impact the job start time.</p>
+<h3 id="monitoring-the-cpu-utilisation">Monitoring the CPU-utilisation<a class="headerlink" href="#monitoring-the-cpu-utilisation" title="Permanent link">#</a></h3>
+<p>The previously used "monitor" tool also shows the overall CPU-load. The
+"eat_cpu" program performs a multiplication of 2 randomly filled a
+$1500 \times 1500$ matrices and is just written to consumes a lot of
+"<em>cpu</em>".</p>
+<p>We first load the monitor modules, study the "eat_cpu.c" program and
+compile it:</p>
+<p>::: prompt
+:::</p>
+<p>And then start to monitor the <em>eat_cpu</em> program:</p>
+<p>::: prompt
+time (s) size (kb) 1 52852 0.3 100 2 52852 0.3 100 3 52852 0.3 100 4
+52852 0.3 100 5 52852 0.3 99 6 52852 0.3 100 7 52852 0.3 100 8 52852 0.3
+100
+:::</p>
+<p>We notice that it the program keeps its CPU nicely busy at 100%.</p>
+<p>Some processes spawn one or more sub-processes. In that case, the
+metrics shown by monitor are aggregated over the process and all of its
+sub-processes (recursively). The reported CPU usage is the sum of all
+these processes, and can thus exceed 100%.</p>
+<p>Some (well, since this is a Cluster, we hope most) programs use more
+than one <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> to perform their computations. Hence, it should not come
+as a surprise that the CPU usage is reported as larger than 100%. When
+programs of this type are running on a computer with n cores, the CPU
+usage can go up to $\text{n}
+  \times 100\%$.</p>
+<p>This could also be monitored with the command:</p>
+<p>::: prompt
+:::</p>
+<p>The advantage of htop is that it shows you the cpu utilisation for all
+processors as well as the details per application. A nice exercise is to
+start 4 instances of the "cpu_eat" program in 4 different terminals, and
+inspect the cpu utilisation per processor with monitor and htop.</p>
+<p>If reports that your program is taking 75% CPU on a certain processor,
+it means that 75% of the samples taken by top found your process active
+on the CPU. The rest of the time your application was in a wait. (It is
+important to remember that a CPU is a discrete state machine. It really
+can be at only 100%, executing an instruction, or at 0%, waiting for
+something to do. There is no such thing as using 45% of a CPU. The CPU
+percentage is a function of time.) However, it is likely that your
+application's rest periods include waiting to be dispatched on a CPU and
+not on external devices. That part of the wait percentage is then very
+relevant to understanding your overall CPU usage pattern.</p>
+<h3 id="fine-tuning-your-executable-andor-job-script">Fine-tuning your executable and/or job script<a class="headerlink" href="#fine-tuning-your-executable-andor-job-script" title="Permanent link">#</a></h3>
+<p>It is good practice to perform a number of run time stress tests, and to
+check the CPU utilisation of your nodes. We (and all other users of the
+) would appreciate that you use the maximum of the CPU resources that
+are assigned to you and make sure that there are no CPUs in your node
+who are not utilised without reasons.</p>
+<p>But how can you maximise?</p>
+<ol>
+<li>
+<p>Configure your software. (e.g., to exactly use the available amount
+    of processors in a node)</p>
+</li>
+<li>
+<p>Develop your parallel program in a smart way.</p>
+</li>
+<li>
+<p>Demand a specific type of compute node (e.g., Harpertown, Westmere),
+    which have a specific number of cores.</p>
+</li>
+<li>
+<p>Correct your request for CPUs in your job script.</p>
+</li>
+</ol>
+<h2 id="the-system-load">The system load<a class="headerlink" href="#the-system-load" title="Permanent link">#</a></h2>
+<p>On top of the CPU utilisation, it is also important to check the . The
+system is a measure of the amount of computational work that a computer
+system performs.</p>
+<p>The system load is the number of applications running or waiting to run
+on the compute node. In a system with for example four CPUs, a load
+average of 3.61 would indicate that there were, on average, 3.61
+processes ready to run, and each one could be scheduled into a CPU.</p>
+<p>The load averages differ from CPU percentage in two significant ways:</p>
+<ol>
+<li>
+<p>"<em>load averages</em>" measure the trend of processes waiting to be run
+    (and not only an instantaneous snapshot, as does CPU percentage);
+    and</p>
+</li>
+<li>
+<p>"<em>load averages</em>" include all demand for all resources, e.g., CPU
+    and also I/O and network (and not only how much was active at the
+    time of measurement).</p>
+</li>
+</ol>
+<h3 id="optimal-load">Optimal load<a class="headerlink" href="#optimal-load" title="Permanent link">#</a></h3>
+<p>What is the "<em>optimal load</em>" rule of thumb?</p>
+<p>The load averages tell us whether our physical CPUs are over- or
+under-utilised. The , meaning that the CPUs are always busy and, yet, no
+process ever waits for one, is . Your load should not exceed the number
+of cores available. E.g., if there are four CPUs on a machine and the
+reported one-minute load average is 4.00, the machine has been utilising
+its processors perfectly for the last 60 seconds. The "100% utilisation"
+mark is 1.0 on a single-<abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> system, 2.0 on a dual-<abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr>, 4.0 on a
+quad-<abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr>, etc. The optimal load shall be between 0.7 and 1.0 per
+processor.</p>
+<p>In general, the intuitive idea of load averages is the higher they rise
+above the number of processors, the more processes are waiting and doing
+nothing, and the lower they fall below the number of processors, the
+more untapped CPU capacity there is.</p>
+<p><em>Load averages</em> do include any processes or threads waiting on I/O,
+networking, databases or anything else not demanding the CPU. This means
+that the optimal <em>number of applications</em> running on a system at the
+same time, might be more than one per processor.</p>
+<p>The "" running on one machine at the same time depends on the type of
+the applications that you are running.</p>
+<ol>
+<li>
+<p>When you are running , one application per processor will generate
+    the optimal load.</p>
+</li>
+<li>
+<p>For (e.g., applications which perform a lot of disk-I/O), a higher
+    number of applications can generate the optimal load. While some
+    applications are reading or writing data on disks, the processors
+    can serve other applications.</p>
+</li>
+</ol>
+<p>The optimal number of applications on a machine could be empirically
+calculated by performing a number of stress tests, whilst checking the
+highest throughput. There is however no manner in the at the moment to
+specify the maximum number of applications that shall run per <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr>
+dynamically. The scheduler will not launch more than one process per
+<abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr>.</p>
+<p>The manner how the cores are spread out over CPUs does not matter for
+what regards the load. Two quad-cores perform similar to four
+dual-cores, and again perform similar to eight single-cores. It's all
+eight cores for these purposes.</p>
+<h3 id="monitoring-the-load">Monitoring the load<a class="headerlink" href="#monitoring-the-load" title="Permanent link">#</a></h3>
+<p>The represents the average system load over a period of time. It
+conventionally appears in the form of three numbers, which represent the
+system load during the last -, -, and -minute periods.</p>
+<p>The command will show us the average load</p>
+<p>::: prompt
+10:14:05 up 86 days, 12:01, 11 users, load average: 0.60, 0.41, 0.41
+:::</p>
+<p>Now, start a few instances of the "<em>eat_cpu</em>" program in the background,
+and check the effect on the load again:</p>
+<p>::: prompt
+10:14:42 up 86 days, 12:02, 11 users, load average: 2.60, 0.93, 0.58
+:::</p>
+<p>You can also read it in the command.</p>
+<h3 id="fine-tuning-your-executable-andor-job-script_1">Fine-tuning your executable and/or job script<a class="headerlink" href="#fine-tuning-your-executable-andor-job-script_1" title="Permanent link">#</a></h3>
+<p>It is good practice to perform a number of run time stress tests, and to
+check the system load of your nodes. We (and all other users of the )
+would appreciate that you use the maximum of the CPU resources that are
+assigned to you and make sure that there are no CPUs in your node who
+are not utilised without reasons.</p>
+<p>But how can you maximise?</p>
+<ol>
+<li>
+<p>Profile your software to improve its performance.</p>
+</li>
+<li>
+<p>Configure your software (e.g., to exactly use the available amount
+    of processors in a node).</p>
+</li>
+<li>
+<p>Develop your parallel program in a smart way, so that it fully
+    utilises the available processors.</p>
+</li>
+<li>
+<p>Demand a specific type of compute node (e.g., Harpertown, Westmere),
+    which have a specific number of cores.</p>
+</li>
+<li>
+<p>Correct your request for CPUs in your job script.</p>
+</li>
+</ol>
+<p>And then check again.</p>
+<h2 id="checking-file-sizes-disk-io">Checking File sizes &amp; Disk I/O<a class="headerlink" href="#checking-file-sizes-disk-io" title="Permanent link">#</a></h2>
+<h3 id="monitoring-file-sizes-during-execution">Monitoring File sizes during execution<a class="headerlink" href="#monitoring-file-sizes-during-execution" title="Permanent link">#</a></h3>
+<p>Some programs generate intermediate or output files, the size of which
+may also be a useful metric.</p>
+<p>Remember that your available disk space on the online storage is
+limited, and that you have environment variables which point to these
+directories available (i.e., <em>\$VSC_DATA</em>, <em>\$VSC_SCRATCH</em> and
+<em>\$VSC_DATA</em>). On top of those, you can also access some temporary
+storage (i.e., the /tmp directory) on the compute node, which is defined
+by the <em>\$VSC_SCRATCH_NODE</em> environment variable.</p>
+<p>We first load the monitor modules, study the "eat_disk.c" program and
+compile it:</p>
+<p>::: prompt
+:::</p>
+<p>The <em>monitor</em> tool provides an option (-f) to display the size of one or
+more files:</p>
+<p>::: prompt
+time (s) size (kb) 5 1276 0 38.6 168820736 10 1276 0 24.8 238026752 15
+1276 0 22.8 318767104 20 1276 0 25 456130560 25 1276 0 26.9 614465536 30
+1276 0 27.7 760217600
+:::</p>
+<p>Here, the size of the file "<em>test.txt</em>" in directory \$VSC_SCRATCH will
+be monitored. Files can be specified by absolute as well as relative
+path, and multiple files are separated by ",".</p>
+<p>It is important to be aware of the sizes of the file that will be
+generated, as the available disk space for each user is limited. We
+refer to on "Quotas" to check your quota and tools to find which files
+consumed the "quota".</p>
+<p>Several actions can be taken, to avoid storage problems:</p>
+<ol>
+<li>
+<p>Be aware of all the files that are generated by your program. Also
+    check out the hidden files.</p>
+</li>
+<li>
+<p>Check your quota consumption regularly.</p>
+</li>
+<li>
+<p>Clean up your files regularly.</p>
+</li>
+<li>
+<p>First work (i.e., read and write) with your big files in the local
+    /tmp directory. Once finished, you can move your files once to the
+    VSC_DATA directories.</p>
+</li>
+<li>
+<p>Make sure your programs clean up their temporary files after
+    execution.</p>
+</li>
+<li>
+<p>Move your output results to your own computer regularly.</p>
+</li>
+<li>
+<p>Anyone can request more disk space to the staff, but you will have
+    to duly justify your request.</p>
+</li>
+</ol>
+<h2 id="specifying-network-requirements">Specifying network requirements<a class="headerlink" href="#specifying-network-requirements" title="Permanent link">#</a></h2>
+<p>Users can examine their network activities with the htop command. When
+your processors are 100% busy, but you see a lot of red bars and only
+limited green bars in the htop screen, it is mostly an indication that
+they loose a lot of time with inter-process communication.</p>
+<p>Whenever your application utilises a lot of inter-process communication
+(as is the case in most parallel programs), we strongly recommend to
+request nodes with an "InfiniBand" network. The InfiniBand is a
+specialised high bandwidth, low latency network that enables large
+parallel jobs to run as efficiently as possible.</p>
+<p>The parameter to add in your job script would be:</p>
+<p>::: prompt</p>
+<h1 id="pbs-l-ib">PBS -l ib<a class="headerlink" href="#pbs-l-ib" title="Permanent link">#</a></h1>
+<p>:::</p>
+<p>If for some other reasons, a user is fine with the gigabit Ethernet
+network, he can specify:</p>
+<p>::: prompt</p>
+<h1 id="pbs-l-gbe">PBS -l gbe<a class="headerlink" href="#pbs-l-gbe" title="Permanent link">#</a></h1>
+<p>:::</p>
+<h2 id="some-more-tips-on-the-monitor-tool">Some more tips on the Monitor tool<a class="headerlink" href="#some-more-tips-on-the-monitor-tool" title="Permanent link">#</a></h2>
+<h3 id="command-lines-arguments">Command Lines arguments<a class="headerlink" href="#command-lines-arguments" title="Permanent link">#</a></h3>
+<p>Many programs, e.g., MATLAB, take command line options. To make sure
+these do not interfere with those of monitor and vice versa, the program
+can for instance be started in the following way:</p>
+<p>::: prompt
+:::</p>
+<p>The use of <code>--</code> will ensure that monitor does not get confused by
+MATLAB's <code>-nojvm</code> and <code>-nodisplay</code> options.</p>
+<h3 id="exit-code">Exit Code<a class="headerlink" href="#exit-code" title="Permanent link">#</a></h3>
+<p>Monitor will propagate the exit code of the program it is watching.
+Suppose the latter ends normally, then monitor's exit code will be 0. On
+the other hand, when the program terminates abnormally with a non-zero
+exit code, e.g., 3, then this will be monitor's exit code as well.</p>
+<p>When monitor terminates in an abnormal state, for instance if it can't
+create the log file, its exit code will be 65. If this interferes with
+an exit code of the program to be monitored, it can be modified by
+setting the environment variable MONITOR_EXIT_ERROR to a more suitable
+value.</p>
+<h3 id="monitoring-a-running-process">Monitoring a running process<a class="headerlink" href="#monitoring-a-running-process" title="Permanent link">#</a></h3>
+<p>It is also possible to "attach" monitor to a program or process that is
+already running. One simply determines the relevant process ID using the
+ps command, e.g., 18749, and starts monitor:</p>
+<p>::: prompt
+:::</p>
+<p>Note that this feature can be (ab)used to monitor specific
+sub-processes.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.expand", "navigation.tracking", "toc.follow", "navigation.sections", "search.suggest", "navigation.instant", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>

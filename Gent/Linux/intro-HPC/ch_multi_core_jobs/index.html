@@ -1,0 +1,727 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Multi core jobs/Parallel Computing { #ch:multi-core-jobs-parallel-computing} - VSC User Documentation - Gent</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multi-core-jobsparallel-computing-chmulti-core-jobs-parallel-computing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VSC User Documentation - Gent" class="md-header__button md-logo" aria-label="VSC User Documentation - Gent" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VSC User Documentation - Gent
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multi core jobs/Parallel Computing { #ch:multi-core-jobs-parallel-computing}
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ch_introduction/" class="md-tabs__link">
+        HPC Tutorial
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VSC User Documentation - Gent" class="md-nav__button md-logo" aria-label="VSC User Documentation - Gent" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    VSC User Documentation - Gent
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          HPC Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          HPC Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch_introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch_account/" class="md-nav__link">
+        Getting an HPC Account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch_connecting/" class="md-nav__link">
+        Connecting to the HPC infrastructure
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-parallel-programming" class="md-nav__link">
+    Why Parallel Programming?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-computing-with-threads" class="md-nav__link">
+    Parallel Computing with threads
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parallel-computing-with-openmp" class="md-nav__link">
+    Parallel Computing with OpenMP
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="multi-core-jobsparallel-computing-chmulti-core-jobs-parallel-computing">Multi <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> jobs/Parallel Computing { #ch:multi-<abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr>-jobs-parallel-computing}<a class="headerlink" href="#multi-core-jobsparallel-computing-chmulti-core-jobs-parallel-computing" title="Permanent link">#</a></h1>
+<h2 id="why-parallel-programming">Why Parallel Programming?<a class="headerlink" href="#why-parallel-programming" title="Permanent link">#</a></h2>
+<p>There are two important motivations to engage in parallel programming.</p>
+<ol>
+<li>
+<p>Firstly, the need to decrease the time to solution: distributing
+    your code over <em>C</em> cores holds the promise of speeding up execution
+    times by a factor <em>C</em>. All modern computers (and probably even your
+    smartphone) are equipped with multi-<abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> processors capable of
+    parallel processing.</p>
+</li>
+<li>
+<p>The second reason is problem size: distributing your code over <em>N</em>
+    nodes increases the available memory by a factor <em>N</em>, and thus holds
+    the promise of being able to tackle problems which are <em>N</em> times
+    bigger.</p>
+</li>
+</ol>
+<p>On a desktop computer, this enables a user to run multiple programs and
+the operating system simultaneously. For scientific computing, this
+means you have the ability in principle of splitting up your
+computations into groups and running each group on its own <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr>.</p>
+<p>There are multiple different ways to achieve parallel programming. The
+table below gives a (non-exhaustive) overview of problem independent
+approaches to parallel programming. In addition there are many problem
+specific libraries that incorporate parallel capabilities. The next
+three sections explore some common approaches: (raw) threads, OpenMP and
+MPI.</p>
+<hr />
+<p>Raw threadspthreads, boost::threading, ...                               Threading libraries are available for all common programming languages   Threads are limited to shared memory systems. They are more often used on single node systems rather than for . Thread management is hard.
+  OpenMP                                                                   Fortran/C/C++                                                            Limited to shared memory systems, but large shared memory systems for <abbr title="High Performance Computing, high performance computing and multiple-task computing on a supercomputer.">HPC</abbr> are not uncommon (e.g., SGI UV). Loops and task can be parallelised by simple insertion of compiler directives. Under the hood threads are used. Hybrid approaches exist which use OpenMP to parallelise the work load on each node and MPI (see below) for communication between nodes.
+  Lightweight threads with clever scheduling, Intel TBB, Intel Cilk Plus   C/C++                                                                    Limited to shared memory systems, but may be combined with MPI. Thread management is taken care of by a very clever scheduler enabling the programmer to focus on parallelisation itself. Hybrid approaches exist which use TBB and/or Cilk Plus to parallelise the work load on each node and MPI (see below) for communication between nodes.
+  MPI                                                                      Fortran/C/C++, Python                                                    Applies to both distributed and shared memory systems. Cooperation between different nodes or cores is managed by explicit calls to library routines handling communication routines.
+  Global Arrays library                                                    C/C++, Python                                                            Mimics a global address space on distributed memory systems, by distributing arrays over many nodes and one sided communication. This library is used a lot for chemical structure calculation codes and was used in one of the first applications that broke the PetaFlop barrier.
+  Scoop                                                                    Python                                                                   Applies to both shared and distributed memory system. Not extremely advanced, but may present a quick road to parallelisation of Python code.</p>
+<hr />
+<h2 id="parallel-computing-with-threads">Parallel Computing with threads<a class="headerlink" href="#parallel-computing-with-threads" title="Permanent link">#</a></h2>
+<p>Multi-threading is a widespread programming and execution model that
+allows multiple threads to exist within the context of a single process.
+These threads share the process' resources, but are able to execute
+independently. The threaded programming model provides developers with a
+useful abstraction of concurrent execution. Multi-threading can also be
+applied to a single process to enable parallel execution on a
+multiprocessing system.</p>
+<p>::: center
+<img alt="image" height="2.39in" src="img0700" width="5.75in" />
+:::</p>
+<p>This advantage of a multithreaded program allows it to operate faster on
+computer systems that have multiple CPUs or across a <abbr title="A group of compute nodes.">cluster</abbr> of machines
+--- because the threads of the program naturally lend themselves to
+truly concurrent execution. In such a case, the programmer needs to be
+careful to avoid race conditions, and other non-intuitive behaviours. In
+order for data to be correctly manipulated, threads will often need to
+synchronise in time in order to process the data in the correct order.
+Threads may also require mutually exclusive operations (often
+implemented using semaphores) in order to prevent common data from being
+simultaneously modified, or read while in the process of being modified.
+Careless use of such primitives can lead to deadlocks.</p>
+<p>Threads are a way that a program can spawn concurrent units of
+processing that can then be delegated by the operating system to
+multiple processing cores. Clearly the advantage of a multithreaded
+program (one that uses multiple threads that are assigned to multiple
+processing cores) is that you can achieve big speedups, as all cores of
+your CPU (and all CPUs if you have more than one) are used at the same
+time.</p>
+<p>Here is a simple example program that spawns 5 threads, where each one
+runs a simple function that only prints "Hello from thread".</p>
+<p>Go to the example directory:</p>
+<p>::: prompt
+:::</p>
+<p>Study the example first:</p>
+<p>And compile it (whilst including the thread library) and run and test it
+on the login-node:</p>
+<p>::: prompt
+spawning thread 0 spawning thread 1 spawning thread 2 Hello from thread
+0! Hello from thread 1! Hello from thread 2! spawning thread 3 spawning
+thread 4 Hello from thread 3! Hello from thread 4!
+:::</p>
+<p>Now, run it on the <abbr title="A group of compute nodes.">cluster</abbr> and check the output:</p>
+<p>::: prompt
+spawning thread 0 spawning thread 1 spawning thread 2 Hello from thread
+0! Hello from thread 1! Hello from thread 2! spawning thread 3 spawning
+thread 4 Hello from thread 3! Hello from thread 4!
+:::</p>
+<p>::: tip
+If you plan engaging in parallel programming using threads, this book
+may prove useful: <em>Professional Multicore Programming: Design and
+Implementation for C++ Developers. Cameron Hughes and Tracey Hughes.
+Wrox 2008.</em>
+:::</p>
+<h2 id="parallel-computing-with-openmp">Parallel Computing with OpenMP<a class="headerlink" href="#parallel-computing-with-openmp" title="Permanent link">#</a></h2>
+<p>is an API that implements a multi-threaded, shared memory form of
+parallelism. It uses a set of compiler directives (statements that you
+add to your code and that are recognised by your Fortran/C/C++ compiler
+if OpenMP is enabled or otherwise ignored) that are incorporated at
+compile-time to generate a multi-threaded version of your code. You can
+think of Pthreads (above) as doing multi-threaded programming "by hand",
+and OpenMP as a slightly more automated, higher-level API to make your
+program multithreaded. OpenMP takes care of many of the low-level
+details that you would normally have to implement yourself, if you were
+using Pthreads from the ground up.</p>
+<p>An important advantage of OpenMP is that, because it uses compiler
+directives, the original serial version stays intact, and minimal
+changes (in the form of compiler directives) are necessary to turn a
+working serial code into a working parallel code.</p>
+<p>Here is the general code structure of an OpenMP program:</p>
+<p>::: code
+C #include \<omp.h> main ()</p>
+<p>int var1, var2, var3; // Serial code // Beginning of parallel section.
+Fork a team of threads. // Specify variable scoping</p>
+<h1 id="pragma-omp-parallel-privatevar1-var2-sharedvar3-parallel">pragma omp parallel private(var1, var2) shared(var3) // Parallel<a class="headerlink" href="#pragma-omp-parallel-privatevar1-var2-sharedvar3-parallel" title="Permanent link">#</a></h1>
+<p>section executed by all threads // All threads join master thread and
+disband // Resume serial code
+:::</p>
+<h3 id="private-versus-shared-variables">Private versus Shared variables<a class="headerlink" href="#private-versus-shared-variables" title="Permanent link">#</a></h3>
+<p>By using the private() and shared() clauses, you can specify variables
+within the parallel region as being , i.e., visible and accessible by
+all threads simultaneously, or , i.e., private to each thread, meaning
+each thread will have its own local copy. In the code example below for
+parallelising a for loop, you can see that we specify the thread_id and
+nloops variables as private.</p>
+<h3 id="parallelising-for-loops-with-openmp">Parallelising for loops with OpenMP<a class="headerlink" href="#parallelising-for-loops-with-openmp" title="Permanent link">#</a></h3>
+<p>Parallelising for loops is really simple (see code below). By default,
+loop iteration counters in OpenMP loop constructs (in this case the i
+variable) in the for loop are set to private variables.</p>
+<p>And compile it (whilst including the "<em>openmp</em>" library) and run and
+test it on the login-node:</p>
+<p>::: prompt
+Thread 6 performed 125 iterations of the loop. Thread 7 performed 125
+iterations of the loop. Thread 5 performed 125 iterations of the loop.
+Thread 4 performed 125 iterations of the loop. Thread 0 performed 125
+iterations of the loop. Thread 2 performed 125 iterations of the loop.
+Thread 3 performed 125 iterations of the loop. Thread 1 performed 125
+iterations of the loop.
+:::</p>
+<p>Now run it in the <abbr title="A group of compute nodes.">cluster</abbr> and check the result again.</p>
+<p>::: prompt
+Thread 1 performed 125 iterations of the loop. Thread 4 performed 125
+iterations of the loop. Thread 3 performed 125 iterations of the loop.
+Thread 0 performed 125 iterations of the loop. Thread 5 performed 125
+iterations of the loop. Thread 7 performed 125 iterations of the loop.
+Thread 2 performed 125 iterations of the loop. Thread 6 performed 125
+iterations of the loop.
+:::</p>
+<h3 id="critical-code">Critical Code<a class="headerlink" href="#critical-code" title="Permanent link">#</a></h3>
+<p>Using OpenMP you can specify something called a "critical" section of
+code. This is code that is performed by all threads, but is only
+performed (i.e., in serial). This provides a convenient way of letting
+you do things like updating a global variable with local results from
+each thread, and you don't have to worry about things like other threads
+writing to that global variable at the same time (a collision).</p>
+<p>And compile it (whilst including the "<em>openmp</em>" library) and run and
+test it on the login-node:</p>
+<p>::: prompt
+Thread 3 is adding its iterations (12500) to sum (0), total is now
+12500. Thread 7 is adding its iterations (12500) to sum (12500), total
+is now 25000. Thread 5 is adding its iterations (12500) to sum (25000),
+total is now 37500. Thread 6 is adding its iterations (12500) to sum
+(37500), total is now 50000. Thread 2 is adding its iterations (12500)
+to sum (50000), total is now 62500. Thread 4 is adding its iterations
+(12500) to sum (62500), total is now 75000. Thread 1 is adding its
+iterations (12500) to sum (75000), total is now 87500. Thread 0 is
+adding its iterations (12500) to sum (87500), total is now 100000. Total
+# loop iterations is 100000
+:::</p>
+<p>Now run it in the <abbr title="A group of compute nodes.">cluster</abbr> and check the result again.</p>
+<p>::: prompt
+Thread 2 is adding its iterations (12500) to sum (0), total is now
+12500. Thread 0 is adding its iterations (12500) to sum (12500), total
+is now 25000. Thread 1 is adding its iterations (12500) to sum (25000),
+total is now 37500. Thread 4 is adding its iterations (12500) to sum
+(37500), total is now 50000. Thread 7 is adding its iterations (12500)
+to sum (50000), total is now 62500. Thread 3 is adding its iterations
+(12500) to sum (62500), total is now 75000. Thread 5 is adding its
+iterations (12500) to sum (75000), total is now 87500. Thread 6 is
+adding its iterations (12500) to sum (87500), total is now 100000. Total
+# loop iterations is 100000
+:::</p>
+<h3 id="reduction">Reduction<a class="headerlink" href="#reduction" title="Permanent link">#</a></h3>
+<p>Reduction refers to the process of combining the results of several
+sub-calculations into a final result. This is a very common paradigm
+(and indeed the so-called "map-reduce" framework used by Google and
+others is very popular). Indeed we used this paradigm in the code
+example above, where we used the "critical code" directive to accomplish
+this. The map-reduce paradigm is so common that OpenMP has a specific
+directive that allows you to more easily implement this.</p>
+<p>And compile it (whilst including the "<em>openmp</em>" library) and run and
+test it on the login-node:</p>
+<p>::: prompt
+Total # loop iterations is 100000
+:::</p>
+<p>Now run it in the <abbr title="A group of compute nodes.">cluster</abbr> and check the result again.</p>
+<p>::: prompt
+Total # loop iterations is 100000
+:::</p>
+<h3 id="other-openmp-directives">Other OpenMP directives<a class="headerlink" href="#other-openmp-directives" title="Permanent link">#</a></h3>
+<p>There are a host of other directives you can issue using OpenMP.</p>
+<p>Some other clauses of interest are:</p>
+<ol>
+<li>
+<p>barrier: each thread will wait until all threads have reached this
+    point in the code, before proceeding</p>
+</li>
+<li>
+<p>nowait: threads will not wait until everybody is finished</p>
+</li>
+<li>
+<p>schedule(type, chunk) allows you to specify how tasks are spawned
+    out to threads in a for loop. There are three types of scheduling
+    you can specify</p>
+</li>
+<li>
+<p>if: allows you to parallelise only if a certain condition is met</p>
+</li>
+<li>
+<p>... and a host of others</p>
+</li>
+</ol>
+<p>::: tip
+If you plan engaging in parallel programming using OpenMP, this book may
+prove useful: <em>Using OpenMP - Portable Shared Memory Parallel
+Programming</em>. By Barbara Chapman Gabriele Jost and Ruud van der Pas
+Scientific and Engineering Computation. 2005.
+:::</p>
+<h2 id="parallel-computing-with-mpi">Parallel Computing with MPI<a class="headerlink" href="#parallel-computing-with-mpi" title="Permanent link">#</a></h2>
+<p>The Message Passing Interface (MPI) is a standard defining <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> syntax
+and semantics of library routines that can be used to implement parallel
+programming in C (and in other languages as well). There are several
+implementations of MPI such as Open MPI, Intel MPI, M(VA)PICH and
+LAM/MPI.</p>
+<p>In the context of this tutorial, you can think of MPI, in terms of its
+complexity, scope and control, as sitting in between programming with
+Pthreads, and using a high-level API such as OpenMP. For a Message
+Passing Interface (MPI) application, a parallel task usually consists of
+a single executable running concurrently on multiple processors, with
+communication between the processes. This is shown in the following
+diagram:</p>
+<p>::: center
+<img alt="image" height="1.59in" src="img0701" width="1.50in" />
+:::</p>
+<p>The process numbers 0, 1 and 2 represent the process rank and have
+greater or less significance depending on the processing paradigm. At
+the minimum, Process 0 handles the input/output and determines what
+other processes are running.</p>
+<p>The MPI interface allows you to manage allocation, communication, and
+synchronisation of a set of processes that are mapped onto multiple
+nodes, where each node can be a <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> within a single CPU, or CPUs within
+a single machine, or even across multiple machines (as long as they are
+networked together).</p>
+<p>One context where MPI shines in particular is the ability to easily take
+advantage not just of multiple cores on a single machine, but to run
+programs on clusters of several machines. Even if you don't have a
+dedicated <abbr title="A group of compute nodes.">cluster</abbr>, you could still write a program using MPI that could
+run your program in parallel, across any collection of computers, as
+long as they are networked together.</p>
+<p>Here is a "Hello World" program in MPI written in C. In this example, we
+send a "Hello" message to each processor, manipulate it trivially,
+return the results to the main process, and print the messages.</p>
+<p>Study the MPI-programme and the PBS-file:</p>
+<p>and compile it:</p>
+<p>::: prompt
+:::</p>
+<p>mpiicc is a wrapper of the Intel C++ compiler icc to compile MPI
+programs (see the chapter on compilation for details).</p>
+<p>Run the parallel program:</p>
+<p>::: prompt
+total 1024 -rwxrwxr-x 1 -rw-r--r-- 1 -rw------- 1 -rw------- 1
+-rw-r--r-- 1 0: We have 16 processors 0: Hello 1! Processor 1 reporting
+for duty 0: Hello 2! Processor 2 reporting for duty 0: Hello 3!
+Processor 3 reporting for duty 0: Hello 4! Processor 4 reporting for
+duty 0: Hello 5! Processor 5 reporting for duty 0: Hello 6! Processor 6
+reporting for duty 0: Hello 7! Processor 7 reporting for duty 0: Hello
+8! Processor 8 reporting for duty 0: Hello 9! Processor 9 reporting for
+duty 0: Hello 10! Processor 10 reporting for duty 0: Hello 11! Processor
+11 reporting for duty 0: Hello 12! Processor 12 reporting for duty 0:
+Hello 13! Processor 13 reporting for duty 0: Hello 14! Processor 14
+reporting for duty 0: Hello 15! Processor 15 reporting for duty
+:::</p>
+<p>The runtime environment for the MPI implementation used (often called
+mpirun or mpiexec) spawns multiple copies of the program, with the total
+number of copies determining the number of process <em>ranks</em> in
+MPI_COMM_WORLD, which is an opaque descriptor for communication between
+the set of processes. A single process, multiple data (SPMD = Single
+Program, Multiple Data) programming model is thereby facilitated, but
+not required; many MPI implementations allow multiple, different,
+executables to be started in the same MPI job. Each process has its own
+rank, the total number of processes in the world, and the ability to
+communicate between them either with point-to-point (send/receive)
+communication, or by collective communication among the group. It is
+enough for MPI to provide an SPMD-style program with MPI_COMM_WORLD, its
+own rank, and the size of the world to allow algorithms to decide what
+to do. In more realistic situations, I/O is more carefully managed than
+in this example. MPI does not guarantee how POSIX I/O would actually
+work on a given system, but it commonly does work, at least from rank 0.</p>
+<p>MPI uses the notion of process rather than processor. Program copies are
+<em>mapped</em> to processors by the MPI runtime. In that sense, the parallel
+machine can map to 1 physical processor, or N where N is the total
+number of processors available, or something in between. For maximum
+parallel speedup, more physical processors are used. This example
+adjusts its behaviour to the size of the world N, so it also seeks to
+scale to the runtime configuration without compilation for each size
+variation, although runtime decisions might vary depending on that
+absolute amount of concurrency available.</p>
+<p>::: tip
+mpirun does not always do the optimal <abbr title="An individual compute unit inside a CPU. A CPU typically contains one or more cores.">core</abbr> pinning and requires a few
+extra arguments to be the most efficient possible on a given system. At
+Ghent we have a wrapper around <code>mpirun</code> called <code>mympirun</code>. See for more
+information.</p>
+<p>You will generally just start an MPI program on the by using <code>mympirun</code>
+instead of
+<code>mpirun -n &lt;nr of cores&gt; &lt;--other settings&gt; &lt;--other optimisations&gt;</code>
+:::</p>
+<p>::: tip
+If you plan engaging in parallel programming using MPI, this book may
+prove useful: <em>Parallel Programming with MPI. Peter Pacheo. Morgan
+Kaufmann. 1996.</em>
+:::</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.expand", "navigation.tracking", "toc.follow", "navigation.sections", "search.suggest", "navigation.instant", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>

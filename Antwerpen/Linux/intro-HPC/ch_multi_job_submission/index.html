@@ -1,0 +1,798 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Multi-job submission { #ch:multi-job-submission} - VSC User Documentation - Antwerpen</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ch:multi-job-submission" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="VSC User Documentation - Antwerpen" class="md-header__button md-logo" aria-label="VSC User Documentation - Antwerpen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            VSC User Documentation - Antwerpen
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multi-job submission { #ch:multi-job-submission}
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ch_introduction/" class="md-tabs__link">
+        HPC Tutorial
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="VSC User Documentation - Antwerpen" class="md-nav__button md-logo" aria-label="VSC User Documentation - Antwerpen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    VSC User Documentation - Antwerpen
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          HPC Tutorial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="HPC Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          HPC Tutorial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch_introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Antwerpen/Linux/intro-HPC/ch_account/" class="md-nav__link">
+        Getting an HPC Account
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch_connecting/" class="md-nav__link">
+        Connecting to the HPC infrastructure
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-worker-framework-parameter-sweeps" class="md-nav__link">
+    The worker Framework: Parameter Sweeps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:worker-framework-job-arrays" class="md-nav__link">
+    The Worker framework: Job arrays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapreduce-prologues-and-epilogue" class="md-nav__link">
+    MapReduce: prologues and epilogue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-more-on-the-worker-framework" class="md-nav__link">
+    Some more on the Worker Framework
+  </a>
+  
+    <nav class="md-nav" aria-label="Some more on the Worker Framework">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-worker-efficiently" class="md-nav__link">
+    Using Worker efficiently
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-a-worker-job" class="md-nav__link">
+    Monitoring a worker job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-limits-for-work-items" class="md-nav__link">
+    Time limits for work items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resuming-a-worker-job" class="md-nav__link">
+    Resuming a Worker job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-information" class="md-nav__link">
+    Further information
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-wsub-batch-data" class="md-nav__link">
+    # usage: wsub -batch \  # [-data \]
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="ch:multi-job-submission">Multi-job submission<a class="headerlink" href="#ch:multi-job-submission" title="Permanent link">#</a></h1>
+<p>A frequent occurring characteristic of scientific computation is their
+focus on data intensive processing. A typical example is the iterative
+evaluation of a program over different input parameter values, often
+referred to as a "<em>parameter sweep</em>". A runs a job a specified number of
+times, as if we sweep the parameter values through a user defined range.</p>
+<p>Users then often want to submit a large numbers of jobs based on the
+same job script but with (i) slightly different parameters settings or
+with (ii) different input files.</p>
+<p>These parameter values can have many forms, we can think about a range
+(e.g., from 1 to 100), or the parameters can be stored line by line in a
+comma-separated file. The users want to run their job once for each
+instance of the parameter values.</p>
+<p>One option could be to launch a lot of separate individual small jobs
+(one for each parameter) on the <abbr title="A group of compute nodes.">cluster</abbr>, but this is not a good idea.
+The <abbr title="A group of compute nodes.">cluster</abbr> scheduler isn't meant to deal with tons of small jobs. Those
+huge amounts of small jobs will create a lot of overhead, and can slow
+down the whole <abbr title="A group of compute nodes.">cluster</abbr>. It would be better to bundle those jobs in
+larger sets. In TORQUE, an experimental feature known as "<em>job arrays</em>"
+existed to allow the creation of multiple jobs with one <em>qsub</em> command,
+but is was not supported by Moab, the current scheduler.</p>
+<p>The "" has been developed to address this issue.</p>
+<p>It can handle many small jobs determined by:</p>
+<p>parameter variations</p>
+<p>:   i.e., many small jobs determined by a specific parameter set which
+    is stored in a .csv (comma separated value) input file.</p>
+<p>job arrays</p>
+<p>:   i.e., each individual job got a unique numeric identifier.</p>
+<p>Both use cases often have a common root: the user wants to run a program
+with a large number of parameter settings, and the program does not
+allow for aggregation, i.e., it has to be run once for each instance of
+the parameter values.</p>
+<p>However, the Worker Framework's scope is wider: it can be used for any
+scenario that can be reduced to a approach.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<h2 id="the-worker-framework-parameter-sweeps">The worker Framework: Parameter Sweeps<a class="headerlink" href="#the-worker-framework-parameter-sweeps" title="Permanent link">#</a></h2>
+<p>First go to the right directory:</p>
+<p>::: prompt
+:::</p>
+<p>Suppose the program the user wishes to run the "<em>weather</em>" program,
+which takes three parameters: a temperature, a pressure and a volume. A
+typical call of the program looks like:</p>
+<p>::: prompt
+T: 20 P: 1.05 V: 4.3
+:::</p>
+<p>For the purpose of this exercise, the weather program is just a simple
+bash script, which prints the 3 variables to the standard output and
+waits a bit:</p>
+<p>A job script that would run this as a job for the first parameters (p01)
+would then look like:</p>
+<p>When submitting this job, the calculation is performed or this
+particular instance of the parameters, i.e., temperature = 20, pressure
+= 1.05, and volume = 4.3.</p>
+<p>To submit the job, the user would use:</p>
+<p>::: prompt
+:::</p>
+<p>However, the user wants to run this program for many parameter
+instances, e.g., he wants to run the program on 100 instances of
+temperature, pressure and volume. The 100 parameter instances can be
+stored in a comma separated value file (.csv) that can be generated
+using a spreadsheet program such as Microsoft Excel or RDBMS or just by
+hand using any text editor (do use a word processor such as Microsoft
+Word). The first few lines of the file "<em>data.csv</em>" would look like:</p>
+<p>::: prompt
+temperature, pressure, volume 293, 1.0e5, 107 294, 1.0e5, 106 295,
+1.0e5, 105 296, 1.0e5, 104 297, 1.0e5, 103
+:::</p>
+<p>It has to contain the names of the variables on the first line, followed
+by 100 parameter instances in the current example.</p>
+<p>In order to make our PBS generic, the PBS file can be modified as
+follows:</p>
+<p>Note that:</p>
+<ol>
+<li>
+<p>the parameter values 20, 1.05, 4.3 have been replaced by variables
+    \$temperature, \$pressure and \$volume respectively, which were
+    being specified on the first line of the "<em>data.csv</em>" file;</p>
+</li>
+<li>
+<p>the number of processors per node has been increased to 8 (i.e.,
+    ppn=1 is replaced by ppn=8);</p>
+</li>
+<li>
+<p>the walltime has been increased to 4 hours (i.e., walltime=00:15:00
+    is replaced by walltime=04:00:00).</p>
+</li>
+</ol>
+<p>The walltime is calculated as follows: one calculation takes 15 minutes,
+so 100 calculations take 1500 minutes on one CPU. However, this job will
+use 8 CPUs, so the 100 calculations will be done in 1500/8 = 187.5
+minutes, i.e., 4 hours to be on the safe side.</p>
+<p>The job can now be submitted as follows (to check which <code>worker</code> module
+to use, see ):</p>
+<p>::: prompt
+total number of work items: 41
+:::</p>
+<p>Note that the PBS file is the value of the -batch option. The weather
+program will now be run for all 100 parameter instances -- 8
+concurrently -- until all computations are done. A computation for such
+a parameter instance is called a work item in Worker parlance.</p>
+<h2 id="sec:worker-framework-job-arrays">The Worker framework: Job arrays<a class="headerlink" href="#sec:worker-framework-job-arrays" title="Permanent link">#</a></h2>
+<p>First go to the right directory:</p>
+<p>::: prompt
+:::</p>
+<p>As a simple example, assume you have a serial program called <em>myprog</em>
+that you want to run on various input files <em>input[1-100]</em>.</p>
+<p>::: center
+<img alt="image" height="2.36in" src="img0702" width="3.22in" />
+:::</p>
+<p>The following bash script would submit these jobs all one by one:</p>
+<p>::: code
+bash #!/bin/bash for i in 'seq 1 100'; do qsub -o output $i -i input$i
+myprog.pbs done
+:::</p>
+<p>This, as said before, could be disturbing for the job scheduler.</p>
+<p>Alternatively, TORQUE provides a feature known as <em>job arrays</em> which
+allows the creation of multiple, similar jobs with only command. This
+feature introduced a new job naming convention that allows users either
+to reference the entire set of jobs as a unit or to reference one
+particular job from the set.</p>
+<p>Under TORQUE, the <em>-t range</em> option is used with qsub to specify a job
+array, where <em>range</em> is a range of numbers (e.g., <em>1-100</em> or <em>2,4-5,7</em>).</p>
+<p>The details are</p>
+<ol>
+<li>
+<p>a job is submitted for each <em>number</em> in the range;</p>
+</li>
+<li>
+<p>individuals jobs are referenced as <em>jobid-number</em>, and the entire
+    array can be referenced as <em>jobid</em> for easy killing etc.; and</p>
+</li>
+<li>
+<p>each jobs has <em>PBS_ARRAYID</em> set to its <em>number</em> which allows the
+    script/program to specialise for that job</p>
+</li>
+</ol>
+<p>The job could have been submitted using:</p>
+<p>::: prompt
+:::</p>
+<p>The effect was that rather than 1 job, the user would actually submit
+100 jobs to the queue system. This was a popular feature of TORQUE, but
+as this technique puts quite a burden on the scheduler, it is not
+supported by Moab (the current job scheduler).</p>
+<p>To support those users who used the feature and since it offers a
+convenient workflow, the "worker framework" implements the idea of "job
+arrays" in its own way.</p>
+<p>A typical job script for use with job arrays would look like this:</p>
+<p>In our specific example, we have prefabricated 100 input files in the
+"./input" subdirectory. Each of those files contains a number of
+parameters for the "test_set" program, which will perform some tests
+with those parameters.</p>
+<p>Input for the program is stored in files with names such as input_1.dat,
+input_2.dat, ..., input_100.dat in the ./input subdirectory.</p>
+<p>For the sole purpose of this exercise, we have provided a short
+"test_set" program, which reads the "input" files and just copies them
+into a corresponding output file. We even add a few lines to each output
+file. The corresponding output computed by our "<em>test_set</em>" program will
+be written to the <em>"./output</em>" directory in output_1.dat, output_2.dat,
+..., output_100.dat. files.</p>
+<p>Using the "worker framework", a feature akin to job arrays can be used
+with minimal modifications to the job script:</p>
+<p>Note that</p>
+<ol>
+<li>
+<p>the number of CPUs is increased to 8 (ppn=1 is replaced by ppn=8);
+    and</p>
+</li>
+<li>
+<p>the walltime has been modified (walltime=00:15:00 is replaced by
+    walltime=04:00:00).</p>
+</li>
+</ol>
+<p>The job is now submitted as follows:</p>
+<p>::: prompt
+total number of work items: 100
+:::</p>
+<p>The "<em>test_set</em>" program will now be run for all 100 input files -- 8
+concurrently -- until all computations are done. Again, a computation
+for an individual input file, or, equivalently, an array id, is called a
+work item in Worker speak.</p>
+<p>Note that in contrast to TORQUE job arrays, a worker job array only
+submits a single job.</p>
+<h2 id="mapreduce-prologues-and-epilogue">MapReduce: prologues and epilogue<a class="headerlink" href="#mapreduce-prologues-and-epilogue" title="Permanent link">#</a></h2>
+<p>Often, an embarrassingly parallel computation can be abstracted to three
+simple steps:</p>
+<ol>
+<li>
+<p>a preparation phase in which the data is split up into smaller, more
+    manageable chunks;</p>
+</li>
+<li>
+<p>on these chunks, the same algorithm is applied independently (these
+    are the work items); and</p>
+</li>
+<li>
+<p>the results of the computations on those chunks are aggregated into,
+    e.g., a statistical description of some sort.</p>
+</li>
+</ol>
+<p>::: center
+<img alt="image" height="2.78in" src="img0703" width="2.40in" />
+:::</p>
+<p>The Worker framework directly supports this scenario by using a prologue
+(pre-processing) and an epilogue (post-processing). The former is
+executed just once before work is started on the work items, the latter
+is executed just once after the work on all work items has finished.
+Technically, the master, i.e., the process that is responsible for
+dispatching work and logging progress, executes the prologue and
+epilogue.</p>
+<p>::: prompt
+:::</p>
+<p>The script "pre.sh" prepares the data by creating 100 different
+input-files, and the script "post.sh" aggregates (concatenates) the
+data.</p>
+<p>First study the scripts:</p>
+<p>Then one can submit a MapReduce style job as follows:</p>
+<p>::: prompt
+total number of work items: 100
+:::</p>
+<p>Note that the time taken for executing the prologue and the epilogue
+should be added to the job's total walltime.</p>
+<h2 id="some-more-on-the-worker-framework">Some more on the Worker Framework<a class="headerlink" href="#some-more-on-the-worker-framework" title="Permanent link">#</a></h2>
+<h3 id="using-worker-efficiently">Using Worker efficiently<a class="headerlink" href="#using-worker-efficiently" title="Permanent link">#</a></h3>
+<p>The "Worker Framework" is implemented using MPI, so it is not restricted
+to a single compute nodes, it scales well to multiple nodes. However,
+remember that jobs requesting a large number of nodes typically spend
+quite some time in the queue.</p>
+<p>The "Worker Framework" will be effective when</p>
+<ol>
+<li>
+<p>work items, i.e., individual computations, are neither too short,
+    nor too long (i.e., from a few minutes to a few hours); and,</p>
+</li>
+<li>
+<p>when the number of work items is larger than the number of CPUs
+    involved in the job (e.g., more than 30 for 8 CPUs).</p>
+</li>
+</ol>
+<h3 id="monitoring-a-worker-job">Monitoring a worker job<a class="headerlink" href="#monitoring-a-worker-job" title="Permanent link">#</a></h3>
+<p>Since a Worker job will typically run for several hours, it may be
+reassuring to monitor its progress. Worker keeps a log of its activity
+in the directory where the job was submitted. The log's name is derived
+from the job's name and the job's ID, i.e., it has the form
+<code>&lt;jobname&gt;.log&lt;jobid&gt;</code>. For the running example, this could be
+<code>run.pbs.log</code>, assuming the job's ID is . To keep an eye on the
+progress, one can use:</p>
+<p>::: prompt
+:::</p>
+<p>Alternatively, <code>wsummarize</code>, a Worker command that summarises a log
+file, can be used:</p>
+<p>::: prompt
+:::</p>
+<p>This will summarise the log file every 60 seconds.</p>
+<h3 id="time-limits-for-work-items">Time limits for work items<a class="headerlink" href="#time-limits-for-work-items" title="Permanent link">#</a></h3>
+<p>Sometimes, the execution of a work item takes long than expected, or
+worse, some work items get stuck in an infinite loop. This situation is
+unfortunate, since it implies that work items that could successfully
+execute are not even started. Again, the Worker framework offers a
+simple and yet versatile solution. If we want to limit the execution of
+each work item to at most 20 minutes, this can be accomplished by
+modifying the script of the running example.</p>
+<p>::: code
+bash #!/bin/bash -l #PBS -l nodes=1:ppn=8 #PBS -l walltime=04:00:00
+module load timedrun/1.0 cd $PBS_O_WORKDIR
+timedrun -t 00:20:00 weather -t$temperature -p $pressure  -v$volume
+:::</p>
+<p>Note that it is trivial to set individual time constraints for work
+items by introducing a parameter, and including the values of the latter
+in the CSV file, along with those for the temperature, pressure and
+volume.</p>
+<p>Also note that "timedrun" is in fact offered in a module of its own, so
+it can be used outside the Worker framework as well.</p>
+<h3 id="resuming-a-worker-job">Resuming a Worker job<a class="headerlink" href="#resuming-a-worker-job" title="Permanent link">#</a></h3>
+<p>Unfortunately, it is not always easy to estimate the walltime for a job,
+and consequently, sometimes the latter is underestimated. When using the
+Worker framework, this implies that not all work items will have been
+processed. Worker makes it very easy to resume such a job without having
+to figure out which work items did complete successfully, and which
+remain to be computed. Suppose the job that did not complete all its
+work items had ID "445948".</p>
+<p>::: prompt
+:::</p>
+<p>This will submit a new job that will start to work on the work items
+that were not done yet. Note that it is possible to change almost all
+job parameters when resuming, specifically the requested resources such
+as the number of cores and the walltime.</p>
+<p>::: prompt
+:::</p>
+<p>Work items may fail to complete successfully for a variety of reasons,
+e.g., a data file that is missing, a (minor) programming error, etc.
+Upon resuming a job, the work items that failed are considered to be
+done, so resuming a job will only execute work items that did not
+terminate either successfully, or reporting a failure. It is also
+possible to retry work items that failed (preferably after the glitch
+why they failed was fixed).</p>
+<p>::: prompt
+:::</p>
+<p>By default, a job's prologue is not executed when it is resumed, while
+its epilogue is. "wresume" has options to modify this default behaviour.</p>
+<h3 id="further-information">Further information<a class="headerlink" href="#further-information" title="Permanent link">#</a></h3>
+<p>This how-to introduces only Worker's basic features. The wsub command
+has some usage information that is printed when the -help option is
+specified:</p>
+<p>::: prompt</p>
+<h2 id="usage-wsub-batch-data"># usage: wsub -batch \<batch-file>  # [-data \<data-files>]<a class="headerlink" href="#usage-wsub-batch-data" title="Permanent link">#</a></h2>
+<p>[-prolog \<prolog-file>]  # [-epilog \<epilog-file>]  # [-log
+\<log-file>]  # [-mpiverbose]  # [-dryrun] [-verbose]  #
+[-quiet] [-help]  # [-t \<array-req>]  # [\<pbs-qsub-options>]
+# # -batch \<batch-file> : batch file template, containing variables
+to be # replaced with data from the data file(s) or the # PBS array
+request option # -data \<data-files> : comma-separated list of data
+files (default CSV # files) used to provide the data for the work #
+items # -prolog \<prolog-file> : prolog script to be executed before
+any of the # work items are executed # -epilog \<epilog-file> : epilog
+script to be executed after all the work # items are executed #
+-mpiverbose : pass verbose flag to the underlying MPI program #
+-verbose : feedback information is written to standard error # -dryrun
+: run without actually submitting the job, useful # -quiet : don't show
+information # -help : print this help message # -t \<array-req> :
+qsub's PBS array request options, e.g., 1-10 # \<pbs-qsub-options> :
+options passed on to the queue submission # command
+:::</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>MapReduce: 'Map' refers to the map pattern in which every item in
+a collection is mapped onto a new value by applying a given
+function, while "reduce" refers to the reduction pattern which
+condenses or reduces a collection of previously computed results to
+a single value.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.expand", "navigation.tracking", "toc.follow", "navigation.sections", "search.suggest", "navigation.instant", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
