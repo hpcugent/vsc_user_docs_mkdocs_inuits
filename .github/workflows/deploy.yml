@@ -40,9 +40,10 @@ jobs:
           git branch -a
           git config user.email "${{github.event.pusher.email}}"
           git config user.name "${{github.event.pusher.name}}"
+          git checkout gh-pages
           pwd
           ls
-          git checkout gh-pages
+          rm -rf HPC
           ls build
           mv build/HPC .
           git add HPC
