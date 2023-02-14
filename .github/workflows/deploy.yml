@@ -4,6 +4,8 @@ name: deploy docs (only on push to main branch)
 on:  # yamllint disable-line rule:truthy
   push:
     branches: main
+permissions:
+  contents: write # to fetch code (actions/checkout) + deploy docs to GitHub Pages (gh-pages branch)
 jobs:
   build:
     runs-on: ubuntu-20.04
