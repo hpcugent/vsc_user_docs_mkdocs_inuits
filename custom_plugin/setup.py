@@ -8,5 +8,5 @@ setup(
             "ugent = custom_plugin:UgentPlugin",
         ]
     },
-    py_modules=[]
+    py_modules=['constants', 'custom_plugin']
 )
