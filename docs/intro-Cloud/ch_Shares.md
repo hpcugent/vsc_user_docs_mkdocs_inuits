@@ -93,7 +93,7 @@ absence of any rules, a shared file system cannot be accessed by anyone.
     The following table contains a few examples, assuming the
     project's **_nfs** network has the subnet _10.10.x.0/24_, for some
     value of _x_ (see section
-    [_nfs networks](./ch_ConfigureInstances.tex.md#sec:_vm-_nfs-networks)):
+    [_nfs networks](./ch_ConfigureInstances.md#sec:_vm-_nfs-networks)):
 
 :::
 

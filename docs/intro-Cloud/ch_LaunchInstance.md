@@ -103,7 +103,7 @@ Specify the size of the instance to launch.
 for launching an instance. For example, while creating an image,
 if you have entered the value in the Minimum RAM (MB) field as
 2048, then on selecting the image, the default flavor is **CPUv1.small**
-(see section [instance type](./ch_Flavors.tex.md#sec:instance-types) for
+(see section [instance type](./ch_Flavors.md#sec:instance-types) for
 more information). If a **!** warning sign is displayed next to a resource
 for one of the flavors, that means that this flavor would exceed the project's
 quota for that resource, and therefore is not available.
@@ -123,7 +123,7 @@ instance.
 
 Security groups are a kind of cloud firewall that define which
 incoming network traffic is forwarded to instances. See section
-[configure access](./ch_ConfigureInstances.tex.md#cha:conf-access-secur)
+[configure access](./ch_ConfigureInstances.md#cha:conf-access-secur)
 for more information.
 The default security group is assigned to the instance
 automatically.
@@ -183,7 +183,7 @@ in the *OpenStack Virtual Machine Image Guide*.
 
 Before you can connect to an instance using SSH, you must set up a
 floating IP for it, as discussed in
-section [floating-ip](./ch_ConfigureInstances.tex.md#sec:floating-ip). Recall
+section [floating-ip](./ch_ConfigureInstances.md#sec:floating-ip). Recall
 that only ports 50000 to 60000 of the floating IP's can be directly reached from
 outside the UGent network.
 
@@ -465,7 +465,7 @@ OpenStack together with any associated processes and resources.
 However, for instances backed by a persistent volume, this volume is not deleted.
 When such an instance is deleted, you can restore it by launching a
 new instance from the volume, or delete the volume as well (see
-section [delete a volume](./ch_ManageVolumes.tex.md#delete-a-volume)).
+section [delete a volume](./ch_ManageVolumes.md#delete-a-volume)).
 
 For more details see the OpenStack documentation on [*Virtual Machine
 States and
