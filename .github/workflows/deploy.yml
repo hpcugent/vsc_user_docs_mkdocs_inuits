@@ -23,29 +23,30 @@ jobs:
       - name: install required Python packages
         run: |
             pip install -r requirements.txt
+            cd custom_plugin && pip install . && cd -
+            cd computational_macros && pip install . && cd -
+            python3 -m pip list
             mkdocs --version
 
       # equivalent of 'mkdocs build', but need to build all flavors of the docs (different site/OS)
       - name: build docs
         run: |
-          cd custom_plugin && pip install . && cd -
-          cd computational_macros && pip install . && cd -
-          python3 -m pip list
           python3 build.py
+          find build -type f
 
       # equivalent with 'mkdocs gh-deploy'
       - name: deploy docs
         run: |
-          git remote -v
-          git branch -a
+          # configure Git
           git config user.email "${{github.event.pusher.email}}"
           git config user.name "${{github.event.pusher.name}}"
+
+          # check out gh-pages branch and replace 'HPC' subdirectory
           git checkout gh-pages
-          pwd
-          ls
           rm -rf HPC
-          ls build
           mv build/HPC .
+
+          # update gh-pages branch
           git add HPC
           git commit -m "deployed rendered docs (${GITHUB_SHA})"
           git push origin gh-pages
