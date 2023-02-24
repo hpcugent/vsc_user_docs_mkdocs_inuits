@@ -80,32 +80,32 @@ different workload hardware requirements.
 :::
 
 
-| Name            |    RAM| Disk    | VCPUs |
-|-----------------|-------|---------|-------|
-| CPUv1.nano      |  64Kb |    1Gb  |     1 |
-| CPUv1.tiny      | 512Kb |   10Gb  |     1 |
-| UPSv1.medium    |   4Gb |   30Gb  |     2 |
-| UPSv1.large     |   8Gb |   40Gb  |     4 |
-| UPSv1.2xlarge   |  60Gb |   40Gb  |    16 |
-| GPUv2.small     |   2Gb |   20Gb  |     1 |
-| GPUv2.medium    |   4Gb |   30Gb  |     2 |
-| GPUv2.large     |   8Gb |   40Gb  |     4 |
-| GPUv2.2xlarge   |  60Gb |   40Gb  |    16 |
-| UPSv1.3xlarge   | 120Gb |   80Gb  |    16 |
-| CPUv1.1_3xlarge | 180Gb |   80Gb  |    14 |
-| CPUv1.4xlarge   | 360Gb |   80Gb  |    20 |
-| CPUv1.small     |   2Gb |   20Gb  |     1 |
-| GPUv3.small     |   2Gb |   20Gb  |     1 |
-| GPUv3.medium    |   4Gb |   30Gb  |     2 |
-| GPUv3.large     |   8Gb |   40Gb  |     4 |
-| GPUv3.2xlarge   |  60Gb |   40Gb  |    16 |
-| CPUv1.medium    |   4Gb |   30Gb  |     2 |
-| CPUv1.large     |   8Gb |   40Gb  |     4 |
-| CPUv1.xlarge    |  16Gb |   40Gb  |     8 |
-| CPUv1.2xlarge   |  60Gb |   40Gb  |    16 |
-| CPUv1.3xlarge   | 120Gb |   80Gb  |    16 |
-| CPUv1.1_2xlarge |  60Gb |   40Gb  |     8 |
-| UPSv1.small     |   2Gb |   20Gb  |     1 |
+| Name            |    RAM| Root Disk | vCPUs |  GPUs |
+|-----------------|-------|-----------|-------|-------|
+| CPUv1.nano      |  64Kb |    1Gb    |     1 |     0 |
+| CPUv1.tiny      | 512Kb |   10Gb    |     1 |     0 |
+| UPSv1.medium    |   4Gb |   30Gb    |     2 |     0 |
+| UPSv1.large     |   8Gb |   40Gb    |     4 |     0 |
+| UPSv1.2xlarge   |  60Gb |   40Gb    |    16 |     0 |
+| GPUv2.small     |   2Gb |   20Gb    |     1 |     1 |
+| GPUv2.medium    |   4Gb |   30Gb    |     2 |     1 |
+| GPUv2.large     |   8Gb |   40Gb    |     4 |     1 |
+| GPUv2.2xlarge   |  60Gb |   40Gb    |    16 |     1 |
+| UPSv1.3xlarge   | 120Gb |   80Gb    |    16 |     0 |
+| CPUv1.1_3xlarge | 180Gb |   80Gb    |    14 |     0 |
+| CPUv1.4xlarge   | 360Gb |   80Gb    |    20 |     0 |
+| CPUv1.small     |   2Gb |   20Gb    |     1 |     0 |
+| GPUv3.small     |   2Gb |   20Gb    |     1 |     1 |
+| GPUv3.medium    |   4Gb |   30Gb    |     2 |     1 |
+| GPUv3.large     |   8Gb |   40Gb    |     4 |     1 |
+| GPUv3.2xlarge   |  60Gb |   40Gb    |    16 |     1 |
+| CPUv1.medium    |   4Gb |   30Gb    |     2 |     0 |
+| CPUv1.large     |   8Gb |   40Gb    |     4 |     0 |
+| CPUv1.xlarge    |  16Gb |   40Gb    |     8 |     0 |
+| CPUv1.2xlarge   |  60Gb |   40Gb    |    16 |     0 |
+| CPUv1.3xlarge   | 120Gb |   80Gb    |    16 |     0 |
+| CPUv1.1_2xlarge |  60Gb |   40Gb    |     8 |     0 |
+| UPSv1.small     |   2Gb |   20Gb    |     1 |     0 |
 
 
 :::
