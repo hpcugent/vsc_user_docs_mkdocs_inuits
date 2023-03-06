@@ -1,4 +1,5 @@
 docs:
+  - _Cloud: mkdocs_Cloud.yml
   - Antwerpen/Linux: mkdocs_Antwerpen_Linux.yml
   - Antwerpen/MacOS: mkdocs_Antwerpen_MacOS.yml
   - Antwerpen/Windows: mkdocs_Antwerpen_Windows.yml
