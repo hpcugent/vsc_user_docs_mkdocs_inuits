@@ -1,0 +1,75 @@
+site_name: VSC Tier-1 Cloud Documentation
+docs_dir: docs
+nav:
+  - intro-Cloud/ch_Access.md
+  - intro-Cloud/ch_Appendix.md
+  - intro-Cloud/ch_ConfigureInstances.md
+  - intro-Cloud/ch_Dashboard.md
+  - intro-Cloud/ch_Flavors.md
+  - intro-Cloud/ch_Gpus.md
+  - intro-Cloud/ch_HeatTemplates.md
+  - intro-Cloud/ch_Introduction.md
+  - intro-Cloud/ch_LaunchInstance.md
+  - intro-Cloud/ch_ManageImages.md
+  - intro-Cloud/ch_ManageVolumes.md
+  - intro-Cloud/ch_Shares.md
+  - intro-Cloud/ch_Terraform.md
+
+plugins:
+  - search
+  - include-markdown
+  - ugent
+  - macros:
+      include_yaml:
+        - constants.yml
+        - gent_extra.yml
+  - section-index
+  - autorefs
+  # - spellcheck
+  # - mkdocs-nav-enhancements
+  - exclude-search:
+      macros:
+        include_dir:
+          - ./macros/
+          - ./macros/Gent/Linux/
+      exclude:
+        - content/intro-HPC/*
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - abbr
+  - pymdownx.snippets:
+      auto_append:
+        - ./includes/abbreviations.md
+  - toc:
+      permalink: "#"
+      baselevel: 1
+      toc_depth: 3
+  - meta
+  - tables
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+
+theme:
+  name: material
+  language: en
+  features:
+    #- navigation.tabs
+    - navigation.top
+    - navigation.expand
+    # - navigation.indexes
+    - navigation.tracking
+    # - toc.integrate
+    - toc.follow
+    # - content.tabs.link
+    - navigation.sections
+    - search.suggest
+    - navigation.instant
+    - search.suggest
+    - search.highlight
