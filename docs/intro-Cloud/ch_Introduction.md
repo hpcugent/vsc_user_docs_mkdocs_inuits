@@ -1,4 +1,4 @@
-# Introduction {#introduction .unnumbered}
+# Introduction
 
 The VSC cloud platform uses the open-source software
 [OpenStack](https://openstack.org), version "Train". This

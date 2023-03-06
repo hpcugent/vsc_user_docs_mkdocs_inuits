@@ -1,4 +1,4 @@
-# Upload and manage images {#cha:upload-manage-images}
+# Upload and manage images
 
 A virtual machine image, referred to in this document simply as an
 image, is a single file that contains a virtual disk that has a bootable

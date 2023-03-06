@@ -1,4 +1,4 @@
-# Configure access and security for instances {#cha:conf-access-secur}
+# Configure access and security for instance
 
 The security and accessibility of your cloud resources is governed by a
 few different aspects, which we discuss more detail in the following
@@ -33,7 +33,7 @@ For other access methods, or SSH authentication for a wider set of
 users, you'll need to set up some form of identity management yourself.
 This system administration task is beyond the scope of our tutorial.
 
-## The \_vm, \_vsc and \_nfs networks {#sec:_vm-_nfs-networks}
+## The \_vm, \_vsc and \_nfs networks
 
 Each project in the VSC cloud has its own network *`<projectname>`*`_vm`
 and --- if the project uses shares and/or vsc networks ---
@@ -53,7 +53,7 @@ assigned a fixed IP address in that network. This IP address is
 permanently associated with the instance until the instance is
 terminated.
 
-## Floating IP addresses {#sec:floating-ip}
+## Floating IP addresses
 
 The \_vm, \_nfs and \_vsc networks can only be reached from within the
 OpenStack environment. If you need to access an instance from the
@@ -74,7 +74,7 @@ network is to use port forwarding to access multiple instances using the
 same public IP address, but you can also use a "floating IP association"
 for quick tests or \_vsc network.
 
-### Floating ip port forwarding {#port-forwarding .unnumbered}
+### Floating ip port forwarding
 
 OpenStack's networking API, called Neutron, makes it possible to forward
 different ports of the same floating ip to arbitrary ports in one of
@@ -193,7 +193,7 @@ and restore the port forwarding rules.
 `neutron_port_forward` provides a few more options and advanced
 features, run the command with the `--help` option for more information.
 
-### Associate a floating ip {#associate-a-floating-ip .unnumbered}
+### Associate a floating ip
 
 A floating IP address can also be associated to an instance, just like
 the fixed IP addresses. Because this approach uses one of the few
@@ -257,7 +257,7 @@ assigned to your project, something which you, as a regular user, cannot
 undo. If you've accidentally released a floating IP, contact to have it
 restored.
 
-## Security Groups {#sec:security-groups}
+## Security Groups
 
 OpenStack security groups are sets of IP filter rules that define
 networking access. You can then assign one or more security groups to
@@ -269,7 +269,7 @@ allows you to ping instances and connect using SSH on the default port
 security groups with the appropriate rules and assign them to the
 instances.
 
-## SSH key pairs {#sec:ssh-key-pairs}
+## SSH key pairs
 
 When an instance is launched, OpenStack can automatically install a
 public SSH key on it, so as to give anyone with the corresponding
@@ -297,7 +297,7 @@ Every OpenStack user account has its own collection of SSH keys for
 every project. To share a public key between multiple users of the same
 project, each user needs to import it in the OpenStack project.
 
-### Add a key pair {#add-a-key-pair .unnumbered}
+### Add a key pair
 
 1.  Open the Compute tab.
 
@@ -333,7 +333,7 @@ project, each user needs to import it in the OpenStack project.
 ```
 
 
-### Import a key pair {#import-a-key-pair .unnumbered}
+### Import a key pair
 
 1.  Open the Compute tab.
 

@@ -1,4 +1,4 @@
-# Orchestration Using Heat {#cha:orch-using-heat}
+# Orchestration Using Heat
 
 Heat is the name of the OpenStack orchestration engine, which can manage complete
 configurations of all servers, volumes, users, networks and routers that
@@ -15,7 +15,7 @@ following locations:
 
 -   [https://docs.openstack.org/heat-dashboard/latest](https://docs.openstack.org/heat-dashboard/latest)
 
-## Heat Orchestration Template {#sec:glsh-orch-templ}
+## Heat Orchestration Template
 
 A _stack's_
 resources and their mutual dependencies can be specified in a text file,
@@ -115,7 +115,7 @@ case, there is just a single VM instance (OS::Nova::Server).
 
 Optional additional sections are **paremeter_groups**, **outputs**, and .
 
-## The Template Generator {#sec:template-generator}
+## The Template Generator
 
 The Heat dashboard provides a graphical interface where users can draw
 templates by dragging resources onto a canvas, and connecting them.
@@ -127,7 +127,7 @@ which require manual edits to the generated templates. Therefore, the
 template generator is currently not very useful. We will update this
 section as soon as these problems are solved.
 
-## Managing stacks {#sec:managing-stacks}
+## Managing stacks
 
 The button in the tab takes you to the overview page where you can
 launch, suspend, resume and delete stacks.
@@ -140,7 +140,7 @@ The overview page contains a list of all currently existing stacks
 (either running or suspended), and buttons to perform the following
 actions:
 
-### Launch a stack {#launch-a-stack .unnumbered}
+### Launch a stack
 
 1.  Click to open the following wizard:
 
@@ -194,7 +194,7 @@ actions:
 
 4.  Click **Launch** to instantiate the stack.
 
-### Preview Stack {#preview-stack .unnumbered}
+### Preview Stack
 
 starts a wizard similar to the "Launch Stack" wizard, but completing the
 wizard will only make the system perform a sanity check of your
@@ -203,7 +203,7 @@ inspect the parameters of the stack that would be created. The wizard
 does not allow you to enter input parameter values, so any mandatory
 input parameters should be provided in an environment.
 
-### Delete Stacks {#delete-stacks .unnumbered}
+### Delete Stacks
 
 deletes all selected stacks from the list .
 
@@ -213,7 +213,7 @@ for those resources (see the '[Resources
 section](https://docs.openstack.org/heat/\osversion/template_guide/hot_spec.html#resources-section)'
 in the HOT specification).
 
-### More Actions {#more-actions .unnumbered}
+### More Actions
 
 The button **More Actions** hides the following additional actions:
 

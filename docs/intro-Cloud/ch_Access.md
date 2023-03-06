@@ -25,7 +25,7 @@ These restrictions do not apply to someone who simply wishes to access
 an existing VM running in the cloud. VSC Cloud projects can decide
 themselves who gets access to their VM's, and how.
 
-## Dashboard Login {#sec:dashboard-login}
+## Dashboard Login
 
 You can access the OpenStack web interface, or Dashboard, via
 [cloud.vscentrum.be](https://cloud.vscentrum.be).
@@ -44,7 +44,7 @@ find a detailed description in the HPC introduction at
 The following chapters explain how to accomplish basic tasks using the
 Dashboard.
 
-## Application Credentials {#sec:appl-cred}
+## Application Credentials
 
 If you want to use the OpenStack command line interface --- or, for
 advanced users, use the OpenStack APIs directly --- you need to identify

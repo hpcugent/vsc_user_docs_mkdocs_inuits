@@ -1,4 +1,4 @@
-# Orchestration Using Terraform {#cha:orch-using-terraform}
+# Orchestration Using Terraform
 
 HashiCorp Terraform <https://www.terraform.io/> is an
 infrastructure as code tool (IaC), similar to OpenStack
@@ -30,7 +30,7 @@ client is available for different Operating Systems like Windows, Linux
 or macOS (<https://www.terraform.io/downloads>) but it is also available
 from UGent login node _login.hpc.ugent.be_.
 
-## Create application credentials for Terraform {#sec:app-cred-terraform}
+## Create application credentials for Terraform
 
 Terraform
 uses OpenStack application credentials to authenticate to VSC Cloud
@@ -81,7 +81,7 @@ Terraform in
 your own laptop or computer. Terraform will use this file to authenticate to
 OpenStack API automatically.
 
-## Getting Terraform examples {#sec:getting-terraform-templ}
+## Getting Terraform examples
 
 You can connect to UGent login node `login.hpc.ugent.be` to use
 terraform. Login to the login node with your VSC account first:
@@ -108,7 +108,7 @@ file in a public place.**
 $ chmod 600 ∼/.config/openstack/clouds.yaml
 ```
 
-## Generate Terraform template variables {#sec:generate-terraform-variables}
+## Generate Terraform template variables
 
 Terraform
 requires some variables to know which resources are available from the
@@ -174,7 +174,7 @@ VM, for instance for CentOS images is *centos*, for Ubuntu images is
 case the system will show you a message with the user that you should
 use.
 
-## Modify default Terraform modules {#sec:modify-terraform-modules}
+## Modify default Terraform modules
 
 In [section](#sec:getting-terraform-templ) we have downloaded the
 Terraform module examples from the VSC repository. If you deploy these
@@ -227,7 +227,7 @@ Terraform will deploy a simple VM and use 20Gb for a persistent volume
 and port 56469 to connect via ssh (it also creates all required security
 groups).
 
-## Deploy Terraform templates {#sec:deploy-terraform-templates}
+## Deploy Terraform templates
 
 If you have followed the previous steps now you can init and deploy your
 infrastucture to Tier-1 VSC cloud.

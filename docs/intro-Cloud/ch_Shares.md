@@ -1,4 +1,4 @@
-# Shared file systems using Manila {#cha:shared-file-systems}
+# Shared file systems using Manila
 
 OpenStack's Manila service makes it possible to create and manage shared
 nfs file systems
@@ -6,7 +6,7 @@ for virtual machines. This service is not automatically enabled for
 every VSC cloud project, so you should contact <cloud@vscentrum.be> if you want
 to use shared file systems in your project.
 
-## Creating a Shared File System {#sec:creating-shared-file .unnumbered}
+## Creating a Shared File System
 
 Creating a shared file system using the Horizon interface is quite
 straightforward:
@@ -61,7 +61,7 @@ straightforward:
 At this point, the shared file system exists within OpenStack, but it
 cannot be used until we define access rules for it.
 
-## Defining nfs access rules {#sec:defin-nfs-access .unnumbered}
+## Defining nfs access rules
 
 You must define rules that define which machines on the network may
 obtain read or write access to your shared file system. By default, in
@@ -113,7 +113,7 @@ absence of any rules, a shared file system cannot be accessed by anyone.
 Your rule now appears in the list. You can add as many rules as you
 wish, to set the access level for different addresses or address ranges.
 
-## Accessing a shared file system {#sec:access-shar-file .unnumbered}
+## Accessing a shared file system
 
 When the proper access rules for the shared file system are in place,
 you can access it from an instance with a matching ip. In order to be

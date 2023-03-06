@@ -16,7 +16,7 @@ The VSC cloud uses a customized dashboard. Some features mentioned in
 the official OpenStack documentation were intentionally removed, please
 contact if you need access to one of these disabled features.
 
-## Project tab {#sec:project-tab .unnumbered}
+## Project tab
 
 Resources (instances, data volumes, networks, ...) in OpenStack are
 organized into different projects, and every user is a member of one or
@@ -78,7 +78,7 @@ From the Project tab, you can access the following categories:
 
 -   Shares: Create and manage share.
 
-## Identity tab {#sec:identity-tab .unnumbered}
+## Identity tab
 
 From the Identity tab, you can access the following categories:
 

@@ -1,4 +1,4 @@
-# Launch and manage instances {#cha:launch-manage-inst}
+# Launch and manage instances
 
 Instances are virtual machines that run inside the cloud. You can launch
 an _instance_ from the following sources:
@@ -179,7 +179,7 @@ For details on creating images, see [*Creating images
 manually*](https://docs.openstack.org/image-guide/create-images-manually.html)
 in the *OpenStack Virtual Machine Image Guide*.
 
-## Connect to an instance using SSH {#connect-to-your-instance-using-ssh}
+## Connect to an instance using SSH
 
 Before you can connect to an instance using SSH, you must set up a
 floating IP for it, as discussed in
@@ -232,7 +232,7 @@ privileges using `sudo`. In our example, we have used the username
 `ubuntu` for Ubuntu images. Attempting to log in as root will return
 an error message with the proper user name.
 
-### Host keys {#sec:host-keys .unnumbered}
+### Host keys
 
 When connecting to instances using SSH, you will sometimes see warnings
 or errors related to "host keys". This section briefly explains the
@@ -257,7 +257,7 @@ there are a number of situations where the check fails. In this case,
 you have to look up the host key of your instance in the OpenStack
 dashboard to verify that the connection is secure.
 
-#### Looking up an instance's host key {#sec:look-up-hostkey .unnumbered}
+#### Looking up an instance's host key
 
 In order to verify a host key, it suffices to compare the key's
 fingerprint, a short alphanumerical sequence computed from the keys
@@ -310,7 +310,7 @@ windows version of the [introduction to
 HPC](https://hpcugent.github.io/vsc_user_docs) for the corresponding
 warning messages.
 
-#### Connecting for the first time {#sec:conn-first-time .unnumbered}
+#### Connecting for the first time
 
 The first time you connect to a new ip address:port combination, your
 SSH client does not know the host key for this address, and therefore it
@@ -431,7 +431,7 @@ Launch. Proceed with launching an instance.
     Depending on the current state of the instance, you can pause,
     resume, suspend, soft or hard reboot, or terminate it.
 
-### Difference between *suspend*, *pause*, *shelve*, *shut off*, *delete* {#server-power-down-states .unnumbered}
+### Difference between *suspend*, *pause*, *shelve*, *shut off*, *delete*
 
 **Pause**
 

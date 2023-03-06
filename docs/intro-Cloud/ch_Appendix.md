@@ -1,6 +1,6 @@
 # Appendix
 
-## VSC Tier-1 Cloud flavors list {#sec:appendix-flavors}
+## VSC Tier-1 Cloud flavors list
 
 ```console
 $ openstack flavor list

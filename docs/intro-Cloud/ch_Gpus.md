@@ -1,4 +1,4 @@
-# GPUs {#cha:gpus}
+# GPUs
 
 VSC Tier-1 Cloud users can also deploy VMs with different kind of GPUs.
 A full GPU card is connected directly to the VM via [PCI passthrough](https://libvirt.org/docs/libvirt-appdev-guide-python/en-US/html/libvirt_application_development_guide_using_python-Guest_Domains-Device_Config-PCI_Pass.html) and it is not shared between VMs.
@@ -7,7 +7,7 @@ See section [Instance types and flavors](./ch_Flavors.md#instance-types) for mor
 
 Nvidia GPUs require the proprietary Nvidia driver to work, here it is explained how to install and keep updated Nvidia drivers for each public OS available from VSC Tier-1 Cloud.
 
-## Ubuntu {#sec:gpu-ubuntu}
+## Ubuntu
 * Add graphics drivers ppa repo:
 ```
 $ sudo add-apt-repository ppa:graphics-drivers/ppa
@@ -70,7 +70,7 @@ $ sudo apt install nvidia-driver-525
 ```
 
 
-## Alma Linux/CentOS/Red Hat 8.x {#sec:gpu-centos}
+## Alma Linux/CentOS/Red Hat 8.x
 
 
 * Add epel repo:
@@ -115,7 +115,7 @@ $ sudo dnf install nvidia-driver nvidia-driver-cuda nvidia-driver-NVML
 ```
 
 
-## Debian 11 {#sec:gpu-debian}
+## Debian 11
 
 * Install required repositories from Debian:
 ```

@@ -5,7 +5,7 @@ flavors to fit different use cases. Each instance type provides several
 flavor sizes to give different combinations of CPU, memory, GPU and
 network resources.
 
-## Instance Types {#sec:instance-types}
+## Instance Types
 
 The following table provides the current main instance types available
 from the VSC Tier1 Cloud infrastructure:
@@ -49,7 +49,7 @@ from their Tier1 Cloud VMs.
 On the other hand, the shared filesystem network is required by the
 OpenStack shared filesystem service (Manila) (see chapter 10 for more information).
 
-## Flavor Sizes {#sec:flavor-sizes}
+## Flavor Sizes
 
 A flavor size is a set of virtualized hardware resources to a virtual
 machine (VM) instance like system memory size (RAM), virtual cores
