@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#appendix" class="md-skip">
           Skip to content
         </a>
       
@@ -837,6 +837,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vsc-tier-1-cloud-flavors-list" class="md-nav__link">
+    VSC Tier-1 Cloud flavors list
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -849,10 +864,38 @@
                 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 3 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1">## VSC Tier-1 Cloud flavors list {#sec:appendix-flavors}</span>
-</code></pre></div></p>
+<h1 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">#</a></h1>
+<h2 id="vsc-tier-1-cloud-flavors-list">VSC Tier-1 Cloud flavors list<a class="headerlink" href="#vsc-tier-1-cloud-flavors-list" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>openstack flavor list
+<span class="go">+----+-----------------+--------+------+-----------+-------+-----------+</span>
+<span class="go">| ID | Name            |    RAM | Disk | Ephemeral | VCPUs | Is Public |</span>
+<span class="go">+----+-----------------+--------+------+-----------+-------+-----------+</span>
+<span class="go">| 0  | CPUv1.nano      |     64 |    1 |         0 |     1 | True      |</span>
+<span class="go">| 1  | CPUv1.tiny      |    512 |   10 |         0 |     1 | True      |</span>
+<span class="go">| 10 | UPSv1.medium    |   4096 |   30 |         0 |     2 | True      |</span>
+<span class="go">| 11 | UPSv1.large     |   8192 |   40 |         0 |     4 | True      |</span>
+<span class="go">| 12 | UPSv1.2xlarge   |  61440 |   40 |         0 |    16 | True      |</span>
+<span class="go">| 13 | GPUv2.small     |   2048 |   20 |         0 |     1 | True      |</span>
+<span class="go">| 14 | GPUv2.medium    |   4096 |   30 |         0 |     2 | True      |</span>
+<span class="go">| 15 | GPUv2.large     |   8192 |   40 |         0 |     4 | True      |</span>
+<span class="go">| 16 | GPUv2.2xlarge   |  61440 |   40 |         0 |    16 | True      |</span>
+<span class="go">| 17 | UPSv1.3xlarge   | 122880 |   80 |         0 |    16 | True      |</span>
+<span class="go">| 18 | CPUv1.1_3xlarge | 184320 |   80 |         0 |    14 | True      |</span>
+<span class="go">| 19 | CPUv1.4xlarge   | 368640 |   80 |         0 |    20 | True      |</span>
+<span class="go">| 2  | CPUv1.small     |   2048 |   20 |         0 |     1 | True      |</span>
+<span class="go">| 20 | GPUv3.small     |   2048 |   20 |         0 |     1 | True      |</span>
+<span class="go">| 21 | GPUv3.medium    |   4096 |   30 |         0 |     2 | True      |</span>
+<span class="go">| 22 | GPUv3.large     |   8192 |   40 |         0 |     4 | True      |</span>
+<span class="go">| 23 | GPUv3.2xlarge   |  61440 |   40 |         0 |    16 | True      |</span>
+<span class="go">| 3  | CPUv1.medium    |   4096 |   30 |         0 |     2 | True      |</span>
+<span class="go">| 4  | CPUv1.large     |   8192 |   40 |         0 |     4 | True      |</span>
+<span class="go">| 5  | CPUv1.xlarge    |  16384 |   40 |         0 |     8 | True      |</span>
+<span class="go">| 6  | CPUv1.2xlarge   |  61440 |   40 |         0 |    16 | True      |</span>
+<span class="go">| 7  | CPUv1.3xlarge   | 122880 |   80 |         0 |    16 | True      |</span>
+<span class="go">| 8  | CPUv1.1_2xlarge |  61440 |   40 |         0 |     8 | True      |</span>
+<span class="go">| 9  | UPSv1.small     |   2048 |   20 |         0 |     1 | True      |</span>
+<span class="go">+----+-----------------+--------+------+-----------+-------+-----------+</span>
+</code></pre></div>
 
               
             </article>

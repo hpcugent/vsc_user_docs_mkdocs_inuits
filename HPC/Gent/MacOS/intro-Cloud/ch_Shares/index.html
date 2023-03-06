@@ -13,7 +13,7 @@
     
     
       
-        <title>Shared file systems using Manila {#cha:shared-file-systems} - VSC User Documentation - Gent</title>
+        <title>Shared file systems using Manila - VSC User Documentation - Gent</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#shared-file-systems-using-manila" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shared file systems using Manila {#cha:shared-file-systems}
+              Shared file systems using Manila
             
           </span>
         </div>
@@ -1055,6 +1055,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-shared-file-system" class="md-nav__link">
+    Creating a Shared File System
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-nfs-access-rules" class="md-nav__link">
+    Defining nfs access rules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-a-shared-file-system" class="md-nav__link">
+    Accessing a shared file system
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1067,10 +1096,165 @@
                 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1"># Shared file systems using Manila {#cha:shared-file-systems}</span>
-</code></pre></div></p>
+<h1 id="shared-file-systems-using-manila">Shared file systems using Manila<a class="headerlink" href="#shared-file-systems-using-manila" title="Permanent link">#</a></h1>
+<p><abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr>'s Manila service makes it possible to create and manage shared
+<abbr title="Network File System, a protocol for sharing file systems across a network, often used on Unix(-like) operating systems.">nfs</abbr> file systems
+for virtual machines. This service is not automatically enabled for
+every VSC cloud project, so you should contact <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;">&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;</a> if you want
+to use shared file systems in your project.</p>
+<h2 id="creating-a-shared-file-system">Creating a Shared File System<a class="headerlink" href="#creating-a-shared-file-system" title="Permanent link">#</a></h2>
+<p>Creating a shared file system using the <abbr title="Horizon is the name of the *OpenStack Dashboard*.">Horizon</abbr> interface is quite
+straightforward:</p>
+<ol>
+<li>
+<p>Open the Share tab, and click Shares. A list of existing shares (if
+    any) is shown.</p>
+</li>
+<li>
+<p>Click the <strong>Create Share</strong> button to open the following dialog:</p>
+</li>
+</ol>
+<p><img alt="image" src="../img/create_share.png" /></p>
+<p>Fill out the following fields:</p>
+<ul>
+<li>
+<p><strong>Share Name</strong></p>
+<p>Choose a name.</p>
+</li>
+<li>
+<p><strong>Description</strong></p>
+<p>Optionally, add a description.</p>
+</li>
+<li>
+<p><strong>Share Protocol</strong></p>
+<p>Use the default <abbr title="Network File System, a protocol for sharing file systems across a network, often used on Unix(-like) operating systems.">nfs</abbr> protocol.</p>
+</li>
+<li>
+<p><strong>Size (GiB)</strong></p>
+<p>Set the size of the shared file system to be created. The total
+available storage and the amount currently used are shown on the
+right.</p>
+</li>
+<li>
+<p><strong>Share Type</strong></p>
+<p>Here, you must select "cephfsnfstype" (the only choice).</p>
+</li>
+<li>
+<p><strong>Metadata</strong></p>
+<p>You can attach additional metadata to your shared file system,
+which can be queried later on.</p>
+<p>Other fields are not mandatory. By default, the shared file system
+will only be visible within the current project (Visibility:
+"private"). Be careful with the option "Make visible for all':
+enabling it will set the visibility of your shared file system to
+"public", making it visible for any other project in the VSC cloud
+as well.</p>
+</li>
+<li>
+<p>Click <strong>Create</strong> to complete this step.</p>
+</li>
+</ul>
+<p>At this point, the shared file system exists within <abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr>, but it
+cannot be used until we define access rules for it.</p>
+<h2 id="defining-nfs-access-rules">Defining <abbr title="Network File System, a protocol for sharing file systems across a network, often used on Unix(-like) operating systems.">nfs</abbr> access rules<a class="headerlink" href="#defining-nfs-access-rules" title="Permanent link">#</a></h2>
+<p>You must define rules that define which machines on the network may
+obtain read or write access to your shared file system. By default, in
+absence of any rules, a shared file system cannot be accessed by anyone.</p>
+<ol>
+<li>
+<p>Open the drop-down menu in the <strong>Actions</strong> column for your <abbr title="A share is a remote, mountable file system. Users can mount and access a share on several hosts at a time.">share</abbr>,
+    and click <strong>Manage Rules</strong>.</p>
+</li>
+<li>
+<p>You can now see all Share Rules for this shared file system. For a
+    newly created file system, the list will be empty. Click <strong>Add
+    rule</strong>.</p>
+</li>
+<li>
+<p>Fill out the <strong>Add Rule</strong> dialog:</p>
+<p><strong>Access Type</strong></p>
+<p>Only "ip" is supported.</p>
+<p><strong>Access Level</strong></p>
+<p>Choose if you want to give read and write ("rw") or read-only
+("ro") permission with this rule.</p>
+<p><strong>Access To</strong></p>
+<p>Here, you can specify an ip address, or an address range, to
+which the rule applies. The addresses should be specified
+according to the format of an NFS exports configuration file.
+The following table contains a few examples, assuming the
+project's <strong>_nfs</strong> network has the subnet <em>10.10.x.0/24</em>, for some
+value of <em>x</em> (see section
+<a href="../ch_ConfigureInstances/#sec:_vm-_nfs-networks">_nfs networks</a>):</p>
+</li>
+</ol>
+<p>:::</p>
+<ul>
+<li>
+<p><strong>10.10.<em>x</em>.13</strong></p>
+<ul>
+<li>Allow this single ip address.</li>
+</ul>
+</li>
+<li>
+<p><strong>0.0.0.0/0</strong></p>
+<ul>
+<li>Allow any ip address.</li>
+</ul>
+</li>
+<li><strong>10.10.<em>x</em>.0/24</strong><ul>
+<li>Allow any ip address from the project's _nfs network. For a non-public shared file system this has the same effect as the previous rule, because such a shared file system can only be accessed from within our project's _nfs network anyway.</li>
+</ul>
+</li>
+<li>
+<p><strong>10.10.<em>x</em>.0/28</strong></p>
+<ul>
+<li>Allow addresses 10.10.x.0 until 10.10.x.15.</li>
+</ul>
+<p>Click <strong>Add</strong> to add the rule.</p>
+</li>
+</ul>
+<p>Your rule now appears in the list. You can add as many rules as you
+wish, to set the access level for different addresses or address ranges.</p>
+<h2 id="accessing-a-shared-file-system">Accessing a shared file system<a class="headerlink" href="#accessing-a-shared-file-system" title="Permanent link">#</a></h2>
+<p>When the proper access rules for the shared file system are in place,
+you can access it from an instance with a matching ip. In order to be
+able to mount the shared file system, your instance needs</p>
+<ul>
+<li>
+<p>a <abbr title="Network File System, a protocol for sharing file systems across a network, often used on Unix(-like) operating systems.">nfs</abbr> client,
+    installed by default on images provided by the VSC cloud, and</p>
+</li>
+<li>
+<p>access to the <strong>_nfs</strong> network. Because your instance likely has to
+    connect to the <strong>_vm</strong> network as well, your VM should have two
+    <abbr title="Network Interface Controller, a (virtualized) hardware component that connects a computer to a network.">nic</abbr>'s. Again,
+    this is taken care of in the default images.</p>
+</li>
+</ul>
+<p>When you are ready to mount the network file system on an instance, look
+up the network location of your file system using the Dashboard:</p>
+<ol>
+<li>
+<p>Open the Share tab and click Shares. The list of all shared file
+    systems in your project is shown.</p>
+</li>
+<li>
+<p>Click the name of the shared file system you wish to access.</p>
+</li>
+<li>
+<p>In the section "Share Overview", look for the item <strong>Export
+    locations</strong>.</p>
+</li>
+<li>
+<p>Copy the content of the <strong>Path:</strong> field.</p>
+</li>
+</ol>
+<p>Once you know the location of your shared file system, you can mount it
+on any VM with the appropriate access rights, e.g. to mount a shared
+file system with location <em>10.2.0.2:/volumes/_nogroup/918...a78</em> at
+mount point <em>\mnt</em>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sudo mount <span class="m">10</span>.2.0.2:/volumes/_nogroup/918...a78 /mnt
+</code></pre></div>
 
               
             </article>

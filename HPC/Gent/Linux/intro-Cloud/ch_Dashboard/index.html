@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#the-openstack-dashboard" class="md-skip">
           Skip to content
         </a>
       
@@ -1055,6 +1055,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-tab" class="md-nav__link">
+    Project tab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identity-tab" class="md-nav__link">
+    Identity tab
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1067,10 +1089,102 @@
                 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 19 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1">## Project tab {#sec:project-tab .unnumbered}</span>
-</code></pre></div></p>
+<h1 id="the-openstack-dashboard">The <abbr title="OpenStack Dashboard (Horizon) provides administrators and users with a graphical interface to access, provision, and automate deployment of cloud-based resources. The design accommodates third party products and services, such as billing, monitoring, and additional management tools. The dashboard is also brand-able for service providers and other commercial vendors who want to make use of it. The dashboard is one of several ways users can interact with OpenStack resources. Developers can automate access or build tools to manage resources using the native OpenStack API or the EC2 compatibility API.">OpenStack Dashboard</abbr><a class="headerlink" href="#the-openstack-dashboard" title="Permanent link">#</a></h1>
+<p>After login, you can see the Overview tab of
+<em><abbr title="Horizon is the name of the *OpenStack Dashboard*.">Horizon</abbr></em>, the
+<em><abbr title="OpenStack Dashboard (Horizon) provides administrators and users with a graphical interface to access, provision, and automate deployment of cloud-based resources. The design accommodates third party products and services, such as billing, monitoring, and additional management tools. The dashboard is also brand-able for service providers and other commercial vendors who want to make use of it. The dashboard is one of several ways users can interact with OpenStack resources. Developers can automate access or build tools to manage resources using the native OpenStack API or the EC2 compatibility API.">OpenStack Dashboard</abbr></em>.</p>
+<p><img alt="image" src="../img/tab-compute-overview.png" /></p>
+<p>This chapter briefly describes the different components of the
+dashboard. You can read the official documentation at
+<a class="uri" href="https://docs.openstack.org/horizon/latest/user/">https://docs.openstack.org/horizon/latest/user/</a>.</p>
+<p>The VSC cloud uses a customized dashboard. Some features mentioned in
+the official <abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr> documentation were intentionally removed, please
+contact if you need access to one of these disabled features.</p>
+<h2 id="project-tab">Project tab<a class="headerlink" href="#project-tab" title="Permanent link">#</a></h2>
+<p>Resources (instances, data volumes, networks, ...) in <abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr> are
+organized into different projects, and every user is a member of one or
+more projects. Every project member has full access to all of the
+project's resources.</p>
+<p>From the Project tab, you can access the following categories:</p>
+<p><strong>API Access</strong> View API endpoints.</p>
+<p><strong>Compute</strong></p>
+<ul>
+<li>Overview: View reports for the project.</li>
+<li>
+<p>Instances: View, launch, create a snapshot from, stop, pause, or
+     reboot instances, or connect to them through VNC.</p>
+</li>
+<li>
+<p>Images: View images and instance snapshots created by project
+    users, plus any images that are publicly available. Create,
+    edit, and delete images, and launch instances from images and
+    snapshots.</p>
+</li>
+<li>
+<p>Key Pairs: View, create, edit, import, and delete key pairs.</p>
+</li>
+<li>
+<p>Server Groups: Server groups provide a mechanism to group
+        servers according to certain policy.</p>
+</li>
+</ul>
+<p><strong>Volumes</strong></p>
+<ul>
+<li>
+<p>Volumes: View, create, edit, and delete volumes.</p>
+</li>
+<li>
+<p>Snapshots: View, create, edit, and delete volume snapshots.</p>
+</li>
+</ul>
+<p><strong>Network</strong></p>
+<ul>
+<li>
+<p>Networks: Create and manage public and private networks.</p>
+</li>
+<li>
+<p>Security Groups: View, create, edit, and delete security groups
+     and security group rules..</p>
+</li>
+<li>
+<p>Floating IPs: Allocate an IP address to or release it from a
+     project</p>
+</li>
+</ul>
+<p><strong>Orchestration</strong></p>
+<ul>
+<li>
+<p>Stacks: Use the <abbr title="REpresentational State Transfer is a software architectural style that defines a set of constraints to be used for creating web services.">REST</abbr> API to orchestrate multiple composite cloud
+    applications.</p>
+</li>
+<li>
+<p>Resource types: Show a list of all the supported resource types
+    for HOT templates.</p>
+</li>
+<li>
+<p>Template versions: The version of a <abbr title="Heat is the OpenStack orchestration service, which can manage multiple composite cloud applications using templates, through both an OpenStack-native REST API and a CloudFormation-compatible Query API.">Heat</abbr> template specifies the
+    format of the template and also the corresponding features that
+    will be validated and supported.</p>
+</li>
+<li>
+<p>Template generator: A graphical interface to build and edit
+    templates.</p>
+</li>
+</ul>
+<p><strong>Shares</strong></p>
+<ul>
+<li>Shares: Create and manage <abbr title="A share is a remote, mountable file system. Users can mount and access a share on several hosts at a time.">share</abbr>.</li>
+</ul>
+<h2 id="identity-tab">Identity tab<a class="headerlink" href="#identity-tab" title="Permanent link">#</a></h2>
+<p>From the Identity tab, you can access the following categories:</p>
+<p><strong>Projects</strong></p>
+<p>View, create, assign users to, remove users from, and delete
+projects.</p>
+<p><strong>Users</strong></p>
+<p>View, create, enable, disable, and delete users.</p>
+<p><strong>Application Credentials</strong></p>
+<p>With application credentials, a user can grant applications limited
+access to their cloud resources.</p>
 
               
             </article>

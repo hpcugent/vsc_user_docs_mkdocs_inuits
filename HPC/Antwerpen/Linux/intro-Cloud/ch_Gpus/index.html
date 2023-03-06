@@ -13,7 +13,7 @@
     
     
       
-        <title>GPUs {#cha:gpus} - VSC User Documentation - Antwerpen</title>
+        <title>GPUs - VSC User Documentation - Antwerpen</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#gpus" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GPUs {#cha:gpus}
+              GPUs
             
           </span>
         </div>
@@ -837,6 +837,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu" class="md-nav__link">
+    Ubuntu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alma-linuxcentosred-hat-8x" class="md-nav__link">
+    Alma Linux/CentOS/Red Hat 8.x
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debian-11" class="md-nav__link">
+    Debian 11
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -849,10 +878,169 @@
                 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1"># GPUs {#cha:gpus}</span>
+<h1 id="gpus">GPUs<a class="headerlink" href="#gpus" title="Permanent link">#</a></h1>
+<p>VSC Tier-1 Cloud users can also deploy VMs with different kind of GPUs.
+A full GPU card is connected directly to the VM via <a href="https://libvirt.org/docs/libvirt-appdev-guide-python/en-US/html/libvirt_application_development_guide_using_python-Guest_Domains-Device_Config-PCI_Pass.html">PCI passthrough</a> and it is not shared between VMs.</p>
+<p>See section <a href="../ch_Flavors/#instance-types">Instance types and flavors</a> for more information about the different GPUs available (<code>GPUv*</code> flavors).</p>
+<p>Nvidia GPUs require the proprietary Nvidia driver to work, here it is explained how to install and keep updated Nvidia drivers for each public OS available from VSC Tier-1 Cloud.</p>
+<h2 id="ubuntu">Ubuntu<a class="headerlink" href="#ubuntu" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p>Add graphics drivers ppa repo:
+<div class="highlight"><pre><span></span><code>$ sudo add-apt-repository ppa:graphics-drivers/ppa
 </code></pre></div></p>
+</li>
+<li>
+<p>Install Ubuntu drivers app:
+<div class="highlight"><pre><span></span><code>$ sudo apt install ubuntu-drivers-common
+</code></pre></div></p>
+</li>
+<li>
+<p>Check available GPUs:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>$ ubuntu-drivers devices
+== /sys/devices/pci0000:00/0000:00:06.0 ==
+modalias : pci:v000010DEd00001EB8sv000010DEsd000012A2bc03sc02i00
+vendor   : NVIDIA Corporation
+model    : TU104GL [Tesla T4]
+driver   : nvidia-driver-470-server - distro non-free
+driver   : nvidia-driver-515 - distro non-free
+driver   : nvidia-driver-470 - distro non-free
+driver   : nvidia-driver-525-server - distro non-free
+driver   : nvidia-driver-418-server - distro non-free
+driver   : nvidia-driver-510 - distro non-free
+driver   : nvidia-driver-525 - distro non-free recommended
+driver   : nvidia-driver-515-server - distro non-free
+driver   : nvidia-driver-450-server - distro non-free
+driver   : xserver-xorg-video-nouveau - distro free builtin
+</code></pre></div>
+<ul>
+<li>
+<p>Install latest Nvidia driver (change <code>525</code> with the latest version available in your case):
+<div class="highlight"><pre><span></span><code>$ sudo apt install nvidia-driver-525
+</code></pre></div></p>
+</li>
+<li>
+<p>Reboot your VM.</p>
+</li>
+<li>Check Nvidia driver and CUDA are available after the reboot:
+<div class="highlight"><pre><span></span><code>    $ nvidia-smi 
+    Thu Feb  2 16:47:42 2023       
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 525.78.01    Driver Version: 525.78.01    CUDA Version: 12.0     |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |                               |                      |               MIG M. |
+    |===============================+======================+======================|
+    |   0  Tesla T4            Off  | 00000000:00:06.0 Off |                    0 |
+    | N/A   45C    P8    16W /  70W |      6MiB / 15360MiB |      0%      Default |
+    |                               |                      |                  N/A |
+    +-------------------------------+----------------------+----------------------+
+
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                                  |
+    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+    |        ID   ID                                                   Usage      |
+    |=============================================================================|
+    |    0   N/A  N/A       833      G   /usr/lib/xorg/Xorg                  4MiB |
+    +-----------------------------------------------------------------------------+
+</code></pre></div></li>
+</ul>
+<h2 id="alma-linuxcentosred-hat-8x">Alma <abbr title="An operating system, similar to UNIX.">Linux</abbr>/CentOS/Red Hat 8.x<a class="headerlink" href="#alma-linuxcentosred-hat-8x" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p>Add epel repo:
+<div class="highlight"><pre><span></span><code>$ sudo dnf install epel-release
+</code></pre></div></p>
+</li>
+<li>
+<p>Add Nvidia repo:
+<div class="highlight"><pre><span></span><code>$ sudo dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+</code></pre></div></p>
+</li>
+<li>
+<p>Install Nvidia driver and cuda:
+<div class="highlight"><pre><span></span><code>$ sudo dnf install nvidia-driver nvidia-driver-cuda nvidia-driver-NVML
+</code></pre></div></p>
+</li>
+<li>
+<p>Reboot your VM.</p>
+</li>
+<li>Check Nvidia driver and CUDA are available after the reboot:
+<div class="highlight"><pre><span></span><code>    # nvidia-smi 
+    Thu Feb  2 15:36:40 2023       
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 525.85.12    Driver Version: 525.85.12    CUDA Version: 12.0     |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |                               |                      |               MIG M. |
+    |===============================+======================+======================|
+    |   0  Tesla T4            Off  | 00000000:00:06.0 Off |                    0 |
+    | N/A   63C    P0    31W /  70W |      2MiB / 15360MiB |      8%      Default |
+    |                               |                      |                  N/A |
+    +-------------------------------+----------------------+----------------------+
+
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                                  |
+    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+    |        ID   ID                                                   Usage      |
+    |=============================================================================|
+    |  No running processes found                                                 |
+    +-----------------------------------------------------------------------------+
+</code></pre></div></li>
+</ul>
+<h2 id="debian-11">Debian 11<a class="headerlink" href="#debian-11" title="Permanent link">#</a></h2>
+<ul>
+<li>
+<p>Install required repositories from Debian:
+<div class="highlight"><pre><span></span><code>$ sudo apt install software-properties-common linux-headers-$(uname -r) -y
+$ sudo add-apt-repository contrib
+$ sudo add-apt-repository non-free
+$ sudo apt install dirmngr ca-certificates software-properties-common apt-transport-https dkms curl -y
+</code></pre></div></p>
+</li>
+<li>
+<p>Import GPG key from Nvidia repo:
+<div class="highlight"><pre><span></span><code>$ curl -fSsL https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/3bf863cc.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/nvidia-drivers.gpg &gt; /dev/null 2&gt;&amp;1
+</code></pre></div></p>
+</li>
+<li>
+<p>Import Nvidia repo:
+<div class="highlight"><pre><span></span><code>$ echo &#39;deb [signed-by=/usr/share/keyrings/nvidia-drivers.gpg] https://developer.download.nvidia.com/compute/cuda/repos/debian11/x86_64/ /&#39; | sudo tee /etc/apt/sources.list.d/nvidia-drivers.list
+$ sudo apt update
+$ sudo apt install nvidia-driver cuda nvidia-smi nvidia-settings -y
+</code></pre></div></p>
+</li>
+<li>
+<p>Reboot your VM.</p>
+</li>
+<li>Check Nvidia driver and CUDA are available after the reboot:
+<div class="highlight"><pre><span></span><code>$ nvidia-smi
+Wed Feb  8 16:32:36 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.85.12    Driver Version: 525.85.12    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A2           On   | 00000000:00:06.0 Off |                    0 |
+|  0%   46C    P0    20W /  60W |      0MiB / 15356MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+</code></pre></div></li>
+</ul>
 
               
             </article>

@@ -13,7 +13,7 @@
     
     
       
-        <title>Upload and manage images {#cha:upload-manage-images} - VSC User Documentation - Gent</title>
+        <title>Upload and manage images - VSC User Documentation - Gent</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#macro-syntax-error" class="md-skip">
+        <a href="#upload-and-manage-images" class="md-skip">
           Skip to content
         </a>
       
@@ -93,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upload and manage images {#cha:upload-manage-images}
+              Upload and manage images
             
           </span>
         </div>
@@ -1067,10 +1067,140 @@
                 
 
 
-<h1 id="macro-syntax-error"><em>Macro Syntax Error</em><a class="headerlink" href="#macro-syntax-error" title="Permanent link">#</a></h1>
-<p><em>Line 1 in Markdown file:</em> <strong>Missing end of comment tag</strong> 
-<div class="highlight"><pre><span></span><code><span class="c1"># Upload and manage images {#cha:upload-manage-images}</span>
-</code></pre></div></p>
+<h1 id="upload-and-manage-images">Upload and manage images<a class="headerlink" href="#upload-and-manage-images" title="Permanent link">#</a></h1>
+<p>A virtual machine image, referred to in this document simply as an
+image, is a single file that contains a virtual disk that has a bootable
+operating system installed on it. Images are used to create virtual
+machine instances within the cloud. The image files themselves are never
+modified, but you can copy the image into a persistent instance (see
+chapter 6.</p>
+<p>As a user of the VSC cloud, you can upload and manage your own virtual
+machine images. For information about creating image files, see the
+<a href="https://docs.openstack.org/image-guide/"><abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr> Virtual Machine Image
+Guide</a>.</p>
+<p><strong>Note:</strong> Shared storage in the VSC cloud is connected to a separate network,
+which is only accessible from within the <abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr> environment.
+Therefore, if you want to access your VM from outside of <abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr>, and
+use the shared storage at the same time, you must make sure your VM
+image is configured use multiple network interface cards (NICs).</p>
+<p>You can choose who can access an image you have created. The following
+access policies for images exist:</p>
+<p><strong>public</strong></p>
+<p>Public images are provided by the VSC, and can be accessed by all
+users.</p>
+<p><strong>private</strong></p>
+<p>If you create a private image, only members of the same project have
+access.</p>
+<p><strong>shared</strong></p>
+<p>You can also choose to <abbr title="A share is a remote, mountable file system. Users can mount and access a share on several hosts at a time.">share</abbr> your image with a list of other
+projects.</p>
+<p><strong>community</strong></p>
+<p>Community images are user-created images which are freely accessible
+to all other users.</p>
+<p><strong>Note:</strong> You can also use the <strong>openstack</strong> and <strong>glance</strong> command-line clients
+or the Image service to manage images.</p>
+<h4 id="upload-an-image">Upload an image<a class="headerlink" href="#upload-an-image" title="Permanent link">#</a></h4>
+<p>Follow this procedure to upload an image to a project:</p>
+<ol>
+<li>
+<p>Open the Compute tab and click Images category.</p>
+</li>
+<li>
+<p>Click Create Image.</p>
+<p>The Create An Image dialog box appears.</p>
+<p><img alt="image" src="../img/tab-compute-images-create.png" /></p>
+</li>
+<li>
+<p>Enter the following values:</p>
+<ol>
+<li>
+<p><strong>Image Name</strong>: Enter a name for the image.</p>
+</li>
+<li>
+<p><strong>Image Description</strong>: Enter a brief description of the image.</p>
+</li>
+<li>
+<p><strong>Image Source</strong></p>
+<ul>
+<li><strong>File:</strong> Browse for the image file on your file system and add it.</li>
+<li><strong>Format:</strong> Select the image format (for example, QCOW2) for the image.</li>
+</ul>
+</li>
+<li>
+<p><strong>Image Requirements</strong></p>
+<ul>
+<li><strong>Architecture:</strong>
+Specify the architecture. For example, for a 32-bit architecture or for a 64-bit architecture.</li>
+<li><strong>Kernel, Ramdisk:</strong>
+Can be left empty, as this is determined by the image file.</li>
+<li><strong>Minimum Disk (GB), Minimum RAM (MB):</strong>
+Choose suitable values, according to the requirements of your image's operating system.</li>
+</ul>
+</li>
+<li>
+<dl>
+<dt><strong>Protected</strong></dt>
+<dd>If set to <strong>Yes</strong>, users need to unlock the image before they are able
+to delete it.</dd>
+</dl>
+</li>
+<li>
+<dl>
+<dt><strong>Metadata</strong></dt>
+<dd>You can add resource metadata in this tab. The glance Metadata
+Catalog provides a list of metadata image definitions.</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li>
+<p>Click <strong>Create Image</strong>. The image is queued to be uploaded. It might take some time
+    before the status changes from Queued to Active.</p>
+</li>
+</ol>
+<h4 id="update-an-image">Update an image<a class="headerlink" href="#update-an-image" title="Permanent link">#</a></h4>
+<p>Follow this procedure to update an existing image.</p>
+<ol>
+<li>
+<p>Open the project tab and click the Images category.</p>
+</li>
+<li>
+<p>Select the image that you want to edit.</p>
+</li>
+<li>
+<p>In the Actions column, open the drop-down menu and select <strong>Edit Image</strong>.</p>
+</li>
+<li>
+<p>In the Edit Image dialog box, you can perform various actions. For
+    example:</p>
+<ul>
+<li>
+<p>Change the name of the image.</p>
+</li>
+<li>
+<p>Change the description of the image.</p>
+</li>
+<li>
+<p>Change the format of the image.</p>
+</li>
+<li>
+<p>Change the minimum disk of the image.</p>
+</li>
+<li>
+<p>Change the minimum RAM of the image.</p>
+</li>
+<li>
+<p>Change the protected status of the image.</p>
+</li>
+<li>
+<p>Change the metadata of the image.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Edit Image</strong>.</p>
+</li>
+</ol>
 
               
             </article>
