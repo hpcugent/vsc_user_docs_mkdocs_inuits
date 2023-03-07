@@ -57,7 +57,7 @@ machine (VM) instance like system memory size (RAM), virtual cores
 
 The flavor's root disk size is the amount of disk space used by the root
 (*/*) partition, an ephemeral disk that the base image is copied into
-(see section [launch an instance](#launch-an-instance)
+(see section [launch an instance](../launch_instance/index.html#launch-and-manage-instances)
  for more information about VM persistent/non-persistent instances).
 
 The flavor's root ephemeral storage is only used when booting from a
@@ -67,7 +67,7 @@ taken into account to calculate the project's local storage quota
 either. You can also create a persistent volume and choose the desired
 filesystem size for your persistent VM during the instantiation. VM
 persistent volumes could be resized later if that is necessary (see
-chapter [launch an instance](#launch-an-instance)
+chapter [launch an instance](../launch_instance/index.html#launch-and-manage-instances)
  for more information).
 
 VSC Tier-1 Cloud VM flavors are grouped by instance types (see [table](#flavor-sizes)).
