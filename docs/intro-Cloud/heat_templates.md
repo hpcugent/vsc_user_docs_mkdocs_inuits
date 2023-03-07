@@ -22,8 +22,8 @@ resources and their mutual dependencies can be specified in a text file,
 called a
 Heat Orchestration Template. The syntax of these
 templates conforms to the _yaml_ standard, for which many text editors
-provide specialized editing modes. The '[Template
-Guide](https://docs.openstack.org/heat/\osversion/template_guide)' in
+provide specialized editing modes. The [Template
+Guide](https://docs.openstack.org/heat/\osversion/template_guide) in
 the Heat documentation contains a specification of the _HOT_ format, as well as information on how to describe the various types of
 resources in a template.
 
@@ -170,9 +170,8 @@ actions:
 
         In our example, we provide a URL from the
         repository https://github.com/hpcugent/openstack-templates,
-        to instantiate the example from section
-        [1.1](#sec:glsh-orch-templ). If you want to provide a
-        template directly from GitHub, make sure to provide a "Raw"
+        to instantiate the example from previous [section](#heat-orchestration-template).
+        If you want to provide a template directly from GitHub, make sure to provide a "Raw"
         URL, `https://raw.githubusercontent.com/`....
 
     5. **Environment Source**
@@ -209,8 +208,8 @@ deletes all selected stacks from the list .
 
 Deleting a stack also deletes all of the resources (volumes, ports)
 created by that stack, unless a different policy was set in the property
-for those resources (see the '[Resources
-section](https://docs.openstack.org/heat/\osversion/template_guide/hot_spec.html#resources-section)'
+for those resources (see the [Resources
+section](https://docs.openstack.org/heat/\osversion/template_guide/hot_spec.html#resources-section)
 in the HOT specification).
 
 ### More Actions

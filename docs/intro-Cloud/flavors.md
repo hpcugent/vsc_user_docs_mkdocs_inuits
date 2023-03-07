@@ -57,7 +57,7 @@ machine (VM) instance like system memory size (RAM), virtual cores
 
 The flavor's root disk size is the amount of disk space used by the root
 (*/*) partition, an ephemeral disk that the base image is copied into
-(see section [launch an instance](./ch_LaunchInstances.md#launch-an-instance)
+(see section [launch an instance](#launch-an-instance)
  for more information about VM persistent/non-persistent instances).
 
 The flavor's root ephemeral storage is only used when booting from a
@@ -67,12 +67,12 @@ taken into account to calculate the project's local storage quota
 either. You can also create a persistent volume and choose the desired
 filesystem size for your persistent VM during the instantiation. VM
 persistent volumes could be resized later if that is necessary (see
-chapter [launch an instance](./ch_LaunchInstances.md#launch-an-instance)
+chapter [launch an instance](#launch-an-instance)
  for more information).
 
-VSC Tier-1 Cloud VM flavors are grouped by instance types (see table
-[1.2](#table:flavor-size)). Several flavor sizes are available for
-each instance type, differing in the number of allocated vCPUs, RAM and
+VSC Tier-1 Cloud VM flavors are grouped by instance types (see [table](#flavor-sizes)).
+Several flavor sizes are available for each instance type,
+differing in the number of allocated vCPUs, RAM and
 storage size. Every GPU flavor in addition allocates one full GPU card. The
 various VM flavors can be used in different combinations to fit
 different workload hardware requirements.

@@ -3,7 +3,7 @@
 HashiCorp Terraform <https://www.terraform.io/> is an
 infrastructure as code tool (IaC), similar to OpenStack
 Heat orchestrator
-(See chapter [using heat](./ch_HeatTemplates.md#cha:orch-using-heat)
+(See chapter [using heat](../heat_templates/index.html#orchestration-using-heat)
 ). Users can deploy a data center
 infrastructure using a declarative configuration language known as
 HashiCorp Configuration Language (HCL), or using JSON.
@@ -13,10 +13,10 @@ can provision virtual infrastructures across multiple cloud providers
 (not only OpenStack) and it provides important features not supported by
 Heat at this
 moment, like network port forwarding rules (see
-[floating-ip](./ch_ConfigureInstances.md#sec:floating-ip)).
+[floating-ip](../configure_instances/index.html#floating-ip-port-forwarding)).
 This means that with Terraform, scripts
 like `neutron_port_forward` (see
-[port forwarding script](./ch_ConfigureInstances.md#port-forwarding)
+[port forwarding script](../configure_instances/index.html#floating-ip-port-forwarding)
 ) are no longer needed.
 Terraform is
 currently one of the most popular infrastructure automation tools
@@ -37,10 +37,12 @@ uses OpenStack application credentials to authenticate to VSC Cloud
 Tier-1 public API. It is a good practice to generate a new application
 credential just to be used with Terraformframework. The process is the same
 described in section
-[application credentials](./ch_Access.md#sec:appl-cred).
+[application credentials](../access/index.html#application-credentials).
 
-**Note:** Make sure you download the new application credential as yaml file
-instead of openRC.
+!!! Note
+
+    Make sure you download the new application credential as yaml file
+    instead of openRC.
 
 At this point you should have a _clouds.yaml_ text file with these lines:
 
@@ -86,26 +88,28 @@ OpenStack API automatically.
 You can connect to UGent login node `login.hpc.ugent.be` to use
 terraform. Login to the login node with your VSC account first:
 
-```console
-$ ssh -A vscxxxxx@login.hpc.ugent.be
+```shell
+ssh -A vscxxxxx@login.hpc.ugent.be
 ```
 
 If this is the first time using Terraform, download the VSC Terraform
 examples from github from
 <https://github.com/hpcugent/openstack-templates>:
 
-```console
-$ git clone https://github.com/hpcugent/openstack-templates
+```shell
+git clone https://github.com/hpcugent/openstack-templates
 ```
 
 Make sure you have *`~/.config/openstack/clouds.yaml`* available from
-the login node (see previous [section](#sec:app-cred-terraform)).
+the login node (see previous [section](#create-application-credentials-for-terraform)).
 
-**Note: Do not share your application's credential file clouds.yaml or put this
-file in a public place.**
+!!! Warning
 
-```console
-$ chmod 600 ∼/.config/openstack/clouds.yaml
+    Do not share your application's credential file `clouds.yaml` or put this
+    file in a public place.
+
+```shell
+chmod 600 ∼/.config/openstack/clouds.yaml
 ```
 
 ## Generate Terraform template variables
@@ -116,16 +120,16 @@ cloud provider for the user or project. You do not have to include these
 variables manually, we have included a script to gather these variable
 IDs automatically. From the Terraform directory cloned from git in the
 previous step (see previous
-[section](#sec:getting-terraform-templ)), go to the scripts directory:
+[section](#getting-terraform-examples)), go to the scripts directory:
 
-```console
-$ cd ∼/openstack-templates/terraform/scripts
+```shell
+cd ∼/openstack-templates/terraform/scripts
 ```
 
 And now run the script (usually you only have to run this script once).
 
-```console
-$ ./modify_variable.sh
+```shell
+./modify_variable.sh
 ```
 
 This step will take some seconds. The script will contact the VSC
@@ -165,18 +169,20 @@ SSH commands for VMs access:
 
 After this step your Terraform templates will be ready to be deployed.
 
-**Note:** Please note that the script shows you the ssh command to connect to each
-VM after instantiation (including the port which is generated
-automatically by the script). You can copy this list or you can review
-it later. Also note that you should use a valid user to connect to the
-VM, for instance for CentOS images is *centos*, for Ubuntu images is
-*ubuntu* and so on. You can also try to connect as *root* user, in that
-case the system will show you a message with the user that you should
-use.
+!!! Note
+
+    Please note that the script shows you the ssh command to connect to each
+    VM after instantiation (including the port which is generated
+    automatically by the script). You can copy this list or you can review
+    it later. Also note that you should use a valid user to connect to the
+    VM, for instance for CentOS images is *centos*, for Ubuntu images is
+    *ubuntu* and so on. You can also try to connect as *root* user, in that
+    case the system will show you a message with the user that you should
+    use.
 
 ## Modify default Terraform modules
 
-In [section](#sec:getting-terraform-templ) we have downloaded the
+In [section](#getting-terraform-examples) we have downloaded the
 Terraform module examples from the VSC repository. If you deploy these
 modules as it is it will deploy several VM examples by default such as:
 
@@ -197,8 +203,8 @@ But usually you do not want to deploy all these examples, you can just
 keep the required module and comment out the rest. You can do this from
 environment directory:
 
-```console
-$ cd ∼/openstack-templates/terraform/environment
+```shell
+cd ∼/openstack-templates/terraform/environment
 ```
 
 And edit *`main.tf`* Terraform file with any text editor like vim or
@@ -237,22 +243,22 @@ template yet do this just once.
 
 Move to environment directory first:
 
-```console
-$ cd ∼/openstack-templates/terraform/environment
+```shell
+cd ∼/openstack-templates/terraform/environment
 ```
 
 This command performs several different initialization steps in order to
 prepare the current working directory for use with Terraform:
 
-```console
-$ terraform init
+```shell
+terraform init
 ```
 
 Now you can check and review your Terraform plan, from the same
 directory:
 
-```console
-$ terraform plan
+```shell
+terraform plan
 ```
 
 You will see a list of the resources required to deploy your
@@ -260,8 +266,8 @@ infrastructure, Terraform also checks if there is any systax error in
 your templates. Your infrastructure is not deployed yet, review the plan
 and then just deploy it to VSC Tier-1 Cloud running:
 
-```console
-$ terraform apply
+```shell
+terraform apply
 ```
 
 Terraform will show your plan again and you will see this message:
@@ -291,12 +297,12 @@ Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 
 Your cloud infrastrucuture is ready to be used.
 
-It is important to keep a backup of your terraform directory, specially
-all the files within the environment directory:
+!!! Tip
 
-```console
-$ ∼/openstack-templates/terraform/environment
-```
+    It is important to keep a backup of your terraform directory, specially
+    all the files within the environment directory:
+    `∼/openstack-templates/terraform/environment`
+
 
 Terraform generates several files in this directory to keep track of any
 change in your infrastructure. If for some reason you lost or remove

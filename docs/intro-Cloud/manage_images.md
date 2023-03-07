@@ -12,11 +12,13 @@ machine images. For information about creating image files, see the
 [OpenStack Virtual Machine Image
 Guide](https://docs.openstack.org/image-guide/).
 
-**Note:** Shared storage in the VSC cloud is connected to a separate network,
-which is only accessible from within the OpenStack environment.
-Therefore, if you want to access your VM from outside of OpenStack, and
-use the shared storage at the same time, you must make sure your VM
-image is configured use multiple network interface cards (NICs).
+!!! Note
+
+    Shared storage in the VSC cloud is connected to a separate network,
+    which is only accessible from within the OpenStack environment.
+    Therefore, if you want to access your VM from outside of OpenStack, and
+    use the shared storage at the same time, you must make sure your VM
+    image is configured use multiple network interface cards (NICs).
 
 You can choose who can access an image you have created. The following
 access policies for images exist:
@@ -41,8 +43,10 @@ projects.
 Community images are user-created images which are freely accessible
 to all other users.
 
-**Note:** You can also use the **openstack** and **glance** command-line clients
-or the Image service to manage images.
+!!! Tip
+
+    You can also use the **openstack** and **glance** command-line clients
+    or the Image service to manage images.
 
 #### Upload an image
 
