@@ -5,7 +5,7 @@ A full GPU card is connected directly to the VM via
 [PCI passthrough](https://libvirt.org/docs/libvirt-appdev-guide-python/en-US/html/libvirt_application_development_guide_using_python-Guest_Domains-Device_Config-PCI_Pass.html)
 and it is not shared between VMs.
 
-See section [Instance types and flavors](../flavors/index.html#instance-types-and-flavors)
+See section [Instance types and flavors](flavors.md#instance-types-and-flavors)
 for more information about the different GPUs available (`GPUv*` flavors).
 
 Nvidia GPUs require the proprietary Nvidia driver to work, here it is explained how to install
