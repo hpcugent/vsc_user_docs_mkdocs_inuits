@@ -44,7 +44,7 @@ for your project's networks, open the Network tab, and select Networks.
 
 Instances should use the \_vm network for communication, and the \_nfs
 network if they need access to shared file systems (see chapter
-[shared file systems](#shared-file-systems-using-manila)).
+[shared file systems](../shares/index.html#shared-file-systems-using-manila)).
 On the other hand \_vsc network
 is used to connect to or provide VSC services via VSC network and
 floating IPs. When an instance is created in
@@ -94,7 +94,7 @@ You can quickly set up such forwarding rules using
 `neutron_port_forward`, a command line tool available on the UGent login
 node, **login.hpc.ugent.be**. In order to use it, you must create an
 application credential for the role "User", and save it as an openrc
-file (see section [application credentials](#application-credentials)
+file (see section [application credentials](../access/index.html#application-credentials)
 on page ). Transfer the openrc file to your
 VSC storage space, so _neutron_port_forward_ can read it. To set up new
 port forwarding rules, run the script providing the path to the openrc
