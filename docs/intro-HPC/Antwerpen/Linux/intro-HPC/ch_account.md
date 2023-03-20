@@ -278,7 +278,7 @@ You can recognise a public/private key pair when a pair of files has the
 same name except for the extension ".pub" added to one of them. In this
 particular case, the private key is "id_rsa" and public key is
 "id_rsa.pub". You may have multiple keys (not necessarily in the
-directory "∼/.ssh") if you or your operating system requires this. Be
+directory "~/.ssh") if you or your operating system requires this. Be
 aware that your existing key pair might be too short, or not the right
 type.
 
