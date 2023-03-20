@@ -163,7 +163,7 @@ It seems to work, now run it on the {{hpc}}
 <pre><code>$ <b>qsub hello.pbs</b></code></pre>
 
 ### Compiling a parallel program in C/MPI
-<pre><code>$ <b>cd ∼/{{exampledir}}</b></code></pre>
+<pre><code>$ <b>cd ~/{{exampledir}}</b></code></pre>
 
 List the directory and explore the contents of the "*mpihello.c*"
 program:
@@ -211,7 +211,7 @@ We will now compile the same program, but using the Intel Parallel
 Studio Cluster Edition compilers. We stay in the examples directory for
 this chapter:
 
-<pre><code>$ <b>cd ∼/{{exampledir}}</b></code></pre>
+<pre><code>$ <b>cd ~/{{exampledir}}</b></code></pre>
 
 
 We will compile this C/MPI -file into an executable with the Intel

@@ -109,7 +109,7 @@ the login node (see previous [section](#create-application-credentials-for-terra
     file in a public place.
 
 ```shell
-chmod 600 ∼/.config/openstack/clouds.yaml
+chmod 600 ~/.config/openstack/clouds.yaml
 ```
 
 ## Generate Terraform template variables
@@ -123,7 +123,7 @@ previous step (see previous
 [section](#getting-terraform-examples)), go to the scripts directory:
 
 ```shell
-cd ∼/openstack-templates/terraform/scripts
+cd ~/openstack-templates/terraform/scripts
 ```
 
 And now run the script (usually you only have to run this script once).
@@ -204,7 +204,7 @@ keep the required module and comment out the rest. You can do this from
 environment directory:
 
 ```shell
-cd ∼/openstack-templates/terraform/environment
+cd ~/openstack-templates/terraform/environment
 ```
 
 And edit *`main.tf`* Terraform file with any text editor like vim or
@@ -244,7 +244,7 @@ template yet do this just once.
 Move to environment directory first:
 
 ```shell
-cd ∼/openstack-templates/terraform/environment
+cd ~/openstack-templates/terraform/environment
 ```
 
 This command performs several different initialization steps in order to
@@ -301,7 +301,7 @@ Your cloud infrastrucuture is ready to be used.
 
     It is important to keep a backup of your terraform directory, specially
     all the files within the environment directory:
-    `∼/openstack-templates/terraform/environment`
+    `~/openstack-templates/terraform/environment`
 
 
 Terraform generates several files in this directory to keep track of any

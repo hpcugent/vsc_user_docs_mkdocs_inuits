@@ -465,10 +465,10 @@ export LANG="en_US.UTF-8"
 or alternatively (if you are not comfortable with the Linux editors),
 again on your local machine:
 
-<pre><code><b>$ echo "export LANGUAGE=\"en_US.UTF-8\"" >> ∼/.profile</b>
-<b>$ echo "export LC_ALL=\"en_US.UTF-8\"" >> ∼/.profile</b>
-<b>$ echo "export LC_CTYPE=\"en_US.UTF-8\"" >> ∼/.profile</b>
-<b>$ echo "export LANG=\"en_US.UTF-8\"" >> ∼/.profile</b>
+<pre><code><b>$ echo "export LANGUAGE=\"en_US.UTF-8\"" >> ~/.profile</b>
+<b>$ echo "export LC_ALL=\"en_US.UTF-8\"" >> ~/.profile</b>
+<b>$ echo "export LC_CTYPE=\"en_US.UTF-8\"" >> ~/.profile</b>
+<b>$ echo "export LANG=\"en_US.UTF-8\"" >> ~/.profile</b>
 </code></pre>
 
 You can now log out, open a new terminal/shell on your local machine and

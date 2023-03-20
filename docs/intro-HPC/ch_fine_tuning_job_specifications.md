@@ -50,7 +50,7 @@ This chapter shows you how to measure:
 
 First, we allocate a compute node and move to our relevant directory:
 <pre><code>$ <b>qsub -I</b>
-$ <b>cd ∼/examples/Fine-tuning-Job-Specifications</b></code></pre>
+$ <b>cd ~/examples/Fine-tuning-Job-Specifications</b></code></pre>
 
 ## Specifying Walltime
 [//]: # (sec:specifying-walltime-requirements)
