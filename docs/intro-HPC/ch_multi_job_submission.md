@@ -48,7 +48,7 @@ scenario that can be reduced to a **MapReduce** approach.[^1]
 ## The worker Framework: Parameter Sweeps
 
 First go to the right directory:
-<pre><code>$ <b>cd ∼/examples/Multi-job-submission/par_sweep</b></code></pre>
+<pre><code>$ <b>cd ~/examples/Multi-job-submission/par_sweep</b></code></pre>
 
 Suppose the program the user wishes to run the "*weather*" program,
 which takes three parameters: a temperature, a pressure and a volume. A
@@ -142,7 +142,7 @@ a parameter instance is called a work item in Worker parlance.
 [//]: # (sec:worker-framework-job-arrays)
 
 First go to the right directory:
-<pre><code>$ <b>cd ∼/examples/Multi-job-submission/job_array</b></code></pre>
+<pre><code>$ <b>cd ~/examples/Multi-job-submission/job_array</b></code></pre>
 
 As a simple example, assume you have a serial program called *myprog*
 that you want to run on various input files *input\[1-100\]*.
@@ -291,7 +291,7 @@ is executed just once after the work on all work items has finished.
 Technically, the master, i.e., the process that is responsible for
 dispatching work and logging progress, executes the prologue and
 epilogue.
-<pre><code>$ <b>cd ∼/examples/Multi-job-submission/map_reduce</b></code></pre>
+<pre><code>$ <b>cd ~/examples/Multi-job-submission/map_reduce</b></code></pre>
 
 The script "pre.sh" prepares the data by creating 100 different
 input-files, and the script "post.sh" aggregates (concatenates) the

@@ -51,14 +51,14 @@ be careful to make sure that the environment variable exists. If you
 mistype an environment variable then it will resolve into a blank string.
 This means the following resolves to `rm -r ~/*` which will remove every
 file in your home directory!
-<pre><code>$ <b>rm -r ∼/$PROJETC/*</b></code></pre>
+<pre><code>$ <b>rm -r ~/$PROJETC/*</b></code></pre>
 
 ### Typing dangerous commands
 A good habit when typing dangerous commands is to precede the line with
 `#`, the comment character. This will let you type out the command
 without fear of accidentally hitting enter and running something
 unintended.
-<pre><code>$ <b>#rm -r ∼/$POROJETC/*</b></code></pre>
+<pre><code>$ <b>#rm -r ~/$POROJETC/*</b></code></pre>
 Then you can go back to the beginning of the line (`Ctrl-A`) and remove
 the first character (`Ctrl-D`) to run the command. You can also just
 press enter to put the command in your history so you can come back to
