@@ -1283,14 +1283,14 @@ be careful to make sure that the environment variable exists. If you
 mistype an environment variable then it will resolve into a blank string.
 This means the following resolves to <code>rm -r ~/*</code> which will remove every
 file in your home directory!</p>
-<pre><code>$ <b>rm -r ∼/$PROJETC/*</b></code></pre>
+<pre><code>$ <b>rm -r ~/$PROJETC/*</b></code></pre>
 
 <h3 id="typing-dangerous-commands">Typing dangerous commands<a class="headerlink" href="#typing-dangerous-commands" title="Permanent link">#</a></h3>
 <p>A good habit when typing dangerous commands is to precede the line with
 <code>#</code>, the comment character. This will let you type out the command
 without fear of accidentally hitting enter and running something
 unintended.</p>
-<pre><code>$ <b>#rm -r ∼/$POROJETC/*</b></code></pre>
+<pre><code>$ <b>#rm -r ~/$POROJETC/*</b></code></pre>
 <p>Then you can go back to the beginning of the line (<code>Ctrl-A</code>) and remove
 the first character (<code>Ctrl-D</code>) to run the command. You can also just
 press enter to put the command in your history so you can come back to

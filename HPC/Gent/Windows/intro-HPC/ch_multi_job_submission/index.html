@@ -1293,7 +1293,7 @@ the parameter values.</p>
 scenario that can be reduced to a <strong>MapReduce</strong> approach.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <h2 id="the-worker-framework-parameter-sweeps">The worker Framework: Parameter Sweeps<a class="headerlink" href="#the-worker-framework-parameter-sweeps" title="Permanent link">#</a></h2>
 <p>First go to the right directory:</p>
-<pre><code>$ <b>cd ∼/examples/Multi-job-submission/par_sweep</b></code></pre>
+<pre><code>$ <b>cd ~/examples/Multi-job-submission/par_sweep</b></code></pre>
 
 <p>Suppose the program the user wishes to run the "<em>weather</em>" program,
 which takes three parameters: a temperature, a pressure and a volume. A
@@ -1395,7 +1395,7 @@ concurrently -- until all computations are done. A computation for such
 a parameter instance is called a work item in Worker parlance.</p>
 <h2 id="the-worker-framework-job-arrays">The Worker framework: Job arrays<a class="headerlink" href="#the-worker-framework-job-arrays" title="Permanent link">#</a></h2>
 <p>First go to the right directory:</p>
-<pre><code>$ <b>cd ∼/examples/Multi-job-submission/job_array</b></code></pre>
+<pre><code>$ <b>cd ~/examples/Multi-job-submission/job_array</b></code></pre>
 
 <p>As a simple example, assume you have a serial program called <em>myprog</em>
 that you want to run on various input files <em>input[1-100]</em>.</p>
@@ -1557,7 +1557,7 @@ is executed just once after the work on all work items has finished.
 Technically, the master, i.e., the process that is responsible for
 dispatching work and logging progress, executes the prologue and
 epilogue.</p>
-<pre><code>$ <b>cd ∼/examples/Multi-job-submission/map_reduce</b></code></pre>
+<pre><code>$ <b>cd ~/examples/Multi-job-submission/map_reduce</b></code></pre>
 
 <p>The script "pre.sh" prepares the data by creating 100 different
 input-files, and the script "post.sh" aggregates (concatenates) the
