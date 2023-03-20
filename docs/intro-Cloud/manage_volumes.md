@@ -77,7 +77,9 @@ You can attach a volume to one instance at a time.
 4.  Enter the name of the device from which the volume is accessible by
     the instance.
 
-    **Note:** The actual device name might differ from the volume name because of
+!!! Note
+
+    The actual device name might differ from the volume name because of
     hypervisor settings.
 
 5.  Click **Attach Volume**.
@@ -128,8 +130,10 @@ The dashboard shows the new volume snapshot in Volume Snapshots tab.
 
 5.  Click **Edit Volume**.
 
-**Note:** You can extend a volume by using the Extend Volume option available in
-the More dropdown list and entering the new value for volume size.
+!!! Tip
+
+    You can extend a volume by using the **Extend Volume** option available in
+    the **More** dropdown list and entering the new value for volume size.
 
 #### Delete a volume
 

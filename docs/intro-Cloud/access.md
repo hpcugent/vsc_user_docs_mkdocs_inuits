@@ -19,7 +19,7 @@ from any system, and which is installed for you on the UGent login node
 **login.hpc.ugent.be**. You can log in to the Dashboard using the VSC
 accountpage, as illustrated in the next section. To get access from the
 command line interface, you'll need to obtain an application credential,
-as explained in section [1.2](#sec:appl-cred).
+as explained in section [application credentials](#application-credentials).
 
 These restrictions do not apply to someone who simply wishes to access
 an existing VM running in the cloud. VSC Cloud projects can decide

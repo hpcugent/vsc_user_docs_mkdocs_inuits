@@ -6,13 +6,13 @@ sections:
 
 -   Instances must connect to the project's \_vm network in order to get
     external internet access (see section
-    [1.1](#sec:_vm-_nfs-networks)).
+    [_vm, _vsc and _nfs networks](#the-_vm-_vsc-and-_nfs-networks)).
 
 -   Each cloud project can use one floating IP, a public IP address
     which you'll need to link to the resources you want to access.
     Optionally, if the project has requested access to VSC network it
     will receive also three VSC floating IPs (see section
-    [1.2](#sec:floating-ip)).
+    [floating IP addresses](#floating-ip-addresses)).
 
 -   By default, the UGent firewall blocks most IP addresses and ports.
     Only the port (TCP) range **50000-60000** for the public floating IP addresses
@@ -23,11 +23,11 @@ sections:
     block most ports of your instances by default. If you want to access
     specific ports of your instances, you must create "Security Groups"
     which allow access to those ports (see section
-    [1.3](#sec:security-groups)).
+    [security groups](#security-groups)).
 
 -   You can use one or more SSH keys from your VSC account to access
     your instances (see section
-    [1.4](#sec:ssh-key-pairs)).
+    [SSH key pairs](#ssh-key-pairs)).
 
 For other access methods, or SSH authentication for a wider set of
 users, you'll need to set up some form of identity management yourself.
@@ -44,7 +44,7 @@ for your project's networks, open the Network tab, and select Networks.
 
 Instances should use the \_vm network for communication, and the \_nfs
 network if they need access to shared file systems (see chapter
-[shared file systems](./ch_Shares.md#shared-file-systems)).
+[shared file systems](shares.md#shared-file-systems-using-manila)).
 On the other hand \_vsc network
 is used to connect to or provide VSC services via VSC network and
 floating IPs. When an instance is created in
@@ -94,7 +94,7 @@ You can quickly set up such forwarding rules using
 `neutron_port_forward`, a command line tool available on the UGent login
 node, **login.hpc.ugent.be**. In order to use it, you must create an
 application credential for the role "User", and save it as an openrc
-file (see section [application credentials](./ch_Access.md#sec:appl-cred)
+file (see section [application credentials](access.md#application-credentials)
 on page ). Transfer the openrc file to your
 VSC storage space, so _neutron_port_forward_ can read it. To set up new
 port forwarding rules, run the script providing the path to the openrc
@@ -103,8 +103,8 @@ forwarding configuration as argument to the _-m_ option:
 
 
 
-```bash
-$ neutron_port_forward -o <openrc file> -m <ini-file>
+```shell
+neutron_port_forward -o <openrc file> -m <ini-file>
 ```
 
 The following is an example configuration file:
@@ -135,8 +135,6 @@ Port forwarding rules are given in the form
 from the floating IP port:
 
  > (source + multiplier ∗ i + offset) → target ,
-
-$$(\mathrm{source} + \mathrm{multiplier} * i + \mathrm{offset}) \rightarrow \mathrm{target}\, ,$$
 
 where **_i_** is the integer matched by the first capturing group, and
 "target" is a port of the fixed IP for the instance in the chosen
@@ -177,8 +175,8 @@ ip addresses in your configuration file using
 _neutron_port_forward --show_. Each rule has an internal id, which you
 can see if you combine the options _--show_ and _--id_ as follows:
 
-```bash
-$ neutron_port_forward -o <openrc file> -m <ini-file> --show --id
+```shell
+neutron_port_forward -o <openrc file> -m <ini-file> --show --id
 ```
 
 To remove port forwarding rules, use the option
@@ -283,8 +281,7 @@ general instructions on SSH keys, we refer to chapter 2 of our
 If you have generated a key pair with an external tool, you can import
 it into OpenStack. The key pair can be used for multiple instances that
 belong to a project. For more information, see section
-[\[import-a-key-pair\]](#import-a-key-pair){reference-type="ref"
-reference="import-a-key-pair"}.
+[import a key pair\]](#import-a-key-pair).
 
 The public keys from your VSC account are automatically available in
 your VSC Cloud projects, so you can immediately inject one of your
@@ -315,21 +312,21 @@ project, each user needs to import it in the OpenStack project.
 
 7.  To change its permissions so that only you can read and write to the
     file, run the following command:
-```bash
-      $ chmod 0600 yourPrivateKey.pem
+```shell
+chmod 0600 yourPrivateKey.pem
 ```
-**Note:** If you are using the
-    [OpenStack Dashboard] from a Windows computer, use PuTTYgen
+!!! Note
+
+    If you are using the OpenStack Dashboard from a Windows computer, use PuTTYgen
     to load the **\*.pem** file and convert and save it as **\*.ppk**.
-    For more information see the [*WinSCP web page for
-    PuTTYgen*](https://winscp.net/eng/docs/ui_puttygen), and chapter 2
-    of the [introduction to HPC at
-    VSC](https://hpcugent.github.io/vsc_user_docs).
+    For more information see the
+    [*WinSCP web page for PuTTYgen*](https://winscp.net/eng/docs/ui_puttygen),
+    and chapter 2 of the [introduction to HPC at VSC](https://hpcugent.github.io/vsc_user_docs).
 
 *  To make the key pair known to SSH, run the **ssh-add** command.
 
-```
-      $ ssh-add yourPrivateKey.pem
+```shell
+ssh-add yourPrivateKey.pem
 ```
 
 
@@ -348,8 +345,7 @@ project, each user needs to import it in the OpenStack project.
 
 The Compute database registers the public key of the key pair.
 
-The [OpenStack Dashboard]{acronym-label="OpenStack Dashboard"
-acronym-form="singular+short"} lists the key pair on the Key Pairs tab.
+The OpenStack Dashboard lists the key pair on the Key Pairs tab.
 
 [^1]: The OpenStack documentation and interfaces consistently refer to
     "SSH pairs", but of course only the public key of each pair is

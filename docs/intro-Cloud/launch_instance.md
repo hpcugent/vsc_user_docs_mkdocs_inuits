@@ -5,7 +5,9 @@ an _instance_ from the following sources:
 
 -   Images uploaded to the Image service.
 
-    **Note:** Because images are read-only, any changes made while the instance is
+!!! Note
+
+    Because images are read-only, any changes made while the instance is
     running will be lost when the instance is deleted, unless you choose
     to create a persistent volume for your instance when you launch it.
     Using a volume, the VM's state is saved, even when the current
@@ -37,10 +39,12 @@ an _instance_ from the following sources:
 
 Assign a name to the virtual machine.
 
-**Note:** The name you assign here becomes the initial host name of
-the server. If the name is longer than 63 characters, the
-Compute service truncates it automatically to ensure dnsmasq
-works correctly.
+!!! Tip
+
+    The name you assign here becomes the initial host name of
+    the server. If the name is longer than 63 characters, the
+    Compute service truncates it automatically to ensure dnsmasq
+    works correctly.
 
 After the server is built, if you change the server name in
 the API or change the host name directly, the names are not
@@ -99,14 +103,16 @@ shutdown and reboot.
 
 Specify the size of the instance to launch.
 
-**Note:** The flavor is selected based on the size of the image selected
-for launching an instance. For example, while creating an image,
-if you have entered the value in the Minimum RAM (MB) field as
-2048, then on selecting the image, the default flavor is **CPUv1.small**
-(see section [instance type](./ch_Flavors.md#sec:instance-types) for
-more information). If a **!** warning sign is displayed next to a resource
-for one of the flavors, that means that this flavor would exceed the project's
-quota for that resource, and therefore is not available.
+!!! Note
+
+    The flavor is selected based on the size of the image selected
+    for launching an instance. For example, while creating an image,
+    if you have entered the value in the Minimum RAM (MB) field as
+    2048, then on selecting the image, the default flavor is **CPUv1.small**
+    (see section [instance type](flavors.md#instance-types-and-flavors) for
+    more information). If a :exclamation: warning sign is displayed next to a resource
+    for one of the flavors, that means that this flavor would exceed the project's
+    quota for that resource, and therefore is not available.
 
 ### Networks tab
 
@@ -123,7 +129,7 @@ instance.
 
 Security groups are a kind of cloud firewall that define which
 incoming network traffic is forwarded to instances. See section
-[configure access](./ch_ConfigureInstances.md#cha:conf-access-secur)
+[configure access](configure_instances.md#security-groups)
 for more information.
 The default security group is assigned to the instance
 automatically.
@@ -165,9 +171,11 @@ Add Metadata items to your instance.
 
 The instance starts on a compute node in the cloud.
 
-**Note:** If you did not provide a key pair, security groups, or rules, users can
-access the instance only from inside the cloud through VNC. Even pinging
-the instance is not possible without an ICMP rule configured.
+!!! Note
+
+    If you did not provide a key pair, security groups, or rules, users can
+    access the instance only from inside the cloud through VNC. Even pinging
+    the instance is not possible without an ICMP rule configured.
 
 You can also launch an instance from the Images or Volumes category when
 you launch an instance from an image or a volume respectively.
@@ -183,32 +191,36 @@ in the *OpenStack Virtual Machine Image Guide*.
 
 Before you can connect to an instance using SSH, you must set up a
 floating IP for it, as discussed in
-section [floating-ip](./ch_ConfigureInstances.md#sec:floating-ip). Recall
+section [floating-ip](configure_instances.md#floating-ip). Recall
 that only ports 50000 to 60000 of the floating IP's can be directly reached from
 outside the UGent network.
 
-**Note:** When you try to connect to a new instance using a port that was
-previously forwarded to a different instance --- either due to a change
-in the port forwarding configuration, or because an old instance was
-deleted and replaced --- your SSH client will show an error message
-because the "host key" of the new instance doesn't match the known
-previous key. Section explains how to handle such errors.
+!!! Note
 
-**Note:** If you want to access ports outside the public range, you'll need to
-connect to the UGent login node _login.hpc.ugent.be_ first, and hop to
-your instance from there. To make this work without storing the required
-private key for the instance in your VSC storage space, you need to set
-up an SSH agent with key forwarding locally, i.e. on the machine where
-you store the private key of an authorized keypair for the instance.
-Section 2.1.4 of the HPC introduction explains how to set this up
-([hpcugent.github.io/vsc_user_docs](https://hpcugent.github.io/vsc_user_docs)).
+    When you try to connect to a new instance using a port that was
+    previously forwarded to a different instance --- either due to a change
+    in the port forwarding configuration, or because an old instance was
+    deleted and replaced --- your SSH client will show an error message
+    because the "host key" of the new instance doesn't match the known
+    previous key. Section explains how to handle such errors.
+
+!!! Note
+
+    If you want to access ports outside the public range, you'll need to
+    connect to the UGent login node _login.hpc.ugent.be_ first, and hop to
+    your instance from there. To make this work without storing the required
+    private key for the instance in your VSC storage space, you need to set
+    up an SSH agent with key forwarding locally, i.e. on the machine where
+    you store the private key of an authorized keypair for the instance.
+    Section 2.1.4 of the HPC introduction explains how to set this up
+    ([hpcugent.github.io/vsc_user_docs](https://hpcugent.github.io/vsc_user_docs)).
 
 -  (*Only if using a port blocked by the UGent firewall, see the note
     above:*) Use your VSC account to connect to the UGent login node,
     using the `ssh -A` option to enable agent forwarding:
 
-```console
-    $ ssh -A vsc12345@login.hpc.ugent.be
+```shell
+ssh -A vsc12345@login.hpc.ugent.be
 ```
 
 -  Copy the address of the floating IP where your instance can be
@@ -218,19 +230,21 @@ Section 2.1.4 of the HPC introduction explains how to set this up
     port where the instance's SSH server can be reached, e.g. for port
     50022:
 
-```console
-    $ ssh -A -p 50022 ubuntu@193.190.85.40
+```shell
+ssh -A -p 50022 ubuntu@193.190.85.40
 ```
 
 When you run the above command, your SSH client may display warnings
-or error messages. The section Host Keys [Host Keys](#sec:host-keys)
+or error messages. The section Host Keys [Host Keys](#host-keys)
 explains the meaning of these messages and how you should deal with them.
 
-**Note:** The images we provide do not allow SSH logins for the root user.
-There is a default user instead, who can get administrative
-privileges using `sudo`. In our example, we have used the username
-`ubuntu` for Ubuntu images. Attempting to log in as root will return
-an error message with the proper user name.
+!! Info
+
+    The images we provide do not allow SSH logins for the root user.
+    There is a default user instead, who can get administrative
+    privileges using `sudo`. In our example, we have used the username
+    `ubuntu` for Ubuntu images. Attempting to log in as root will return
+    an error message with the proper user name.
 
 ### Host keys
 
@@ -339,8 +353,11 @@ Verify the fingerprint in order to make sure that it is safe to proceed:
 
     _SHA256:nyujUIF37c674FPSkDdz0xgAU6S39UWbmMzBPmdmCmg_
 
-3.  If the fingerprints are identical, type "yes" to log in. **If the fingerprints
-do not match, type "no", and contact <cloud@vscentrum.be>**.
+3.  If the fingerprints are identical, type "yes" to log in.
+
+!!! Warning
+
+    If the fingerprints do not match, type **no**, and contact <cloud@vscentrum.be>.
 
 #### New instance at a known address
 
@@ -377,15 +394,17 @@ should take the following steps:
 2.  Verify that the fingerprint you find in the Dashboard matches the fingerprint shown in the warning message.
 3.  If the fingerprint matches, the new key is legitimate. Remove the previous known key from the known_hosts file as follows (still using address 193.190.85.40 and port number 50322 as an example):
 
-```console
-    $ ssh-keygen -R [193.190.85.40]:50322
+```shell
+ssh-keygen -R [193.190.85.40]:50322
 ```
 This command causes OpenSSH to forget the previous key. On your next attempt to
 connect to that address, OpenSSH will treat it as a new host and ask you to verify the
 fingerprint as described in section Connecting for the first time.
 
-**If the fingerprint does not match, do not attempt to connect, and contact
-<cloud@vscentrum.be>.**
+!!! Warning
+
+    If the fingerprint does not match, do not attempt to connect, and contact
+    <cloud@vscentrum.be>.
 
 
 
@@ -454,7 +473,7 @@ associated with the VM. The instance can be later restarted.
 Shelving stops the instance and takes a snapshot of it. Then
 depending on the value of the *shelved_offload_time* config option,
 the instance is either deleted from the hypervisor (0), never
-deleted (-1), or deleted after some period of time (\> 0). Shelve
+deleted (-1), or deleted after some period of time (> 0). Shelve
 preserves all associated data and VM resources but does not retain
 anything in memory.
 
@@ -465,7 +484,7 @@ OpenStack together with any associated processes and resources.
 However, for instances backed by a persistent volume, this volume is not deleted.
 When such an instance is deleted, you can restore it by launching a
 new instance from the volume, or delete the volume as well (see
-section [delete a volume](./ch_ManageVolumes.md#delete-a-volume)).
+section [delete a volume](manage_volumes.md#create-and-manage-volumes)).
 
 For more details see the OpenStack documentation on [*Virtual Machine
 States and
