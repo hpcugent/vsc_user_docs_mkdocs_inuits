@@ -936,8 +936,8 @@ resources and their mutual dependencies can be specified in a text file,
 called a
 <abbr title="A Heat Orchestration Template (*HOT*) is a text file which describes the infrastructure for a cloud application. Because *HOT* files are text files in a yaml-based format, they are readable and writable by humans, and can be managed using a version control system. *HOT* is one of the template formats supported by Heat, along with the older CloudFormation-compatible *CFN* format.">Heat Orchestration Template</abbr>. The syntax of these
 templates conforms to the <em><abbr title="A human-readable text-based data serialization format.">yaml</abbr></em> standard, for which many text editors
-provide specialized editing modes. The '<a href="https://docs.openstack.org/heat/\osversion/template_guide">Template
-Guide</a>' in
+provide specialized editing modes. The <a href="https://docs.openstack.org/heat/\osversion/template_guide">Template
+Guide</a> in
 the <abbr title="Heat is the OpenStack orchestration service, which can manage multiple composite cloud applications using templates, through both an OpenStack-native REST API and a CloudFormation-compatible Query API.">Heat</abbr> documentation contains a specification of the <em>HOT</em> format, as well as information on how to describe the various types of
 resources in a template.</p>
 <p>VSC provides some example templates at
@@ -1057,9 +1057,8 @@ actions:</p>
 template from that location.</p>
 <p>In our example, we provide a URL from the
 repository https://github.com/hpcugent/openstack-templates,
-to instantiate the example from section
-<a href="#sec:glsh-orch-templ">1.1</a>. If you want to provide a
-template directly from GitHub, make sure to provide a "Raw"
+to instantiate the example from previous <a href="#heat-orchestration-template">section</a>.
+If you want to provide a template directly from GitHub, make sure to provide a "Raw"
 URL, <code>https://raw.githubusercontent.com/</code>....</p>
 </li>
 <li>
@@ -1094,8 +1093,8 @@ input parameters should be provided in an environment.</p>
 <p>deletes all selected stacks from the list .</p>
 <p>Deleting a <abbr title="In the context of *OpenStack*, a stack is a collection of cloud resources which can be managed using the *Heat* orchestration engine.">stack</abbr> also deletes all of the resources (volumes, ports)
 created by that <abbr title="In the context of *OpenStack*, a stack is a collection of cloud resources which can be managed using the *Heat* orchestration engine.">stack</abbr>, unless a different policy was set in the property
-for those resources (see the '<a href="https://docs.openstack.org/heat/\osversion/template_guide/hot_spec.html#resources-section">Resources
-section</a>'
+for those resources (see the <a href="https://docs.openstack.org/heat/\osversion/template_guide/hot_spec.html#resources-section">Resources
+section</a>
 in the HOT specification).</p>
 <h3 id="more-actions">More Actions<a class="headerlink" href="#more-actions" title="Permanent link">#</a></h3>
 <p>The button <strong>More Actions</strong> hides the following additional actions:</p>

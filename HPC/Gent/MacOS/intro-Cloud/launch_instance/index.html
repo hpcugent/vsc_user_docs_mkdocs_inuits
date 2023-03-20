@@ -1223,14 +1223,17 @@
 <p>Instances are virtual machines that run inside the cloud. You can launch
 an <em>instance</em> from the following sources:</p>
 <ul>
-<li>
-<p>Images uploaded to the Image service.</p>
-<p><strong>Note:</strong> Because images are read-only, any changes made while the instance is
+<li>Images uploaded to the Image service.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because images are read-only, any changes made while the instance is
 running will be lost when the instance is deleted, unless you choose
 to create a persistent volume for your instance when you launch it.
 Using a volume, the VM's state is saved, even when the current
 instance is deleted.</p>
-</li>
+</div>
+<ul>
 <li>
 <p>Images which you previously copied to a persistent volume. The
     instance launches from the volume.</p>
@@ -1257,10 +1260,13 @@ IP addresses, flavor, status, power state, ...</p>
 <h3 id="details-tab">Details tab<a class="headerlink" href="#details-tab" title="Permanent link">#</a></h3>
 <h4 id="instance-name">Instance Name<a class="headerlink" href="#instance-name" title="Permanent link">#</a></h4>
 <p>Assign a name to the virtual machine.</p>
-<p><strong>Note:</strong> The name you assign here becomes the initial host name of
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The name you assign here becomes the initial host name of
 the server. If the name is longer than 63 characters, the
 Compute service truncates it automatically to ensure dnsmasq
 works correctly.</p>
+</div>
 <p>After the server is built, if you change the server name in
 the API or change the host name directly, the names are not
 updated in the dashboard.</p>
@@ -1305,14 +1311,17 @@ volume. This way, the state of your instance persists after
 shutdown and reboot.</p>
 <h3 id="flavor-tab">Flavor tab<a class="headerlink" href="#flavor-tab" title="Permanent link">#</a></h3>
 <p>Specify the size of the instance to launch.</p>
-<p><strong>Note:</strong> The flavor is selected based on the size of the image selected
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The flavor is selected based on the size of the image selected
 for launching an instance. For example, while creating an image,
 if you have entered the value in the Minimum RAM (MB) field as
 2048, then on selecting the image, the default flavor is <strong>CPUv1.small</strong>
-(see section <a href="./ch_Flavors.md#sec:instance-types">instance type</a> for
-more information). If a <strong>!</strong> warning sign is displayed next to a resource
+(see section <a href="../flavors/#instance-types-and-flavors">instance type</a> for
+more information). If a :exclamation: warning sign is displayed next to a resource
 for one of the flavors, that means that this flavor would exceed the project's
 quota for that resource, and therefore is not available.</p>
+</div>
 <h3 id="networks-tab">Networks tab<a class="headerlink" href="#networks-tab" title="Permanent link">#</a></h3>
 <p>Add one or more networks to the instance.</p>
 <h3 id="network-ports-tab">Network Ports tab<a class="headerlink" href="#network-ports-tab" title="Permanent link">#</a></h3>
@@ -1322,7 +1331,7 @@ quota for that resource, and therefore is not available.</p>
 instance.</p>
 <p>Security groups are a kind of cloud firewall that define which
 incoming network traffic is forwarded to instances. See section
-<a href="./ch_ConfigureInstances.md#cha:conf-access-secur">configure access</a>
+<a href="../configure_instances/#security-groups">configure access</a>
 for more information.
 The default security group is assigned to the instance
 automatically.</p>
@@ -1351,9 +1360,12 @@ control over which hypervisor your instances are scheduled on.</p>
 <li>Click <strong>Launch Instance</strong></li>
 </ul>
 <p>The instance starts on a <abbr title="The computational units on which batch or interactive jobs are processed. A compute node is pretty much comparable to a single personal computer. It contains one or more sockets, each holding a single CPU. Some nodes also contain one or more GPGPUs. The compute node is equipped with memory (RAM) that is accessible by all its CPUs.">compute node</abbr> in the cloud.</p>
-<p><strong>Note:</strong> If you did not provide a key pair, security groups, or rules, users can
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you did not provide a key pair, security groups, or rules, users can
 access the instance only from inside the cloud through VNC. Even pinging
 the instance is not possible without an ICMP rule configured.</p>
+</div>
 <p>You can also launch an instance from the Images or Volumes category when
 you launch an instance from an image or a volume respectively.</p>
 <p>When you launch an instance from an image, <abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr> creates a local
@@ -1364,16 +1376,21 @@ in the <em><abbr title="OpenStack (https://www.openstack.org) is a free and open
 <h2 id="connect-to-an-instance-using-ssh">Connect to an instance using <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr><a class="headerlink" href="#connect-to-an-instance-using-ssh" title="Permanent link">#</a></h2>
 <p>Before you can connect to an instance using <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr>, you must set up a
 floating IP for it, as discussed in
-section <a href="./ch_ConfigureInstances.md#sec:floating-ip">floating-ip</a>. Recall
+section <a href="../configure_instances/#floating-ip">floating-ip</a>. Recall
 that only ports 50000 to 60000 of the floating IP's can be directly reached from
 outside the UGent network.</p>
-<p><strong>Note:</strong> When you try to connect to a new instance using a port that was
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you try to connect to a new instance using a port that was
 previously forwarded to a different instance --- either due to a change
 in the port forwarding configuration, or because an old instance was
 deleted and replaced --- your <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr> client will show an error message
 because the "host key" of the new instance doesn't match the known
 previous key. Section explains how to handle such errors.</p>
-<p><strong>Note:</strong> If you want to access ports outside the public range, you'll need to
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to access ports outside the public range, you'll need to
 connect to the UGent <abbr title="On HPC clusters, login nodes serve multiple functions. From a login node you can submit and monitor batch jobs, analyse computational results, run editors, plots, debuggers, compilers, do housekeeping chores as adjust shell settings, copy files and in general manage your account. You connect to these servers when want to start working on the HPC Infrastructure.">login node</abbr> <em>login.hpc.ugent.be</em> first, and hop to
 your instance from there. To make this work without storing the required
 private key for the instance in your VSC storage space, you need to set
@@ -1381,12 +1398,13 @@ up an <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, i
 you store the private key of an authorized keypair for the instance.
 Section 2.1.4 of the <abbr title="High Performance Computing, high performance computing and multiple-task computing on a supercomputer.">HPC</abbr> introduction explains how to set this up
 (<a href="https://hpcugent.github.io/vsc_user_docs">hpcugent.github.io/vsc_user_docs</a>).</p>
+</div>
 <ul>
 <li>(<em>Only if using a port blocked by the UGent firewall, see the note
     above:</em>) Use your VSC account to connect to the UGent <abbr title="On HPC clusters, login nodes serve multiple functions. From a login node you can submit and monitor batch jobs, analyse computational results, run editors, plots, debuggers, compilers, do housekeeping chores as adjust shell settings, copy files and in general manage your account. You connect to these servers when want to start working on the HPC Infrastructure.">login node</abbr>,
     using the <code>ssh -A</code> option to enable agent forwarding:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="gp">    $ </span>ssh -A vsc12345@login.hpc.ugent.be
+<div class="highlight"><pre><span></span><code>ssh -A vsc12345@login.hpc.ugent.be
 </code></pre></div>
 <ul>
 <li>
@@ -1399,16 +1417,18 @@ Section 2.1.4 of the <abbr title="High Performance Computing, high performance c
     50022:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="gp">    $ </span>ssh -A -p <span class="m">50022</span> ubuntu@193.190.85.40
+<div class="highlight"><pre><span></span><code>ssh -A -p <span class="m">50022</span> ubuntu@193.190.85.40
 </code></pre></div>
 <p>When you run the above command, your <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr> client may display warnings
-or error messages. The section Host Keys <a href="#sec:host-keys">Host Keys</a>
+or error messages. The section Host Keys <a href="#host-keys">Host Keys</a>
 explains the meaning of these messages and how you should deal with them.</p>
-<p><strong>Note:</strong> The images we provide do not allow <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr> logins for the root user.
+<p>!! Info</p>
+<pre><code>The images we provide do not allow SSH logins for the root user.
 There is a default user instead, who can get administrative
-privileges using <code>sudo</code>. In our example, we have used the username
-<code>ubuntu</code> for Ubuntu images. Attempting to log in as root will return
-an error message with the proper user name.</p>
+privileges using `sudo`. In our example, we have used the username
+`ubuntu` for Ubuntu images. Attempting to log in as root will return
+an error message with the proper user name.
+</code></pre>
 <h3 id="host-keys">Host keys<a class="headerlink" href="#host-keys" title="Permanent link">#</a></h3>
 <p>When connecting to instances using <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr>, you will sometimes see warnings
 or errors related to "host keys". This section briefly explains the
@@ -1507,10 +1527,13 @@ previous section, namely</p>
 <p><em>SHA256:nyujUIF37c674FPSkDdz0xgAU6S39UWbmMzBPmdmCmg</em></p>
 </li>
 <li>
-<p>If the fingerprints are identical, type "yes" to log in. <strong>If the fingerprints
-do not match, type "no", and contact <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;">&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;</a></strong>.</p>
+<p>If the fingerprints are identical, type "yes" to log in.</p>
 </li>
 </ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the fingerprints do not match, type <strong>no</strong>, and contact <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;">&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;</a>.</p>
+</div>
 <h4 id="new-instance-at-a-known-address">New instance at a known address<a class="headerlink" href="#new-instance-at-a-known-address" title="Permanent link">#</a></h4>
 <p>Another case where the host key verification fails, is when you try to
 access a new instance at an IP address and port previously used by
@@ -1542,13 +1565,16 @@ should take the following steps:</p>
 <li>Verify that the fingerprint you find in the Dashboard matches the fingerprint shown in the warning message.</li>
 <li>If the fingerprint matches, the new key is legitimate. Remove the previous known key from the known_hosts file as follows (still using address 193.190.85.40 and port number 50322 as an example):</li>
 </ol>
-<p><div class="highlight"><pre><span></span><code><span class="gp">    $ </span>ssh-keygen -R <span class="o">[</span><span class="m">193</span>.190.85.40<span class="o">]</span>:50322
+<p><div class="highlight"><pre><span></span><code>ssh-keygen -R <span class="o">[</span><span class="m">193</span>.190.85.40<span class="o">]</span>:50322
 </code></pre></div>
 This command causes OpenSSH to forget the previous key. On your next attempt to
 connect to that address, OpenSSH will treat it as a new host and ask you to verify the
 fingerprint as described in section Connecting for the first time.</p>
-<p><strong>If the fingerprint does not match, do not attempt to connect, and contact
-<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;">&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;</a>.</strong></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the fingerprint does not match, do not attempt to connect, and contact
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;">&#99;&#108;&#111;&#117;&#100;&#64;&#118;&#115;&#99;&#101;&#110;&#116;&#114;&#117;&#109;&#46;&#98;&#101;</a>.</p>
+</div>
 <h2 id="track-usage-for-instances">Track usage for instances<a class="headerlink" href="#track-usage-for-instances" title="Permanent link">#</a></h2>
 <p>You can track usage for instances for each project. You can track costs
 per month by showing meters like number of vCPUs, disks, RAM, and uptime
@@ -1615,7 +1641,7 @@ associated with the VM. The instance can be later restarted.</p>
 <p>Shelving stops the instance and takes a snapshot of it. Then
 depending on the value of the <em>shelved_offload_time</em> config option,
 the instance is either deleted from the hypervisor (0), never
-deleted (-1), or deleted after some period of time (> 0). Shelve
+deleted (-1), or deleted after some period of time (&gt; 0). Shelve
 preserves all associated data and VM resources but does not retain
 anything in <abbr title="A quantity of physical memory (RAM). Memory is provided by compute nodes. It is required as a constraint or consumed as a consumable resource by jobs. Within Moab, memory is tracked and reported in megabytes (MB).">memory</abbr>.</p>
 <p><strong>Delete</strong></p>
@@ -1624,7 +1650,7 @@ anything in <abbr title="A quantity of physical memory (RAM). Memory is provided
 However, for instances backed by a persistent volume, this volume is not deleted.
 When such an instance is deleted, you can restore it by launching a
 new instance from the volume, or delete the volume as well (see
-section <a href="./ch_ManageVolumes.md#delete-a-volume">delete a volume</a>).</p>
+section <a href="../manage_volumes/#create-and-manage-volumes">delete a volume</a>).</p>
 <p>For more details see the <abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr> documentation on <a href="https://docs.openstack.org/nova/latest/reference/vm-states.html"><em>Virtual Machine
 States and
 Transitions</em></a>

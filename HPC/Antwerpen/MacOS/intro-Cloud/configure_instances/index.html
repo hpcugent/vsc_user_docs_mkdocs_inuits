@@ -933,14 +933,14 @@ sections:</p>
 <li>
 <p>Instances must connect to the project's _vm network in order to get
     external internet access (see section
-    <a href="#sec:_vm-_nfs-networks">1.1</a>).</p>
+    <a href="#the-_vm-_vsc-and-_nfs-networks">_vm, _vsc and _nfs networks</a>).</p>
 </li>
 <li>
 <p>Each cloud project can use one floating IP, a public IP address
     which you'll need to link to the resources you want to access.
     Optionally, if the project has requested access to VSC network it
     will receive also three VSC floating IPs (see section
-    <a href="#sec:floating-ip">1.2</a>).</p>
+    <a href="#floating-ip-addresses">floating IP addresses</a>).</p>
 </li>
 <li>
 <p>By default, the UGent firewall blocks most IP addresses and ports.
@@ -953,12 +953,12 @@ sections:</p>
     block most ports of your instances by default. If you want to access
     specific ports of your instances, you must create "Security Groups"
     which allow access to those ports (see section
-    <a href="#sec:security-groups">1.3</a>).</p>
+    <a href="#security-groups">security groups</a>).</p>
 </li>
 <li>
 <p>You can use one or more <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr> keys from your VSC account to access
     your instances (see section
-    <a href="#sec:ssh-key-pairs">1.4</a>).</p>
+    <a href="#ssh-key-pairs"><abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr> key pairs</a>).</p>
 </li>
 </ul>
 <p>For other access methods, or <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr> authentication for a wider set of
@@ -973,7 +973,7 @@ is a number that depends on the project and network. To see the subnets
 for your project's networks, open the Network tab, and select Networks.</p>
 <p>Instances should use the _vm network for communication, and the _<abbr title="Network File System, a protocol for sharing file systems across a network, often used on Unix(-like) operating systems.">nfs</abbr>
 network if they need access to shared file systems (see chapter
-<a href="./ch_Shares.md#shared-file-systems">shared file systems</a>).
+<a href="../shares/#shared-file-systems-using-manila">shared file systems</a>).
 On the other hand _vsc network
 is used to connect to or provide VSC services via VSC network and
 floating IPs. When an instance is created in
@@ -1015,13 +1015,13 @@ server is listening (typically port 22).</p>
 <code>neutron_port_forward</code>, a command line tool available on the UGent login
 <abbr title="A node attribute is a non-quantitative aspect of a node. Attributes typically describe the node itself or possibly aspects of various node resources such as processors or memory. While it is probably not optimal to aggregate node and resource attributes together in this manner, it is common practice. Common node attributes include processor architecture, operating system, and processor speed. Jobs often specify that resources be allocated from nodes possessing certain node attributes.">node</abbr>, <strong>login.hpc.ugent.be</strong>. In order to use it, you must create an
 application credential for the role "User", and save it as an openrc
-file (see section <a href="./ch_Access.md#sec:appl-cred">application credentials</a>
+file (see section <a href="../access/#application-credentials">application credentials</a>
 on page ). Transfer the openrc file to your
 VSC storage space, so <em>neutron_port_forward</em> can read it. To set up new
 port forwarding rules, run the script providing the path to the openrc
 file as an argument to the <em>-o</em> option, and a file describing your port
 forwarding configuration as argument to the <em>-m</em> option:</p>
-<div class="highlight"><pre><span></span><code>$ neutron_port_forward -o &lt;openrc file&gt; -m &lt;ini-file&gt;
+<div class="highlight"><pre><span></span><code>neutron_port_forward -o &lt;openrc file&gt; -m &lt;ini-file&gt;
 </code></pre></div>
 <p>The following is an example configuration file:</p>
 <div class="highlight"><pre><span></span><code>[DEFAULT]
@@ -1048,7 +1048,6 @@ from the floating IP port:</p>
 <blockquote>
 <p>(source + multiplier ∗ i + offset) → target ,</p>
 </blockquote>
-<p>$$(\mathrm{source} + \mathrm{multiplier} * i + \mathrm{offset}) \rightarrow \mathrm{target}\, ,$$</p>
 <p>where <strong><em>i</em></strong> is the integer matched by the first capturing group, and
 "target" is a port of the fixed IP for the instance in the chosen
 network, in this case the _vm network. "multiplier" and "offset" are
@@ -1079,7 +1078,7 @@ network=_vm
 ip addresses in your configuration file using
 <em>neutron_port_forward --show</em>. Each rule has an internal id, which you
 can see if you combine the options <em>--show</em> and <em>--id</em> as follows:</p>
-<div class="highlight"><pre><span></span><code>$ neutron_port_forward -o &lt;openrc file&gt; -m &lt;ini-file&gt; --show --id
+<div class="highlight"><pre><span></span><code>neutron_port_forward -o &lt;openrc file&gt; -m &lt;ini-file&gt; --show --id
 </code></pre></div>
 <p>To remove port forwarding rules, use the option
 <code>--remove=&lt;list of id's&gt;</code> with a comma-separated list of the id's of the
@@ -1182,8 +1181,7 @@ general instructions on <abbr title="Secure Shell (SSH), sometimes known as Secu
 <p>If you have generated a key pair with an external tool, you can import
 it into <abbr title="OpenStack (https://www.openstack.org) is a free and open-source software platform for cloud computing, mostly deployed as infrastructure-as-a-service (IaaS), whereby virtual servers and other resources are made available to customers">OpenStack</abbr>. The key pair can be used for multiple instances that
 belong to a project. For more information, see section
-<a href="#import-a-key-pair">[import-a-key-pair]</a>{reference-type="ref"
-reference="import-a-key-pair"}.</p>
+<a href="#import-a-key-pair">import a key pair]</a>.</p>
 <p>The public keys from your VSC account are automatically available in
 your VSC Cloud projects, so you can immediately inject one of your
 existing into your instances. Of course, you can also import new keys
@@ -1218,21 +1216,22 @@ project, each user needs to import it in the <abbr title="OpenStack (https://www
 <li>
 <p>To change its permissions so that only you can read and write to the
     file, run the following command:
-<div class="highlight"><pre><span></span><code>      $ chmod <span class="m">0600</span> yourPrivateKey.pem
-</code></pre></div>
-<strong>Note:</strong> If you are using the
-    [<abbr title="OpenStack Dashboard (Horizon) provides administrators and users with a graphical interface to access, provision, and automate deployment of cloud-based resources. The design accommodates third party products and services, such as billing, monitoring, and additional management tools. The dashboard is also brand-able for service providers and other commercial vendors who want to make use of it. The dashboard is one of several ways users can interact with OpenStack resources. Developers can automate access or build tools to manage resources using the native OpenStack API or the EC2 compatibility API.">OpenStack Dashboard</abbr>] from a Windows computer, use PuTTYgen
-    to load the <strong>*.pem</strong> file and convert and save it as <strong>*.ppk</strong>.
-    For more information see the <a href="https://winscp.net/eng/docs/ui_puttygen"><em>WinSCP web page for
-    PuTTYgen</em></a>, and chapter 2
-    of the <a href="https://hpcugent.github.io/vsc_user_docs">introduction to <abbr title="High Performance Computing, high performance computing and multiple-task computing on a supercomputer.">HPC</abbr> at
-    VSC</a>.</p>
-</li>
-<li>
-<p>To make the key pair known to <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr>, run the <strong>ssh-add</strong> command.</p>
+<div class="highlight"><pre><span></span><code>chmod <span class="m">0600</span> yourPrivateKey.pem
+</code></pre></div></p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code>      $ ssh-add yourPrivateKey.pem
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using the <abbr title="OpenStack Dashboard (Horizon) provides administrators and users with a graphical interface to access, provision, and automate deployment of cloud-based resources. The design accommodates third party products and services, such as billing, monitoring, and additional management tools. The dashboard is also brand-able for service providers and other commercial vendors who want to make use of it. The dashboard is one of several ways users can interact with OpenStack resources. Developers can automate access or build tools to manage resources using the native OpenStack API or the EC2 compatibility API.">OpenStack Dashboard</abbr> from a Windows computer, use PuTTYgen
+to load the <strong>*.pem</strong> file and convert and save it as <strong>*.ppk</strong>.
+For more information see the
+<a href="https://winscp.net/eng/docs/ui_puttygen"><em>WinSCP web page for PuTTYgen</em></a>,
+and chapter 2 of the <a href="https://hpcugent.github.io/vsc_user_docs">introduction to <abbr title="High Performance Computing, high performance computing and multiple-task computing on a supercomputer.">HPC</abbr> at VSC</a>.</p>
+</div>
+<ul>
+<li>To make the key pair known to <abbr title="Secure Shell (SSH), sometimes known as Secure Socket Shell, is a Unix-based command interface and protocol for securely getting access to a remote computer. It is widely used by network administrators to control Web and other kinds of servers remotely. SSH is actually a suite of three utilities (slogin, ssh, and scp) that are secure versions of the earlier UNIX utilities, rlogin, rsh, and rcp. SSH commands are encrypted and secure in several ways. Both ends of the client/server connection are authenticated using a digital certificate, and passwords are protected by encryption. Popular implementations include OpenSSH on Linux/Mac and Putty on Windows.">SSH</abbr>, run the <strong>ssh-add</strong> command.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ssh-add yourPrivateKey.pem
 </code></pre></div>
 <h3 id="import-a-key-pair">Import a key pair<a class="headerlink" href="#import-a-key-pair" title="Permanent link">#</a></h3>
 <ol>
@@ -1253,8 +1252,7 @@ project, each user needs to import it in the <abbr title="OpenStack (https://www
 </li>
 </ol>
 <p>The Compute database registers the public key of the key pair.</p>
-<p>The [<abbr title="OpenStack Dashboard (Horizon) provides administrators and users with a graphical interface to access, provision, and automate deployment of cloud-based resources. The design accommodates third party products and services, such as billing, monitoring, and additional management tools. The dashboard is also brand-able for service providers and other commercial vendors who want to make use of it. The dashboard is one of several ways users can interact with OpenStack resources. Developers can automate access or build tools to manage resources using the native OpenStack API or the EC2 compatibility API.">OpenStack Dashboard</abbr>]{acronym-label="<abbr title="OpenStack Dashboard (Horizon) provides administrators and users with a graphical interface to access, provision, and automate deployment of cloud-based resources. The design accommodates third party products and services, such as billing, monitoring, and additional management tools. The dashboard is also brand-able for service providers and other commercial vendors who want to make use of it. The dashboard is one of several ways users can interact with OpenStack resources. Developers can automate access or build tools to manage resources using the native OpenStack API or the EC2 compatibility API.">OpenStack Dashboard</abbr>"
-acronym-form="singular+short"} lists the key pair on the Key Pairs tab.</p>
+<p>The <abbr title="OpenStack Dashboard (Horizon) provides administrators and users with a graphical interface to access, provision, and automate deployment of cloud-based resources. The design accommodates third party products and services, such as billing, monitoring, and additional management tools. The dashboard is also brand-able for service providers and other commercial vendors who want to make use of it. The dashboard is one of several ways users can interact with OpenStack resources. Developers can automate access or build tools to manage resources using the native OpenStack API or the EC2 compatibility API.">OpenStack Dashboard</abbr> lists the key pair on the Key Pairs tab.</p>
 <div class="footnote">
 <hr />
 <ol>
