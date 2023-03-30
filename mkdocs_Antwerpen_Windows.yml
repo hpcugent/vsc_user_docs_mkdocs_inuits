@@ -25,15 +25,6 @@ nav:
       - Appendix A - HPC Quick Reference Guide: intro-HPC/ch_quick_reference_guide.md
       - Appendix B - TORQUE options: intro-HPC/ch_torque_options.md
       - Appendix C - Useful Linux Commands: intro-HPC/ch_useful_linux_commands.md
-  - Linux:
-      - Title: intro-Linux/title.md
-      - Getting Started: intro-Linux/ch_getting_started.md
-      - Navigating: intro-Linux/ch_navigating.md
-      - Manipulating files and directories: intro-Linux/ch_manipulating_files_and_directories.md
-      - Uploading/downloading/editing files: intro-Linux/ch_uploading_files.md
-      - Beyond the basics: intro-Linux/ch_beyond_the_basics.md
-      - Common Pitfalls: intro-Linux/ch_common_pitfalls.md
-      - More on the HPC infrastructure: intro-Linux/ch_hpc_infrastructure.md
 
 
 plugins:
