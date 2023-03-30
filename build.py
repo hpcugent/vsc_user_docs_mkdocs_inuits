@@ -26,10 +26,10 @@ def load_config(landing_page_yml):
         config = safe_load(file)
     with open(landing_page_yml, "r") as file:
         extra = safe_load(file).get("extra")
-        if extra.get("build_dir") != None:
-            build_dir = extra.get("build_dir")
-        else:
-            build_dir = "build/HPC"
+
+    build_dir = extra.get("build_dir")
+    if build_dir is None:
+        build_dir = "build/HPC"
     os.makedirs(build_dir, exist_ok=True)
 
     return build_dir, config
