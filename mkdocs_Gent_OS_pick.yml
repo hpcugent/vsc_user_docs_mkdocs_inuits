@@ -52,4 +52,4 @@ theme:
     - search.highlight
 
 extra:
-  build_dir: build/HPC/Gent
+  build_dir: build/HPC

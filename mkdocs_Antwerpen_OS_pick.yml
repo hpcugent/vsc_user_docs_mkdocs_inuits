@@ -52,4 +52,4 @@ theme:
     - search.highlight
 
 extra:
-  build_dir: build/HPC/Antwerpen
+  build_dir: build/HPC

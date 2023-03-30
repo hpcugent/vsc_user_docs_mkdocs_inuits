@@ -1,19 +1,19 @@
 site_name: VSC Tier-1 Cloud Documentation
-docs_dir: docs
+docs_dir: docs/intro-Cloud
 nav:
-  - intro-Cloud/introduction.md
-  - intro-Cloud/access.md
-  - intro-Cloud/dashboard.md
-  - intro-Cloud/manage_images.md
-  - intro-Cloud/flavors.md
-  - intro-Cloud/configure_instances.md
-  - intro-Cloud/launch_instance.md
-  - intro-Cloud/manage_volumes.md
-  - intro-Cloud/heat_templates.md
-  - intro-Cloud/terraform.md
-  - intro-Cloud/shares.md
-  - intro-Cloud/gpus.md
-  - intro-Cloud/appendix.md
+  - introduction.md
+  - access.md
+  - dashboard.md
+  - manage_images.md
+  - flavors.md
+  - configure_instances.md
+  - launch_instance.md
+  - manage_volumes.md
+  - heat_templates.md
+  - terraform.md
+  - shares.md
+  - gpus.md
+  - appendix.md
 
 plugins:
   - search
@@ -73,3 +73,6 @@ theme:
     - navigation.instant
     - search.suggest
     - search.highlight
+
+extra:
+  build_dir: build
