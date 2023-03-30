@@ -43,10 +43,10 @@ jobs:
 
           # check out gh-pages branch and replace 'HPC' subdirectory
           git checkout gh-pages
-          rm -rf HPC
-          mv build/HPC .
+          rm -rf HPC cloud
+          mv build/HPC build/cloud .
 
           # update gh-pages branch
-          git add HPC
+          git add HPC cloud
           git commit -m "deployed rendered docs (${GITHUB_SHA})"
           git push origin gh-pages
