@@ -69,7 +69,6 @@ theme:
     - toc.follow
     # - content.tabs.link
     - navigation.sections
-    - search.suggest
     - navigation.instant
     - search.suggest
     - search.highlight
