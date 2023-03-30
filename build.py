@@ -22,17 +22,22 @@ class BuildException(Exception):
 def load_config(landing_page_yml):
     config_yml = "build_config.yml"
 
-    with open(landing_page_yml, "r") as file:
-        extra = safe_load(file).get("extra")
-    build_dir = extra.get("build_dir")
-    os.makedirs(build_dir, exist_ok=True)
     with open(config_yml, "r") as file:
         config = safe_load(file)
+    with open(landing_page_yml, "r") as file:
+        extra = safe_load(file).get("extra")
+        if extra.get("build_dir") != None:
+            build_dir = extra.get("build_dir")
+        else:
+            build_dir = "build/HPC"
+    os.makedirs(build_dir, exist_ok=True)
+
     return build_dir, config
 
 
 def run_build(args, subsite):
     for subsite_dir, subsite_yml in subsite.items():
+        build_dir, config = load_config(subsite_yml)
         cmd = f"mkdocs build -f {subsite_yml} -d {os.path.join(build_dir, subsite_dir)}"
         print(f">> {cmd}")
         process = subprocess.run(cmd, shell=True, capture_output=True)
