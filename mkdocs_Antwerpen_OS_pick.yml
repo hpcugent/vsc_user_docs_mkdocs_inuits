@@ -48,7 +48,6 @@ theme:
   language: en
   features:
     - search.suggest
-    - search.suggest
     - search.highlight
 
 extra:

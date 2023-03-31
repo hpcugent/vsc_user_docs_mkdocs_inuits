@@ -43,10 +43,10 @@ jobs:
 
           # check out gh-pages branch and replace 'HPC' subdirectory
           git checkout gh-pages
-          rm -rf HPC cloud
-          mv build/HPC build/cloud .
+          rm -rf HPC cloud linux-tutorial
+          mv build/{HPC,cloud,linux-tutorial} .
 
           # update gh-pages branch
-          git add HPC cloud
+          git add HPC cloud linux-tutorial
           git commit -m "deployed rendered docs (${GITHUB_SHA})"
           git push origin gh-pages

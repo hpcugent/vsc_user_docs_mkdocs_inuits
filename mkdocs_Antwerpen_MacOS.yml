@@ -1,41 +1,30 @@
-site_name: VSC User Documentation - Antwerpen
+site_name: VSC User Documentation - Antwerpen (macOS)
 docs_dir: docs
 
 nav:
-  - Home: index.md
-  - HPC Tutorial - Beginners Part:
-      - Introduction: intro-HPC/ch_introduction.md
-      - Getting an HPC Account: intro-HPC/ch_account.md
-      - Connecting to the HPC infrastructure: intro-HPC/ch_connecting.md
-      - Running batch jobs: intro-HPC/ch_running_batch_jobs.md
-      - Running interactive jobs: intro-HPC/ch_running_interactive_jobs.md
-      - Running jobs with input/output data: intro-HPC/ch_running_jobs_with_input_output_data.md
-      - Multi core jobs/Parallel Computing: intro-HPC/ch_multi_core_jobs.md
-      - Using the HPC-UGent web portal: intro-HPC/ch_web_portal.md
-      - XDMoD portal: intro-HPC/ch_xdmod.md
-      - Troubleshooting: intro-HPC/ch_troubleshooting.md
-      - HPC Policies: intro-HPC/sites/ch_hpc_policies.md
-      - Frequently Asked Questions: intro-HPC/ch_FAQ.md
-  - HPC Tutorial - Advanced Guide:
+  - Introduction: intro-HPC/ch_introduction.md
+  - Getting an HPC Account: intro-HPC/ch_account.md
+  - Connecting to the HPC infrastructure: intro-HPC/ch_connecting.md
+  - Running batch jobs: intro-HPC/ch_running_batch_jobs.md
+  - Running interactive jobs: intro-HPC/ch_running_interactive_jobs.md
+  - Running jobs with input/output data: intro-HPC/ch_running_jobs_with_input_output_data.md
+  - Multi core jobs/Parallel Computing: intro-HPC/ch_multi_core_jobs.md
+  - Using the HPC-UGent web portal: intro-HPC/ch_web_portal.md
+  - XDMoD portal: intro-HPC/ch_xdmod.md
+  - Troubleshooting: intro-HPC/ch_troubleshooting.md
+  - HPC Policies: intro-HPC/sites/ch_hpc_policies.md
+  - Frequently Asked Questions: intro-HPC/ch_FAQ.md
+  - Advanced topics:
       - Fine-tuning Job Specifications: intro-HPC/ch_fine_tuning_job_specifications.md
       - Multi-job submission: intro-HPC/ch_multi_job_submission.md
       - Compiling and testing your software on the HPC: intro-HPC/ch_compiling_your_software.md
       - Program examples: intro-HPC/ch_program_examples.md
       - Job script examples: intro-HPC/ch_jobscript_examples.md
       - Best Practices: intro-HPC/ch_best_practices.md
-  - HPC Tutorial - Appendices:
+  - Appendices:
       - Appendix A - HPC Quick Reference Guide: intro-HPC/ch_quick_reference_guide.md
       - Appendix B - TORQUE options: intro-HPC/ch_torque_options.md
       - Appendix C - Useful Linux Commands: intro-HPC/ch_useful_linux_commands.md
-  - Linux:
-      - Title: intro-Linux/title.md
-      - Getting Started: intro-Linux/ch_getting_started.md
-      - Navigating: intro-Linux/ch_navigating.md
-      - Manipulating files and directories: intro-Linux/ch_manipulating_files_and_directories.md
-      - Uploading/downloading/editing files: intro-Linux/ch_uploading_files.md
-      - Beyond the basics: intro-Linux/ch_beyond_the_basics.md
-      - Common Pitfalls: intro-Linux/ch_common_pitfalls.md
-      - More on the HPC infrastructure: intro-Linux/ch_hpc_infrastructure.md
 
 
 plugins:
@@ -84,7 +73,7 @@ theme:
   name: material
   language: en
   features:
-    - navigation.tabs
+    # - navigation.tabs
     - navigation.top
     - navigation.expand
     # - navigation.indexes
@@ -93,11 +82,10 @@ theme:
     - toc.follow
     # - content.tabs.link
     - navigation.sections
-    - search.suggest
     - navigation.instant
     - search.suggest
     - search.highlight
 
 
 extra:
-  OS: MacOS
+  OS: macOS
