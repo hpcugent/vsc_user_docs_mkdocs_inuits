@@ -44,7 +44,7 @@ jobs:
 
           # check out gh-pages branch and replace 'HPC' subdirectory
           git checkout gh-pages
-          rm -rf HPC cloud linux-tutorial
+          rm -rf HPC cloud linux-tutorial pdf
           mv build/{HPC,cloud,linux-tutorial,pdf} .
 
           # update gh-pages branch
