@@ -3,7 +3,7 @@
 SCOOP (Scalable COncurrent Operations in Python) is a distributed task
 module allowing concurrent parallel programming on various environments,
 from heterogeneous grids to supercomputers. It is an alternative to the
-worker framework, see [Multi-job submission](../ch_multi_job_submission/#multi-job-submission).
+worker framework, see [Multi-job submission](../multi_job_submission/#multi-job-submission).
 
 It can used for projects that require lots of (small) tasks to be
 executed.
@@ -15,7 +15,7 @@ multi-node setup.
 
 Before using `myscoop`, you first need to load the `vsc-mympirun-scoop`
 module. We don't specify a version here (this is an exception, for most
-other modules you should, see [Using explicit version numbers](../ch_running_batch_jobs/#using-explicit-version-numbers)) because newer versions might include
+other modules you should, see [Using explicit version numbers](../running_batch_jobs/#using-explicit-version-numbers)) because newer versions might include
 important bug fixes or performance improvements.
 
 <pre><code>$ <b>module load vsc-mympirun-scoop</b>
@@ -92,7 +92,7 @@ in parallel in a multi-node job (i.e., 2 nodes with 8 cores each):
 
 Note that you don't need to specify how many workers need to be used;
 the `myscoop` command figures this out by itself. This is because
-`myscoop` is a wrapper around `mympirun` (see [Mympirun](../ch_mympirun/#mympirun)). In this example, 16
+`myscoop` is a wrapper around `mympirun` (see [Mympirun](../mympirun/#mympirun)). In this example, 16
 workers (one per available core) will be execute the 10000 tasks one by
 one until all squares are computed.
 

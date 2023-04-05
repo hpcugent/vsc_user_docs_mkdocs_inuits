@@ -98,7 +98,7 @@ qsub: waiting for job {{jobid}} to start
 ### Compiling a sequential program in C
 
 Go to the examples for chapter 
-[Compiling and testing your software on the HPC](ch_compiling_your_software.md#compiling-and-building-on-the-hpc) and load the 
+[Compiling and testing your software on the HPC](compiling_your_software.md#compiling-and-building-on-the-hpc) and load the 
 foss module:
 <pre><code>$ <b>cd ~/{{exampledir}}</b>
 $ <b>module load foss</b>

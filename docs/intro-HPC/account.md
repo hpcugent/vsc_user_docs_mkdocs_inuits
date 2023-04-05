@@ -22,7 +22,7 @@ an
 {%- endif %}
 account on the {{ hpc }}, which is part of the Flemish Supercomputing Centre (VSC).
 
-See [HPC policies](../sites/ch_hpc_policies) for more information on who is entitled to an account.
+See [HPC policies](../sites/hpc_policies) for more information on who is entitled to an account.
 
 The VSC, abbreviation of Flemish Supercomputer Centre, is a virtual
 supercomputer centre. It is a partnership between the five Flemish
@@ -85,10 +85,10 @@ section.
 The PuTTY package consists of several components, but we'll only use
 two:
 
-1. **PuTTY**: *the Telnet and SSH client itself* (to login, see [Open a terminal](../ch_connecting/#open-a-terminal))
+1. **PuTTY**: *the Telnet and SSH client itself* (to login, see [Open a terminal](../connecting/#open-a-terminal))
 
 2.  **PuTTYgen**: *an RSA and DSA key generation utility* (to generate a key pair,
-    see [Generate a public/private key pair](../ch_account/#generating-a-publicprivate-key-pair))
+    see [Generate a public/private key pair](../account/#generating-a-publicprivate-key-pair))
 
 ### Generating a public/private key pair
 
@@ -287,13 +287,13 @@ from the Windows panel.
 ![image](../img/ch2-pageant-icon.png){ style="display: block; margin: 0 auto" }
 
 At this point the agent does not contain any private key. You should
-include the private key(s) generated in the previous section [Generating a public/private key pair](../ch_account/#generating-a-publicprivate-key-pair).
+include the private key(s) generated in the previous section [Generating a public/private key pair](../account/#generating-a-publicprivate-key-pair).
 
 1.  Click on ++"Add key"++
 
     ![image](../img/ch2-pageant-add-key.png){ style="display: block; margin: 0 auto" }
 
-2.  Select the private key file generated in [Generating a public/private key pair](../ch_account/#generating-a-publicprivate-key-pair) (**"id_rsa.ppk"** by default).
+2.  Select the private key file generated in [Generating a public/private key pair](../account/#generating-a-publicprivate-key-pair) (**"id_rsa.ppk"** by default).
 
 3.  Enter the same SSH key password used to generate the key. After this
     step the new key will be included in Pageant to manage the SSH
@@ -322,7 +322,7 @@ Most recent Unix derivatives include by default an SSH agent
 {%- if OS == linux %} ("gnome-keyring-daemon" in most cases) {% endif %} 
 to keep and manage the user SSH keys. If you use one of these derivatives you **must** include the new keys into
 the SSH manager keyring to be able to connect to the HPC cluster. If
-not, SSH client will display an error message (see [Connecting](../ch_connecting)) similar to this:
+not, SSH client will display an error message (see [Connecting](../connecting)) similar to this:
 
 <pre><code>Agent admitted failure to sign using the key. 
 Permission denied (publickey,gssapi-keyex,gssapi-with-mic).

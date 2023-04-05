@@ -118,7 +118,7 @@ too much workers). By default, MATLAB uses a fixed number of workers
 (12).
 
 You should use a number of workers that is equal to the number of cores
-you requested when submitting your job script (the `ppn` value, see [Generic resource requirements](../ch_running_batch_jobs/#generic-resource-requirements)).
+you requested when submitting your job script (the `ppn` value, see [Generic resource requirements](../running_batch_jobs/#generic-resource-requirements)).
 You can determine the right number of workers to use via the following
 code snippet in your MATLAB program:
 

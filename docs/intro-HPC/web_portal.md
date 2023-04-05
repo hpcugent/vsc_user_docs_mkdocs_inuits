@@ -10,7 +10,7 @@ via a standard web browser like Firefox, Chrome or Safari. You do not
 need to install or configure any client software, and no SSH key is
 required to connect to your VSC account via this web portal.\
 Please note that we do recommend to use our interactive and debug
-cluster (see chapter [HPC-UGent interactive and debug cluster](./ch_interactive_gent.md)) with `OoD`.
+cluster (see chapter [HPC-UGent interactive and debug cluster](./interactive_gent.md)) with `OoD`.
 
 To connect to the HPC-UGent infrastructure via the web portal, visit:
 
@@ -57,7 +57,7 @@ the pilot phase to evaluate whether more resources are required.
 
 When visiting the HPC-UGent web portal you will be automatically logged
 in via the VSC accountpage (see also 
-Section [Applying for the account](../ch_account/#applying-for-the-account)).
+Section [Applying for the account](../account/#applying-for-the-account)).
 
 ### First login
 
@@ -248,7 +248,7 @@ account, straight from your browser!
 
 Using this interface requires being familiar with a Linux shell
 environment (see
-Appendix [Useful Linux Commands](../ch_useful_linux_commands)).
+Appendix [Useful Linux Commands](../useful_linux_commands)).
 
 To exit the shell session, type `exit` followed by *Enter* and then
 close the browser tab.

@@ -14,7 +14,7 @@ training session are available at
 
 Before using HOD, you first need to load the `hod` module. We don't
 specify a version here (this is an exception, for most other modules you
-should, see [Using explicit version numbers](../ch_running_batch_jobs/#using-explicit-version-numbers)) because newer versions might include important bug fixes.
+should, see [Using explicit version numbers](../running_batch_jobs/#using-explicit-version-numbers)) because newer versions might include important bug fixes.
 
 <pre><code>$ <b>module load hod</b>
 </code></pre>
@@ -23,7 +23,7 @@ should, see [Using explicit version numbers](../ch_running_batch_jobs/#using-exp
 
 The `hod` modules are constructed such that they can be used on the {{hpcinfra}}
 login nodes, regardless of which `cluster` module is loaded (this is not
-the case for software installed via modules in general, see [Running software that is incompatible with host](../ch_troubleshooting/#running-software-that-is-incompatible-with-host)).
+the case for software installed via modules in general, see [Running software that is incompatible with host](../troubleshooting/#running-software-that-is-incompatible-with-host)).
 
 As such, you should experience no problems if you swap to a different
 cluster module before loading the `hod` module and subsequently running

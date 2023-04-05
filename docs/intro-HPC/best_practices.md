@@ -46,7 +46,7 @@
 
 8.  Submit your job and wait (be patient) ...
 
-9.  Submit small jobs by grouping them together. See chapter [Multi-job submission](ch_multi_job_submission.md) for 
+9.  Submit small jobs by grouping them together. See chapter [Multi-job submission](multi_job_submission.md) for 
     how this is done.
 
 10. The runtime is limited by the maximum walltime of the queues. For

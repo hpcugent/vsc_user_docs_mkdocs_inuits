@@ -6,4 +6,4 @@ hide:
 
 {% import 'os_pick.md' as ospick %}
 
-{{ ospick.ospick("Linux", "Windows", "MacOS")}}
+{{ ospick.ospick("Linux", "Windows", "macOS")}}

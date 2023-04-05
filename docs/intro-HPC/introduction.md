@@ -397,9 +397,9 @@ required knowledge is explained in this tutorial.
 
 A typical workflow looks like:
 
-1.  Connect to the login nodes with SSH (see [First Time connection to the HPC infrastructure](../ch_connecting/#first-time-connection-to-the-hpc-infrastructure))
+1.  Connect to the login nodes with SSH (see [First Time connection to the HPC infrastructure](../connecting/#first-time-connection-to-the-hpc-infrastructure))
 
-2.  Transfer your files to the cluster (see [Transfer Files to/from the HPC](../ch_connecting/#transfer-files-tofrom-the-hpc))
+2.  Transfer your files to the cluster (see [Transfer Files to/from the HPC](../connecting/#transfer-files-tofrom-the-hpc))
 
 3.  Optional: compile your code and test it (for compiling, see [Compiling and testing your software on the HPC]())
 
@@ -419,8 +419,8 @@ A typical workflow looks like:
 ### What is the next step? 
 
 When you think that the {{ hpc }} is a useful tool to support your computational
-needs, we encourage you to acquire a VSC-account (as explained in [Getting a HPC Account](../ch_account)),
-read [Connecting to the HPC infrastructure](../ch_connecting), "Setting up the environment", and explore
+needs, we encourage you to acquire a VSC-account (as explained in [Getting a HPC Account](../account)),
+read [Connecting to the HPC infrastructure](../connecting), "Setting up the environment", and explore
 chapters [Running interactive jobs]() to [Fine-tuning Job Specifications]() which will help you to transfer and run your programs on the {{ hpc }} cluster.
 
 Do not hesitate to contact the {{ hpc }} staff for any help.

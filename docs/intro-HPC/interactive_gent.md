@@ -22,10 +22,10 @@ performance must not be an issue for the submitted jobs. This means that
 typical workloads for this cluster should be limited to:
 
 -   Interactive jobs (see
-    chapter [Running interactive jobs](../ch_running_interactive_jobs/#running-interactive-jobs))
+    chapter [Running interactive jobs](../running_interactive_jobs/#running-interactive-jobs))
 
 -   Cluster desktop sessions (see
-    chapter [Using the HPC-UGent web portal](../ch_web_portal/#using-the-hpc-ugent-web-portal))
+    chapter [Using the HPC-UGent web portal](../web_portal/#using-the-hpc-ugent-web-portal))
 
 -   Jobs requiring few resources
 
@@ -42,7 +42,7 @@ To submit jobs to the HPC-UGent interactive and debug cluster nicknamed
 </code></pre>
 
 Then use the familiar `qsub`, `qstat`, etc. commands (see
-chapter [Running batch jobs](../ch_running_batch_jobs/#running-batch-jobs)).
+chapter [Running batch jobs](../running_batch_jobs/#running-batch-jobs)).
 
 ### Restrictions and overcommit factor 
 

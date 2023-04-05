@@ -3,7 +3,7 @@
 ## When will my job start?
 
 {% if site == gent%}
-See the explanation about how jobs get prioritized in [When will my job start](../ch_running_batch_jobs/#when-will-my-job-start). 
+See the explanation about how jobs get prioritized in [When will my job start](../running_batch_jobs/#when-will-my-job-start). 
 
 {% else %}
 
@@ -37,7 +37,7 @@ See <https://pintra.uantwerpen.be/bbcswebdav/xid-23610_1>
 {% endif %}
 {% if site == gent %}
 If you want to share data, there are alternatives (like a shared directories in VO
-space, see [Virtual organisations](../ch_running_jobs_with_input_output_data/#virtual-organisations)).
+space, see [Virtual organisations](../running_jobs_with_input_output_data/#virtual-organisations)).
 {% endif %}
 
 ## Can I share my data with other {{hpc}} users?
@@ -54,14 +54,14 @@ $ <b>ls -l dataset.txt</b>
 
 For more information about `chmod` or `setfacl`, see [the section on
 chmod in chapter 3 of the Linux intro
-manual](../../intro-Linux/ch_manipulating_files_and_directories/#changing-permissions-chmod).
+manual](../../intro-Linux/manipulating_files_and_directories/#changing-permissions-chmod).
 <!-- % \section{I no longer work for \university, can I transfer my data to another researcher working at \university}
 % See https://github.com/hpcugent/vsc_user_docs/issues/230 -->
 
 ## Can I use multiple different SSH key pairs to connect to my VSC account?
 
 Yes, and this is recommended when working from different computers.
-Please see [Adding multiple SSH public keys](../ch_account/#adding-multiple-ssh-public-keys-optional) on how to do this.
+Please see [Adding multiple SSH public keys](../account/#adding-multiple-ssh-public-keys-optional) on how to do this.
 
 ## I want to use software that is not available on the clusters yet 
 
