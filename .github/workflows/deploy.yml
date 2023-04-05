@@ -33,6 +33,7 @@ jobs:
         run: |
           python3 build.py
           find build -type f
+          cp -a pdf/ build/
 
       # equivalent with 'mkdocs gh-deploy'
       - name: deploy docs
@@ -44,9 +45,9 @@ jobs:
           # check out gh-pages branch and replace 'HPC' subdirectory
           git checkout gh-pages
           rm -rf HPC cloud linux-tutorial
-          mv build/{HPC,cloud,linux-tutorial} .
+          mv build/{HPC,cloud,linux-tutorial,pdf} .
 
           # update gh-pages branch
-          git add HPC cloud linux-tutorial
+          git add HPC cloud linux-tutorial pdf
           git commit -m "deployed rendered docs (${GITHUB_SHA})"
           git push origin gh-pages
