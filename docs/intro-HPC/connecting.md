@@ -64,7 +64,7 @@ connect, with an error message like:
 ## First Time connection to the HPC infrastructure
 
 If you have any issues connecting to the {{ hpc }} after you've followed these
-steps, see [Issues connecting to login node](../ch_troubleshooting/#issues-connecting-to-login-node) to troubleshoot.
+steps, see [Issues connecting to login node](../troubleshooting/#issues-connecting-to-login-node) to troubleshoot.
 
 {%- if site == antwerpen %}
 When connecting from outside Belgium, you need a VPN client to connect
@@ -154,7 +154,7 @@ to the {{ hpc }} cluster via the login node "***{{ loginnode }}***".
 
 8.  If this is your first time connecting, you will be asked to verify
     the authenticity of the login node. Please see
-    section [Warning message when first connecting to new host](../ch_troubleshooting/#warning-message-when-first-connecting-to-new-host)
+    section [Warning message when first connecting to new host](../troubleshooting/#warning-message-when-first-connecting-to-new-host)
     on how to do this.
 
 9.  After entering your correct passphrase, you will be connected to the
@@ -190,7 +190,7 @@ node "{{ loginnode }}", so replace {{ userid }} with your own VSC id in the abov
 
 The first time you make a connection to the login node, you will be
 asked to verify the authenticity of the login node. Please check
-[Warning message when first connecting to new host](../ch_troubleshooting/#warning-message-when)-first-connecting-to-new-host) on how to do this.
+[Warning message when first connecting to new host](../troubleshooting/#warning-message-when)-first-connecting-to-new-host) on how to do this.
 
 A possible error message you can get if you previously saved your
 private key somewhere else than the default location
@@ -266,7 +266,7 @@ This directory contains:
     typed commands.
 
 !!! tip
-    For more exhaustive tutorials about Linux usage, see Appendix [Useful Linux Commands](../ch_useful_linux_commands)
+    For more exhaustive tutorials about Linux usage, see Appendix [Useful Linux Commands](../useful_linux_commands)
 
 
 The first action is to copy the contents of the {{ hpc }} examples directory to

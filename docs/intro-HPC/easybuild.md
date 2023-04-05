@@ -14,7 +14,7 @@ systems in an efficient way.
 
 ## When should I use Easybuild?
 
-For general software installation requests, please see [I want to use software that is not available on the clusters yet](../ch_FAQ/#i-want-to-use-software-that-is-not-available-on-the-clusters-yet). However, there
+For general software installation requests, please see [I want to use software that is not available on the clusters yet](../FAQ/#i-want-to-use-software-that-is-not-available-on-the-clusters-yet). However, there
 might be reasons to install the software yourself:
 
 -   applying custom patches to the software that only you or your group
@@ -72,7 +72,7 @@ that is specific to the cluster you are building for.
 
 Make sure you **do not build software on the login nodes**, since the loaded `cluster` module determines the
 location of the installed software. Software built on the login nodes
-may not work on the cluster you want to use the software on (see also [Running software that is incompatible with host](../ch_troubleshooting/#running-software-that-is-incompatible-with-host)).
+may not work on the cluster you want to use the software on (see also [Running software that is incompatible with host](../troubleshooting/#running-software-that-is-incompatible-with-host)).
 
 To share custom software installations with members of your VO, replace
 `$VSC_DATA` with `$VSC_DATA_VO` in the example above.
@@ -81,7 +81,7 @@ To share custom software installations with members of your VO, replace
 
 Before using EasyBuild, you first need to load the `EasyBuild` module.
 We don't specify a version here (this is an exception, for most other
-modules you should, see [Using explicit version numbers](../ch_running_batch_jobs/#using-explicit-version-numbers)) because newer versions might include important
+modules you should, see [Using explicit version numbers](../running_batch_jobs/#using-explicit-version-numbers)) because newer versions might include important
 bug fixes.
 
 <pre><code>module load EasyBuild
@@ -145,4 +145,4 @@ commands in your `.bashrc` login script. That way you don't have to type
 these commands every time you want to use EasyBuild or you want to load
 modules generated with EasyBuild. See also [the section on `.bashrc` in
 the "Beyond the basics" chapter of the intro to
-Linux](../../intro-Linux/ch_beyond_the_basics/#bashrc-login-script).
+Linux](../../intro-Linux/beyond_the_basics/#bashrc-login-script).

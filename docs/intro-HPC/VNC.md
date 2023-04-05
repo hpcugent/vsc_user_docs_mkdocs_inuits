@@ -2,7 +2,7 @@
 
 {% if site == gent %}
 **VNC is still available at UGent site but we encourage our users to replace VNC by X2Go client**.
-Please see [Graphical applications with X2Go](../ch_x2go/#graphical-applications-with-x2go) for more information.
+Please see [Graphical applications with X2Go](../x2go/#graphical-applications-with-x2go) for more information.
 {% endif %}
 
 Virtual Network Computing is a graphical desktop sharing system that
@@ -13,7 +13,7 @@ infrastructure from your own computer.
 
 ## Starting a VNC server
 
-First login on the login node (see [First time connection to the HPC infrastructure](../ch_connecting/#first-time-connection-to-the-hpc-infrastructure), then start `vncserver` with:
+First login on the login node (see [First time connection to the HPC infrastructure](../connecting/#first-time-connection-to-the-hpc-infrastructure), then start `vncserver` with:
 
 <pre><code>$ <b>vncserver -geometry 1920x1080 -localhost</b>
 You will require a password to access your desktops.
@@ -148,7 +148,7 @@ Use the settings specified in the sections above:
 
 {% if OS == windows %}
 See for detailed information on how to configure PuTTY to set up the SSH
-tunnel, by entering the settings in the and fields in [SSH tunnel](../ch_running_interactive_jobs/#ssh-tunnel).
+tunnel, by entering the settings in the and fields in [SSH tunnel](../running_interactive_jobs/#ssh-tunnel).
 
 {% else %}
 Execute the following command to set up the SSH tunnel.

@@ -255,7 +255,7 @@ rather than
 Everything works fine, up to the point where a new version of `example`
 is installed, 4.5.6. From then on, the user's `load` command will load
 the latter version, rather than the intended one, which may lead to
-unexpected problems. See for example [the following section on Module Conflicts](../ch_troubleshooting/#module-conflicts).
+unexpected problems. See for example [the following section on Module Conflicts](../troubleshooting/#module-conflicts).
 
 Consider the following `example` modules:
 
@@ -701,7 +701,7 @@ since most currently running jobs will finish before their requested
 walltime expires, and new jobs by may be submitted by other users that
 are assigned a higher priority than your job(s).
 
-The {{ hpcinfra }} clusters use a fair-share scheduling policy (see [HPC Policies](../sites/ch_hpc_policies)). There is no
+The {{ hpcinfra }} clusters use a fair-share scheduling policy (see [HPC Policies](../sites/hpc_policies)). There is no
 guarantee on when a job will start, since it depends on a number of
 factors. One of these factors is the priority of the job, which is
 determined by
@@ -754,7 +754,7 @@ will start on {{ othercluster }} instead of the default {{ defaultcluster }} clu
 Note: the {{ othercluster }} modules may not work directly on the login nodes, because the
 login nodes do not have the same architecture as the {{ othercluster }} cluster, they have
 the same architecture as the {{ defaultcluster }} cluster however, so this is why by default
-software works on the login nodes. See [the section on Running software that is incompatible with host](../intro-HPC/ch_troubleshooting/#running-software-that-is-incompatible-with-host) for why this is and how to fix
+software works on the login nodes. See [the section on Running software that is incompatible with host](../intro-HPC/troubleshooting/#running-software-that-is-incompatible-with-host) for why this is and how to fix
 this.
 
 To list the available cluster modules, you can use the
@@ -1034,7 +1034,7 @@ The maximum walltime for HPC-UGent clusters is **72 hours**.
 If you want to run some final steps (for example to copy files back)
 before the walltime kills your main process, you have to kill the main
 command yourself before the walltime runs out and then copy the file
-back. See [the section on Running a command with a maximum time limit](../ch_jobscript_examples/#running-a-command-with-a-maximum-time-limit) for how to do this.
+back. See [the section on Running a command with a maximum time limit](../jobscript_examples/#running-a-command-with-a-maximum-time-limit) for how to do this.
 
 <pre><code><b>$ qsub -l mem=4gb</b>
 </code></pre>

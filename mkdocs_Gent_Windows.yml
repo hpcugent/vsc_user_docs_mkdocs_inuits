@@ -2,41 +2,41 @@ site_name: VSC User Documentation - Gent (Windows)
 docs_dir: docs/intro-HPC
 
 nav:
-  - Introduction to HPC: ch_introduction.md
-  - Getting an HPC Account: ch_account.md
-  - Connecting to the HPC infrastructure: ch_connecting.md
-  - Running batch jobs: ch_running_batch_jobs.md
-  - Running interactive jobs: ch_running_interactive_jobs.md
-  - Running jobs with input/output data: ch_running_jobs_with_input_output_data.md
-  - Multi core jobs/Parallel Computing: ch_multi_core_jobs.md
-  - Using the HPC-UGent web portal: ch_web_portal.md
-  - XDMoD portal: ch_xdmod.md
-  - Troubleshooting: ch_troubleshooting.md
-  - HPC Policies: sites/ch_hpc_policies.md
-  - Frequently Asked Questions: ch_FAQ.md
+  - Introduction to HPC: introduction.md
+  - Getting an HPC Account: account.md
+  - Connecting to the HPC infrastructure: connecting.md
+  - Running batch jobs: running_batch_jobs.md
+  - Running interactive jobs: running_interactive_jobs.md
+  - Running jobs with input/output data: running_jobs_with_input_output_data.md
+  - Multi core jobs/Parallel Computing: multi_core_jobs.md
+  - Using the HPC-UGent web portal: web_portal.md
+  - XDMoD portal: xdmod.md
+  - Troubleshooting: troubleshooting.md
+  - HPC Policies: sites/hpc_policies.md
+  - Frequently Asked Questions: FAQ.md
   - Advanced topics:
-      - Fine-tuning Job Specifications: ch_fine_tuning_job_specifications.md
-      - Multi-job submission: ch_multi_job_submission.md
-      - Compiling and testing your software on the HPC: ch_compiling_your_software.md
-      - Program examples: ch_program_examples.md
-      - Job script examples: ch_jobscript_examples.md
-      - Best Practices: ch_best_practices.md
-      - Graphical applications with VNC: ch_VNC.md
-      - Graphical applications with X2Go: ch_x2go.md
-      - HPC-UGent GPU clusters: ch_gpu_gent.md
-      - HPC-UGent interactive and debug cluster: ch_interactive_gent.md
-      - Cron scripts: ch_crontab_gent.md
+      - Fine-tuning Job Specifications: fine_tuning_job_specifications.md
+      - Multi-job submission: multi_job_submission.md
+      - Compiling and testing your software on the HPC: compiling_your_software.md
+      - Program examples: program_examples.md
+      - Job script examples: jobscript_examples.md
+      - Best Practices: best_practices.md
+      - Graphical applications with VNC: VNC.md
+      - Graphical applications with X2Go: x2go.md
+      - HPC-UGent GPU clusters: gpu_gent.md
+      - HPC-UGent interactive and debug cluster: interactive_gent.md
+      - Cron scripts: crontab_gent.md
   - Software-specific Best Practices:
-      - Apptainer/Singularity: ch_apptainer.md
-      - EasyBuild: ch_easybuild.md
-      - MATLAB: ch_MATLAB.md
-      - mympirun: ch_mympirun.md
-      - OpenFOAM: ch_openFOAM.md
-      - SCOOP: ch_scoop.md
+      - Apptainer/Singularity: apptainer.md
+      - EasyBuild: easybuild.md
+      - MATLAB: MATLAB.md
+      - mympirun: mympirun.md
+      - OpenFOAM: openFOAM.md
+      - SCOOP: scoop.md
   - Appendices:
-      - Appendix A - HPC Quick Reference Guide: ch_quick_reference_guide.md
-      - Appendix B - TORQUE options: ch_torque_options.md
-      - Appendix C - Useful Linux Commands: ch_useful_linux_commands.md
+      - Appendix A - HPC Quick Reference Guide: quick_reference_guide.md
+      - Appendix B - TORQUE options: torque_options.md
+      - Appendix C - Useful Linux Commands: useful_linux_commands.md
 
 
 plugins:

@@ -11,7 +11,7 @@ If you get from your job output an error message similar to this:
 
 This occurs when your job did not complete within the requested
 walltime. See
-section on [Specifying Walltime](../ch_fine_tuning_job_specifications/#specifying-walltime) for more information
+section on [Specifying Walltime](../fine_tuning_job_specifications/#specifying-walltime) for more information
 about how to request the walltime. It is recommended to use
 *checkpointing* if the job requires **72 hours** of walltime or more to be executed.
 <!-- FIXME: Refer to Checkpointing section. -->
@@ -26,7 +26,7 @@ to be able to write to the disk and then resubmit the jobs.
 {% if site == gent %}
 Another
 option is to request extra quota for your VO to the VO moderator/s. See
-section on [Pre-defined user directories](../ch_running_jobs_with_input_output_data/#pre-defined-user-directories) and [Pre-defined quotas](../ch_running_jobs_with_input_output_data/#pre-defined-quotas) for more information about quotas
+section on [Pre-defined user directories](../running_jobs_with_input_output_data/#pre-defined-user-directories) and [Pre-defined quotas](../running_jobs_with_input_output_data/#pre-defined-quotas) for more information about quotas
 and how to use the storage endpoints in an efficient way.
 {% endif %}
 <!-- FIXME: Add how to request quota section -->
@@ -34,7 +34,7 @@ and how to use the storage endpoints in an efficient way.
 ## Issues connecting to login node { #sec:connecting-issues}
 
 If you are confused about the SSH public/private key pair concept, maybe
-the key/lock analogy in [How do SSH keys work?](../ch_account/#how-do-ssh-keys-work) can help.
+the key/lock analogy in [How do SSH keys work?](../account/#how-do-ssh-keys-work) can help.
 
 If you have errors that look like:
 
@@ -50,14 +50,14 @@ things to do that should help:
 
 2.  Make sure you are connecting from an IP address that is allowed to
     access the VSC login nodes, see
-    section [Connection restrictions](../ch_connecting/#connection-restrictions)
+    section [Connection restrictions](../connecting/#connection-restrictions)
     for more information.
 {% if OS == (linux or macos) %}
 3.  Your SSH private key may not be in the default location
     (`$HOME/.ssh/id_rsa`). There are several ways to deal with this
     (using one of these is sufficient):
-    1. Use the `ssh -i` (see section [Connect](../ch_connecting/#connect)) *OR;*
-    2. Use `ssh-add` (see section [Using an SSH agent](../ch_account/#using-an-ssh-agent-optional)) *OR;*
+    1. Use the `ssh -i` (see section [Connect](../connecting/#connect)) *OR;*
+    2. Use `ssh-add` (see section [Using an SSH agent](../account/#using-an-ssh-agent-optional)) *OR;*
     3. Specify the location of the key in `$HOME/.ssh/config`. You will
                 need to replace the VSC login id in the `User` field with your own:
                 <pre><code>                Host {{ hpcname }}
@@ -75,7 +75,7 @@ things to do that should help:
 
 5.  You previously connected to the {{ hpc }} from another machine, but now have
     another machine? Please follow the procedure for adding additional
-    keys in section [Adding multiple SSH public keys](../ch_account/#adding-multiple-ssh-public-keys-optional). You may need to wait for
+    keys in section [Adding multiple SSH public keys](../account/#adding-multiple-ssh-public-keys-optional). You may need to wait for
     15-20 minutes until the SSH public key(s) you added become active.
 
 1.  {% if OS == windows %}
@@ -90,7 +90,7 @@ things to do that should help:
     private key (and not the path of the public key) to `ssh`.
     `id_rsa.pub` is the usual filename of the public key, `id_rsa` is
     the usual filename of the private key. (See also
-    section [Connect](../ch_connecting/#connect))
+    section [Connect](../connecting/#connect))
 {% endif %}
 
 1.  If you have multiple private keys on your machine, please make sure
@@ -110,7 +110,7 @@ it is possible that the PuTTY version you are using is too old and
 doesn't support some required (security-related) features.
 
 Make sure you are using the latest PuTTY version if you are encountering
-problems connecting (see [Get PuTTY](../ch_account/#get-putty-a-free-telnetssh-client)). If that doesn't help, please contact {{ hpcinfo }}.
+problems connecting (see [Get PuTTY](../account/#get-putty-a-free-telnetssh-client)). If that doesn't help, please contact {{ hpcinfo }}.
 {% endif %}
 
 If you've tried all applicable items above and it doesn't solve your
@@ -173,7 +173,7 @@ and include it in the email.
 
 ### Check whether your private key in PuTTY matches the public key on the accountpage
 
-Follow the instructions in [Change PuTTY private key for a saved configuration](../ch_troubleshooting/#change-putty-private-key-for-a-saved-configuration) util item 5, then:
+Follow the instructions in [Change PuTTY private key for a saved configuration](../troubleshooting/#change-putty-private-key-for-a-saved-configuration) util item 5, then:
 
 1.  Single click on the textbox containig the path to your private key,
     then select all text (push ++"Ctrl"++ + ++"a"++ ), then copy the location of the
@@ -305,7 +305,7 @@ qsub: script is written in DOS/Windows text format
 
 It's probably because you transferred the files from a Windows computer.
 Please go to the section about `dos2unix` in [chapter 5 of the intro to
-Linux](../../intro-Linux/ch_uploading_files/#dos2unix) to fix this error.
+Linux](../../intro-Linux/uploading_files/#dos2unix) to fix this error.
 
 ## Warning message when first connecting to new host
 
@@ -371,7 +371,7 @@ you via the `ulimit -v` command *in your job script*.
 
 ### How do I specify the amount of memory I need?
 
-See [Generic resource requirements](./ch_running_batch_jobs/#generic-resource-requirements) to set memory and other requirements, see [Specifying memory requirements](./ch_fine_tuning_job_specifications/#specifying-memory-requirements) to finetune the amount of
+See [Generic resource requirements](./running_batch_jobs/#generic-resource-requirements) to set memory and other requirements, see [Specifying memory requirements](./fine_tuning_job_specifications/#specifying-memory-requirements) to finetune the amount of
 memory you request.
 <!-- % See issue #248 to fix Java. This is software specific.
 % See issue #196 to fix MATLAB. This is software specific. -->
@@ -414,13 +414,13 @@ If you don't understand the warning or error, contact the helpdesk at hpc@ugent.
 </code></pre>
 
 This is because there can only be one `cluster` module active at a time.
-The correct command is `module swap cluster/{{othercluster}}`. See also [Specifying the cluster on which to run](./ch_running_batch_jobs/#specifying-the-cluster-on-which-to-run).
+The correct command is `module swap cluster/{{othercluster}}`. See also [Specifying the cluster on which to run](./running_batch_jobs/#specifying-the-cluster-on-which-to-run).
 {% endif %}
 
 {% if site == gent %}
 ## Running software that is incompatible with host
 
-When running software provided through modules (see [Modules](./ch_running_batch_jobs/#modules)), you may run into
+When running software provided through modules (see [Modules](./running_batch_jobs/#modules)), you may run into
 errors like:
 
 <pre><code>$ <b>module swap cluster/kirlia</b>
@@ -452,7 +452,7 @@ nodes have a different CPU architecture, software loaded using modules
 might not work.
 
 If you want to test software on the login nodes, make sure the
-`cluster/{{defaultcluster}}` module is loaded (with `module swap cluster/{{defaultcluster}}`, see [Specifying the cluster on which to run](./ch_running_batch_jobs/#specifying-the-cluster-on-which-to-run)), since
+`cluster/{{defaultcluster}}` module is loaded (with `module swap cluster/{{defaultcluster}}`, see [Specifying the cluster on which to run](./running_batch_jobs/#specifying-the-cluster-on-which-to-run)), since
 the login nodes and have the same CPU architecture.
 
 If modules are already loaded, and then we swap to a different cluster,
@@ -475,5 +475,5 @@ The following have been reloaded with a version change:
 
 This might result in the same problems as mentioned above. When swapping
 to a different cluster, you can run `module purge` to unload all modules
-to avoid problems (see [Purging all modules](./ch_running_batch_jobs/#purging-all-modules)).
+to avoid problems (see [Purging all modules](./running_batch_jobs/#purging-all-modules)).
 {% endif %}

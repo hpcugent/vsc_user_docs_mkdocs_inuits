@@ -127,7 +127,7 @@ use 8 CPUs, so the 100 calculations will be done in 1500/8 = 187.5
 minutes, i.e., 4 hours to be on the safe side.
 
 The job can now be submitted as follows (to check which `worker` module
-to use, see subsection [Using explicit version numbers](ch_running_batch_jobs.md#using-explicit-version-numbers)):
+to use, see subsection [Using explicit version numbers](running_batch_jobs.md#using-explicit-version-numbers)):
 <pre><code>$ <b>module load worker/1.6.8-intel-2018a</b>
 $ <b>wsub -batch weather.pbs -data data.csv</b>
 total number of work items: 41

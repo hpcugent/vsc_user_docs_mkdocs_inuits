@@ -9,7 +9,7 @@ duplication.
 
 In order to create a new cron script first login to HPC-UGent login node
 as usual with your vsc user's account (see section
-[Connecting](../ch_connecting/#connecting-to-the-hpc-infrastructure)).
+[Connecting](../connecting/#connecting-to-the-hpc-infrastructure)).
 
 Check if any cron script is already set in the current login node with:
 

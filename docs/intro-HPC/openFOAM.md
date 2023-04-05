@@ -23,7 +23,7 @@ available, each with its own versioning scheme:
 
 Make sure you know which flavor of OpenFOAM you want to use, since there
 are important differences between the different versions w.r.t.
-features. If the OpenFOAM version you need is not available yet, see [I want to use software that is not available on the clusters yet](../ch_FAQ/#i-want-to-use-software-that-is-not-available-on-the-clusters-yet).
+features. If the OpenFOAM version you need is not available yet, see [I want to use software that is not available on the clusters yet](../FAQ/#i-want-to-use-software-that-is-not-available-on-the-clusters-yet).
 
 ## Documentation & training material
 
@@ -208,9 +208,9 @@ parallel.
 
 It is highly recommended to use the `mympirun` command when running
 parallel OpenFOAM simulations rather than the standard `mpirun` command;
-see [Mympiprun](../ch_mympirun/#mympirun) for more information on `mympirun`.
+see [Mympiprun](../mympirun/#mympirun) for more information on `mympirun`.
 
-See [Basic usage](../ch_mympirun/#basic-usage) for how to get started with `mympirun`.
+See [Basic usage](../mympirun/#basic-usage) for how to get started with `mympirun`.
 
 To pass down the environment variables required to run OpenFOAM (which
 were defined by the `$FOAM_BASH` script, see [Preparing the environment](./#preparing-the-environment)) to each of the MPI
@@ -223,7 +223,7 @@ follows, prior to running the OpenFOAM simulation with `mympirun`:
 
 Whenever you are instructed to use a command like `mpirun -np <N> ...`,
 use `mympirun ...` instead; `mympirun` will automatically detect the
-number of processor cores that are available (see also [Controlling number of processes](../ch_mympirun/#controlling-number-of-processes)).
+number of processor cores that are available (see also [Controlling number of processes](../mympirun/#controlling-number-of-processes)).
 
 ### Domain decomposition and number of processor cores
 
@@ -253,7 +253,7 @@ match the number of subdomains and the number of processor cores used by
     cores as there are subdomains (see the number of `processor*`
     directories that were created by `decomposePar`)
 
-See [Controlling number of processes](../ch_mympirun/#controlling-number-of-processes) to control the number of process `mympirun` will start.
+See [Controlling number of processes](../mympirun/#controlling-number-of-processes) to control the number of process `mympirun` will start.
 
 This is interesting if you require more memory per core than is
 available by default. Note that the decomposition method being used
@@ -307,7 +307,7 @@ for these type of workloads.
 {% if site == gent %}
 For large parallel OpenFOAM simulations on the {{university}} Tier-2 clusters, consider
 using the alternative shared scratch filesystem `$VSC_SCRATCH_ARCANINE`
-(see [Pre-defined user directories](../ch_running_jobs_with_input_output_data/#pre-defined-user-directories)).
+(see [Pre-defined user directories](../running_jobs_with_input_output_data/#pre-defined-user-directories)).
 {% endif %}
 
 These guidelines are especially important for large-scale OpenFOAM
